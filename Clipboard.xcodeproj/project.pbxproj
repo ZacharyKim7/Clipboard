@@ -8,18 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		C7D79F9F2C80256800D419EE /* ClipboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79F9E2C80256800D419EE /* ClipboardApp.swift */; };
-		C7D79FA12C80256800D419EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79FA02C80256800D419EE /* ContentView.swift */; };
+		C7D79FA12C80256800D419EE /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79FA02C80256800D419EE /* MenuBarView.swift */; };
 		C7D79FA32C80256900D419EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D79FA22C80256900D419EE /* Assets.xcassets */; };
 		C7D79FA62C80256900D419EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D79FA52C80256900D419EE /* Preview Assets.xcassets */; };
+		C7D79FB42C83B44300D419EE /* FirstTimeUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79FB32C83B44300D419EE /* FirstTimeUserView.swift */; };
+		C7D79FB62C83BA9A00D419EE /* ClipboardHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79FB52C83BA9A00D419EE /* ClipboardHistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C7D79F9B2C80256800D419EE /* Clipboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D79F9E2C80256800D419EE /* ClipboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardApp.swift; sourceTree = "<group>"; };
-		C7D79FA02C80256800D419EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C7D79FA02C80256800D419EE /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		C7D79FA22C80256900D419EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7D79FA52C80256900D419EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C7D79FA72C80256900D419EE /* Clipboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clipboard.entitlements; sourceTree = "<group>"; };
+		C7D79FB32C83B44300D419EE /* FirstTimeUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTimeUserView.swift; sourceTree = "<group>"; };
+		C7D79FB52C83BA9A00D419EE /* ClipboardHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +56,13 @@
 		C7D79F9D2C80256800D419EE /* Clipboard */ = {
 			isa = PBXGroup;
 			children = (
+				C7D79FB32C83B44300D419EE /* FirstTimeUserView.swift */,
 				C7D79F9E2C80256800D419EE /* ClipboardApp.swift */,
-				C7D79FA02C80256800D419EE /* ContentView.swift */,
+				C7D79FA02C80256800D419EE /* MenuBarView.swift */,
 				C7D79FA22C80256900D419EE /* Assets.xcassets */,
 				C7D79FA72C80256900D419EE /* Clipboard.entitlements */,
 				C7D79FA42C80256900D419EE /* Preview Content */,
+				C7D79FB52C83BA9A00D419EE /* ClipboardHistoryView.swift */,
 			);
 			path = Clipboard;
 			sourceTree = "<group>";
@@ -139,7 +145,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7D79FA12C80256800D419EE /* ContentView.swift in Sources */,
+				C7D79FA12C80256800D419EE /* MenuBarView.swift in Sources */,
+				C7D79FB42C83B44300D419EE /* FirstTimeUserView.swift in Sources */,
+				C7D79FB62C83BA9A00D419EE /* ClipboardHistoryView.swift in Sources */,
 				C7D79F9F2C80256800D419EE /* ClipboardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,7 +282,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_LSUIElement = NO;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,7 +310,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_LSUIElement = NO;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
