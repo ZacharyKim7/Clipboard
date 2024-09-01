@@ -16,7 +16,7 @@ struct ClipboardApp: App {
 
     var body: some Scene {
         WindowGroup {
-            FirstTimeUserView()
+            FirstTimeUserView().environmentObject(appDelegate)
         }
         MenuBarExtra {
             MenuBarView().environmentObject(appDelegate)
@@ -31,12 +31,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     private let popupMenuController = PopupMenuController()
 
-    func togglePopup() {
-            if isPopupVisible {
-                popupMenuController.hidePopup()
-            } else {
-                popupMenuController.showPopup()
-            }
-            isPopupVisible.toggle()
-        }
+    
+    func showPopup() {
+        popupMenuController.showPopup()
+    }
+    
+    func hidePopup() {
+        popupMenuController.hidePopup()
+    }
 }

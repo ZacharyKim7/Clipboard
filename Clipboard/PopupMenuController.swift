@@ -4,15 +4,19 @@ import SwiftUI
 class PopupMenuController {
     private var hostingView: NSHostingController<PopupMenuView>?
     private var window: NSWindow?
+    private var clickEventMonitor: Any?
     
     func showPopup() {
+        if window != nil {
+            return
+        }
         guard let screen = NSScreen.main else { return }
 
         // Get the full screen frame including the Dock
         let screenFrame = screen.frame
 
         // Create the SwiftUI view
-        let popupView = PopupMenuView() // Pass full screen height
+        let popupView = PopupMenuView()
         let hostingController = NSHostingController(rootView: popupView)
         
         // Create an NSWindow to host the view
@@ -26,7 +30,7 @@ class PopupMenuController {
         window.backgroundColor = NSColor.clear
         window.level = .floating
         window.isReleasedWhenClosed = false
-
+        
         // Create a blurred background effect view
         let visualEffectView = NSVisualEffectView(frame: window.contentView!.bounds)
         visualEffectView.autoresizingMask = [.width, .height]
@@ -65,11 +69,14 @@ class PopupMenuController {
         } completionHandler: {
             self.window = window
             self.hostingView = hostingController
+            
+            // Monitor mouse clicks outside the popup window
+            self.startMonitoringOutsideClicks()
         }
         
         window.makeKeyAndOrderFront(nil)
     }
-    
+
     func hidePopup() {
         guard let window = self.window else { return }
         
@@ -89,14 +96,29 @@ class PopupMenuController {
             window.orderOut(nil)
             self.window = nil
             self.hostingView = nil
+            
+            // Stop monitoring outside clicks
+            self.stopMonitoringOutsideClicks()
+        }
+    }
+
+    
+    private func startMonitoringOutsideClicks() {
+        clickEventMonitor = NSEvent.addGlobalMonitorForEvents(matching: .leftMouseDown) { [weak self] event in
+            guard let self = self else { return }
+            if let window = self.window {
+                let clickLocation = window.convertFromScreen(NSRect(origin: event.locationInWindow, size: .zero)).origin
+                if !window.contentView!.frame.contains(clickLocation) {
+                    self.hidePopup()
+                }
+            }
         }
     }
     
-    func togglePopup() {
-        if window == nil {
-            showPopup()
-        } else {
-            hidePopup()
+    private func stopMonitoringOutsideClicks() {
+        if let clickEventMonitor = clickEventMonitor {
+            NSEvent.removeMonitor(clickEventMonitor)
+            self.clickEventMonitor = nil
         }
     }
 }

@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct MenuBarView: View {
+    @EnvironmentObject var appDelegate: AppDelegate
+
     var body: some View {
             VStack {
                 Button(action: showCopies) {
@@ -27,7 +29,7 @@ struct MenuBarView: View {
     }
 
     private func showCopies() {
-        // Action for "Show Copies" button
+        appDelegate.showPopup()
     }
 
     private func openSettings() {

@@ -43,7 +43,7 @@ struct FirstTimeUserView: View {
 
             // Get Started Button
             Button(action: {
-                appDelegate.togglePopup()
+                appDelegate.showPopup()
             }) {
                 Text("Get Started")
                     .font(.headline)
