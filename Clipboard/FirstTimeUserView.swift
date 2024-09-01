@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct FirstTimeUserView: View {
+    @EnvironmentObject var appDelegate: AppDelegate
+    
     var body: some View {
         VStack(spacing: 20) {
             // App Logo or Cool Symbol
@@ -41,7 +43,7 @@ struct FirstTimeUserView: View {
 
             // Get Started Button
             Button(action: {
-                // Action to proceed or dismiss the view
+                appDelegate.togglePopup()
             }) {
                 Text("Get Started")
                     .font(.headline)

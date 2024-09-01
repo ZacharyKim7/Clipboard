@@ -12,7 +12,8 @@
 		C7D79FA32C80256900D419EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D79FA22C80256900D419EE /* Assets.xcassets */; };
 		C7D79FA62C80256900D419EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D79FA52C80256900D419EE /* Preview Assets.xcassets */; };
 		C7D79FB42C83B44300D419EE /* FirstTimeUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79FB32C83B44300D419EE /* FirstTimeUserView.swift */; };
-		C7D79FB62C83BA9A00D419EE /* ClipboardHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79FB52C83BA9A00D419EE /* ClipboardHistoryView.swift */; };
+		C7D79FB62C83BA9A00D419EE /* PopupMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79FB52C83BA9A00D419EE /* PopupMenuView.swift */; };
+		C7D79FBA2C83C45800D419EE /* PopupMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79FB92C83C45800D419EE /* PopupMenuController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +24,8 @@
 		C7D79FA52C80256900D419EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C7D79FA72C80256900D419EE /* Clipboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clipboard.entitlements; sourceTree = "<group>"; };
 		C7D79FB32C83B44300D419EE /* FirstTimeUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTimeUserView.swift; sourceTree = "<group>"; };
-		C7D79FB52C83BA9A00D419EE /* ClipboardHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryView.swift; sourceTree = "<group>"; };
+		C7D79FB52C83BA9A00D419EE /* PopupMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMenuView.swift; sourceTree = "<group>"; };
+		C7D79FB92C83C45800D419EE /* PopupMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMenuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +58,14 @@
 		C7D79F9D2C80256800D419EE /* Clipboard */ = {
 			isa = PBXGroup;
 			children = (
+				C7D79FB52C83BA9A00D419EE /* PopupMenuView.swift */,
+				C7D79FB92C83C45800D419EE /* PopupMenuController.swift */,
 				C7D79FB32C83B44300D419EE /* FirstTimeUserView.swift */,
 				C7D79F9E2C80256800D419EE /* ClipboardApp.swift */,
 				C7D79FA02C80256800D419EE /* MenuBarView.swift */,
 				C7D79FA22C80256900D419EE /* Assets.xcassets */,
 				C7D79FA72C80256900D419EE /* Clipboard.entitlements */,
 				C7D79FA42C80256900D419EE /* Preview Content */,
-				C7D79FB52C83BA9A00D419EE /* ClipboardHistoryView.swift */,
 			);
 			path = Clipboard;
 			sourceTree = "<group>";
@@ -145,9 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7D79FBA2C83C45800D419EE /* PopupMenuController.swift in Sources */,
 				C7D79FA12C80256800D419EE /* MenuBarView.swift in Sources */,
 				C7D79FB42C83B44300D419EE /* FirstTimeUserView.swift in Sources */,
-				C7D79FB62C83BA9A00D419EE /* ClipboardHistoryView.swift in Sources */,
+				C7D79FB62C83BA9A00D419EE /* PopupMenuView.swift in Sources */,
 				C7D79F9F2C80256800D419EE /* ClipboardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
