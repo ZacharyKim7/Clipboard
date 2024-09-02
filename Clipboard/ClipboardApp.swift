@@ -18,6 +18,12 @@ struct ClipboardApp: App {
     }
 }
 
+enum ViewType
+{
+    case setting(SettingView)
+    case test(TestView)
+}
+
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @Published var clipboardManager = ClipboardManager()
     private var popupMenuController: PopupMenuController?
@@ -39,13 +45,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     
     func openSettings() {
-        windowManager?.openNewWindow()
+        windowManager?.openNewWindow(with: .setting(SettingView()))
+    }
+    func openTestView() {
+        windowManager?.openNewWindow(with: .test(TestView()))
     }
 }
 
 class WindowManager: ObservableObject {
-
-    func openNewWindow() {
+    
+    func openNewWindow(with viewType: ViewType) {
         let newWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
             styleMask: [.titled, .closable, .resizable],
@@ -53,7 +62,8 @@ class WindowManager: ObservableObject {
         )
         
         newWindow.title = "Settings"
-        newWindow.contentView = NSHostingView(rootView: SettingView())
+        // Dynamically opens window
+        setWindowContentView(with: newWindow, with: viewType)
         newWindow.center()
         // Make the new window key and bring it to the front
         newWindow.makeKeyAndOrderFront(nil)
@@ -61,5 +71,14 @@ class WindowManager: ObservableObject {
 
         // Optionally set the window as a top-level window for better management
         NSApp.activate(ignoringOtherApps: true)
+    }
+    
+    func setWindowContentView(with currWindow: NSWindow, with viewType: ViewType) {
+        switch viewType {
+        case .setting(let view):
+            currWindow.contentView = NSHostingView(rootView: view)
+        case .test(let view):
+            currWindow.contentView = NSHostingView(rootView: view)
+        }
     }
 }

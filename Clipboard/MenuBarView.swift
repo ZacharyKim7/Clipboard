@@ -19,6 +19,13 @@ struct MenuBarView: View {
                     }
                 }
                 Divider()
+                Button(action: openTestView) {
+                    HStack {
+                        Image(systemName: "lock")
+                        Text("Test")
+                    }
+                }
+                Divider()
                 Button(action: quitApp) {
                     HStack {
                         Image(systemName: "xmark.circle")
@@ -34,6 +41,10 @@ struct MenuBarView: View {
 
     private func openSettings() {
         appDelegate.openSettings()
+    }
+    
+    private func openTestView() {
+        appDelegate.openTestView()
     }
 
     private func quitApp() {
