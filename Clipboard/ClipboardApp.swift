@@ -44,18 +44,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
 }
 
 class WindowManager: ObservableObject {
-    private var settingsWindow: NSWindow?
-    
+
     func openNewWindow() {
-        // Ensure this runs on the main thread
-        // Create and configure the window
-        if let existingWindow = self.settingsWindow {
-            // Bring the existing window to the front
-            existingWindow.makeKeyAndOrderFront(nil)
-            NSApp.activate(ignoringOtherApps: true)
-            return
-        }
-        
         let newWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
             styleMask: [.titled, .closable, .resizable],
@@ -64,13 +54,11 @@ class WindowManager: ObservableObject {
         
         newWindow.title = "Settings"
         newWindow.contentView = NSHostingView(rootView: SettingView())
-        
+        newWindow.center()
         // Make the new window key and bring it to the front
         newWindow.makeKeyAndOrderFront(nil)
         newWindow.isReleasedWhenClosed = false
-        // Store the reference to the window
-        self.settingsWindow = newWindow
-        
+
         // Optionally set the window as a top-level window for better management
         NSApp.activate(ignoringOtherApps: true)
     }
