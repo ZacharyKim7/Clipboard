@@ -1,12 +1,4 @@
-//
-//  ClipboardApp.swift
-//  Clipboard
-//
-//  Created by Garrett Moody on 8/28/24.
-//
-
 import SwiftUI
-
 
 @main
 struct ClipboardApp: App {
@@ -26,16 +18,50 @@ struct ClipboardApp: App {
     }
 }
 
-class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
+class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject, NSWindowDelegate {
     private var isPopupVisible = false
-    
     private let popupMenuController = PopupMenuController()
-
     
+    private var settingsWindow: NSWindow?
+
+    func showSettings() {
+        print("showSettings called")
+        
+        if settingsWindow == nil {
+            print("Creating new settings window")
+            
+            let settingsView = SettingView()
+                .environmentObject(self) // Pass self as the environment object
+
+            let window = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 500, height: 400),
+                styleMask: [.titled, .closable, .resizable],
+                backing: .buffered, defer: false
+            )
+            window.center()
+            window.title = "Settings"
+            window.contentView = NSHostingView(rootView: settingsView)
+            window.makeKeyAndOrderFront(nil)
+            window.delegate = self
+
+            settingsWindow = window
+        } else {
+            print("Bringing existing settings window to the front")
+            settingsWindow?.makeKeyAndOrderFront(nil)
+        }
+    }
+
+    func windowWillClose(_ notification: Notification) {
+        if let closedWindow = notification.object as? NSWindow, closedWindow == settingsWindow {
+            settingsWindow = nil
+            print("Settings window has been closed and settingsWindow is set to nil.")
+        }
+    }
+
     func showPopup() {
         popupMenuController.showPopup()
     }
-    
+
     func hidePopup() {
         popupMenuController.hidePopup()
     }
