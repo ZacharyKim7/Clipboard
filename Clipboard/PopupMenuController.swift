@@ -5,6 +5,11 @@ class PopupMenuController {
     private var hostingView: NSHostingController<PopupMenuView>?
     private var window: NSWindow?
     private var clickEventMonitor: Any?
+    private let clipboardManager: ClipboardManager
+
+    init(clipboardManager: ClipboardManager) {
+        self.clipboardManager = clipboardManager
+    }
     
     func showPopup() {
         if window != nil {
@@ -16,7 +21,7 @@ class PopupMenuController {
         let screenFrame = screen.frame
 
         // Create the SwiftUI view
-        let popupView = PopupMenuView()
+        let popupView = PopupMenuView(clipboardManager: clipboardManager)
         let hostingController = NSHostingController(rootView: popupView)
         
         // Create an NSWindow to host the view
