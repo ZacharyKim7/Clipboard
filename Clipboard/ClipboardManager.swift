@@ -30,7 +30,7 @@ class ClipboardManager: ObservableObject {
 
     private func checkClipboard() {
         let pasteboard = NSPasteboard.general
-        if let copiedString = pasteboard.string(forType: .string), !clipboardHistory.contains(copiedString) {
+        if let copiedString = pasteboard.string(forType: .string), clipboardHistory.last != copiedString {
             clipboardHistory.append(copiedString)
             saveClipboardHistory()
         }
