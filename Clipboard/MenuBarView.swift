@@ -33,7 +33,7 @@ struct MenuBarView: View {
     }
 
     private func openSettings() {
-        // Action for "Settings" button
+        appDelegate.openSettings()
     }
 
     private func quitApp() {

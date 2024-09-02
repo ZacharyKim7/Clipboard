@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C7B948972C857D3C009BE618 /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B948962C857D3C009BE618 /* ClipboardManager.swift */; };
+		C7B9489B2C86678F009BE618 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9489A2C86678F009BE618 /* SettingView.swift */; };
 		C7D79F9F2C80256800D419EE /* ClipboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79F9E2C80256800D419EE /* ClipboardApp.swift */; };
 		C7D79FA12C80256800D419EE /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79FA02C80256800D419EE /* MenuBarView.swift */; };
 		C7D79FA32C80256900D419EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D79FA22C80256900D419EE /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		C7B948962C857D3C009BE618 /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
+		C7B9489A2C86678F009BE618 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingView.swift; path = ../../../Downloads/SettingView.swift; sourceTree = "<group>"; };
 		C7D79F9B2C80256800D419EE /* Clipboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D79F9E2C80256800D419EE /* ClipboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardApp.swift; sourceTree = "<group>"; };
 		C7D79FA02C80256800D419EE /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		C7D79F9D2C80256800D419EE /* Clipboard */ = {
 			isa = PBXGroup;
 			children = (
+				C7B9489A2C86678F009BE618 /* SettingView.swift */,
 				C7D79FB52C83BA9A00D419EE /* PopupMenuView.swift */,
 				C7D79FB92C83C45800D419EE /* PopupMenuController.swift */,
 				C7D79FB32C83B44300D419EE /* FirstTimeUserView.swift */,
@@ -155,6 +158,7 @@
 				C7D79FA12C80256800D419EE /* MenuBarView.swift in Sources */,
 				C7D79FB42C83B44300D419EE /* FirstTimeUserView.swift in Sources */,
 				C7D79FB62C83BA9A00D419EE /* PopupMenuView.swift in Sources */,
+				C7B9489B2C86678F009BE618 /* SettingView.swift in Sources */,
 				C7B948972C857D3C009BE618 /* ClipboardManager.swift in Sources */,
 				C7D79F9F2C80256800D419EE /* ClipboardApp.swift in Sources */,
 			);
