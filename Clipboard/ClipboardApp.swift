@@ -21,13 +21,13 @@ struct ClipboardApp: App {
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @Published var clipboardManager = ClipboardManager()
     private var popupMenuController: PopupMenuController?
-    private var windowManager: WindowManager
+    private var windowManager: WindowManager?
 
     override init() {
-        self.windowManager = WindowManager()
         super.init()
         // Initialize popupMenuController after clipboardManager is set up
         popupMenuController = PopupMenuController(clipboardManager: clipboardManager)
+        windowManager = WindowManager()
     }
 
     func showPopup() {
@@ -39,13 +39,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     
     func openSettings() {
-        windowManager.openNewWindow()
+        windowManager?.openNewWindow()
     }
 }
 
 class WindowManager: ObservableObject {
     private var settingsWindow: NSWindow?
-
+    
     func openNewWindow() {
         // Ensure this runs on the main thread
             // Create and configure the window
@@ -60,7 +60,7 @@ class WindowManager: ObservableObject {
             
             // Make the new window key and bring it to the front
             newWindow.makeKeyAndOrderFront(nil)
-            
+            newWindow.isReleasedWhenClosed = false
             // Store the reference to the window
             self.settingsWindow = newWindow
             
