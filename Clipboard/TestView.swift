@@ -1,14 +1,31 @@
-//
-//  TestView.swift
-//  Clipboard
-//
-//  Created by Matija Benko on 9/2/24.
-//
-
 import SwiftUI
 
 struct TestView: View {
+    @State private var message: String = "Hello, World!"
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 20) {
+            Text(message)
+                .font(.largeTitle)
+                .padding()
+            
+            Button("Change Message") {
+                message = "Shortcut keys are cool!"
+            }
+            .keyboardShortcut("m", modifiers: [.command])
+            
+            Button("Reset Message") {
+                message = "Hello, World!"
+            }
+            .keyboardShortcut("r", modifiers: [.command])
+        }
+        .padding()
+        .frame(width: 450, height: 500)
+    }
+}
+
+struct TestView_Previews: PreviewProvider {
+    static var previews: some View {
+        TestView()
     }
 }

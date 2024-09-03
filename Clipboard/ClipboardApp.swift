@@ -20,8 +20,17 @@ struct ClipboardApp: App {
 
 enum ViewType
 {
-    case setting(SettingView)
-    case test(TestView)
+    case setting(SettingView, title: String = "Settings")
+    case test(TestView, title: String = "Test Title")
+    
+    var title: String {
+        switch self {
+        case .setting(_, let title):
+            return title
+        case .test(_, let title):
+            return title
+        }
+    }
 }
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
@@ -56,12 +65,12 @@ class WindowManager: ObservableObject {
     
     func openNewWindow(with viewType: ViewType) {
         let newWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
+            contentRect: NSRect(x: 0, y: 0, width: 450, height: 450),
             styleMask: [.titled, .closable, .resizable],
             backing: .buffered, defer: false
         )
         
-        newWindow.title = "Settings"
+        newWindow.title = viewType.title
         // Dynamically opens window
         setWindowContentView(with: newWindow, with: viewType)
         newWindow.center()
@@ -74,11 +83,11 @@ class WindowManager: ObservableObject {
     }
     
     func setWindowContentView(with currWindow: NSWindow, with viewType: ViewType) {
-        switch viewType {
-        case .setting(let view):
-            currWindow.contentView = NSHostingView(rootView: view)
-        case .test(let view):
-            currWindow.contentView = NSHostingView(rootView: view)
+            switch viewType {
+            case .setting(let view, _):
+                currWindow.contentView = NSHostingView(rootView: view)
+            case .test(let view, _):
+                currWindow.contentView = NSHostingView(rootView: view)
+            }
         }
-    }
 }
