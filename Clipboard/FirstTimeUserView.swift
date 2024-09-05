@@ -9,7 +9,7 @@ struct FirstTimeUserView: View {
             Image(systemName: "doc.plaintext")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 200, height: 100)
+                .frame(width: 100, height: 100)
                 .foregroundColor(.blue)
                 .padding(.top, 5)
 

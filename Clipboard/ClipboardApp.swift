@@ -1,7 +1,6 @@
 import SwiftUI
 import AppKit
 import MASShortcut
-import Cocoa
 
 @main
 struct ClipboardApp: App {
@@ -9,6 +8,9 @@ struct ClipboardApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
+        WindowGroup {
+            FirstTimeUserView().environmentObject(appDelegate)
+        }
         MenuBarExtra {
             MenuBarView().environmentObject(appDelegate)
         } label: {
@@ -19,17 +21,8 @@ struct ClipboardApp: App {
 
 enum ViewType
 {
-    case setting(SettingView, title: String = "Settings")
-    case test(TestView, title: String = "Test Title")
-    
-    var title: String {
-        switch self {
-        case .setting(_, let title):
-            return title
-        case .test(_, let title):
-            return title
-        }
-    }
+    case setting(SettingView)
+    case test(TestView)
 }
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
@@ -47,7 +40,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         MASShortcutMonitor.shared().register(shortcut, withAction: {
             self.handleShortcut()
         })
-        checkFirstLaunch()
     }
     
     func showPopup() {
@@ -67,31 +59,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     private func handleShortcut() {
         showPopup()
-    
-    private func checkFirstLaunch() {
-        let userDefaults = UserDefaults.standard
-        let hasLaunchedBeforeKey = "hasLaunchedBefore"
-        
-        if userDefaults.bool(forKey: hasLaunchedBeforeKey) == false {
-            let newWindow = NSWindow(
-                contentRect: NSRect(x: 0, y: 0, width: 800, height: 800),
-                styleMask: [.titled, .closable, .resizable],
-                backing: .buffered, defer: false
-            )
-            
-            userDefaults.set(true, forKey: hasLaunchedBeforeKey)
-            
-            newWindow.title = "Clipboard"
-            // Dynamically opens window
-            newWindow.contentView = NSHostingView(rootView: FirstTimeUserView().environmentObject(self))
-            newWindow.center()
-            // Make the new window key and bring it to the front
-            newWindow.makeKeyAndOrderFront(nil)
-            newWindow.isReleasedWhenClosed = false
-
-            // Optionally set the window as a top-level window for better management
-            NSApp.activate(ignoringOtherApps: true)
-        }
     }
 }
 
@@ -99,12 +66,12 @@ class WindowManager: ObservableObject {
     
     func openNewWindow(with viewType: ViewType) {
         let newWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 450, height: 450),
+            contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
             styleMask: [.titled, .closable, .resizable],
             backing: .buffered, defer: false
         )
         
-        newWindow.title = viewType.title
+        newWindow.title = "Settings"
         // Dynamically opens window
         setWindowContentView(with: newWindow, with: viewType)
         newWindow.center()
@@ -117,11 +84,11 @@ class WindowManager: ObservableObject {
     }
     
     func setWindowContentView(with currWindow: NSWindow, with viewType: ViewType) {
-            switch viewType {
-            case .setting(let view, _):
-                currWindow.contentView = NSHostingView(rootView: view)
-            case .test(let view, _):
-                currWindow.contentView = NSHostingView(rootView: view)
-            }
+        switch viewType {
+        case .setting(let view):
+            currWindow.contentView = NSHostingView(rootView: view)
+        case .test(let view):
+            currWindow.contentView = NSHostingView(rootView: view)
         }
+    }
 }
