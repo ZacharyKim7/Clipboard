@@ -1,5 +1,6 @@
 import SwiftUI
 import AppKit
+import MASShortcut
 
 @main
 struct ClipboardApp: App {
@@ -34,6 +35,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         // Initialize popupMenuController after clipboardManager is set up
         popupMenuController = PopupMenuController(clipboardManager: clipboardManager)
         windowManager = WindowManager()
+        
+        let shortcut = MASShortcut(keyCode: Int(kVK_ANSI_V), modifierFlags: .control)
+        MASShortcutMonitor.shared().register(shortcut, withAction: {
+            self.handleShortcut()
+        })
     }
     
     func showPopup() {
@@ -49,6 +55,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     func openTestView() {
         windowManager?.openNewWindow(with: .test(TestView()))
+    }
+    
+    private func handleShortcut() {
+        showPopup()
     }
 }
 

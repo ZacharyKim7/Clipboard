@@ -6,6 +6,7 @@ class PopupMenuController {
     private var window: NSWindow?
     private var clickEventMonitor: Any?
     private let clipboardManager: ClipboardManager
+    private var hidingPopup: Bool = false
 
     init(clipboardManager: ClipboardManager) {
         self.clipboardManager = clipboardManager
@@ -16,7 +17,6 @@ class PopupMenuController {
             return
         }
         guard let screen = NSScreen.main else { return }
-
         // Get the full screen frame including the Dock
         let screenFrame = screen.frame
 
@@ -40,7 +40,7 @@ class PopupMenuController {
         let visualEffectView = NSVisualEffectView(frame: window.contentView!.bounds)
         visualEffectView.autoresizingMask = [.width, .height]
         visualEffectView.blendingMode = .behindWindow
-        visualEffectView.material = .menu
+        visualEffectView.material = .hudWindow
         visualEffectView.state = .active
         visualEffectView.wantsLayer = true
         visualEffectView.layer?.masksToBounds = true
@@ -83,28 +83,35 @@ class PopupMenuController {
     }
 
     func hidePopup() {
-        guard let window = self.window else { return }
+        guard let window = self.window else {
+            return }
         
-        // Animate the window to slide out to the left
-        NSAnimationContext.runAnimationGroup { context in
-            context.duration = 0.3 // Animation duration
-            context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-            let screenFrame = NSScreen.main?.frame ?? NSRect.zero
-            let finalFrame = NSRect(
-                x: -250, // Popup width
-                y: screenFrame.minY,
-                width: 250, // Popup width
-                height: screenFrame.height
-            )
-            window.animator().setFrame(finalFrame, display: true)
-        } completionHandler: {
-            window.orderOut(nil)
-            self.window = nil
-            self.hostingView = nil
-            
-            // Stop monitoring outside clicks
-            self.stopMonitoringOutsideClicks()
+        // Ensure the pane isn't already closing before attempting another close
+        if !self.hidingPopup {
+            self.hidingPopup = true
+            // Animate the window to slide out to the left
+            NSAnimationContext.runAnimationGroup { context in
+                context.duration = 0.3 // Animation duration
+                context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+                let screenFrame = NSScreen.main?.frame ?? NSRect.zero
+                let finalFrame = NSRect(
+                    x: -250, // Popup width
+                    y: screenFrame.minY,
+                    width: 250, // Popup width
+                    height: screenFrame.height
+                )
+                window.animator().setFrame(finalFrame, display: true)
+            } completionHandler: {
+                window.orderOut(nil)
+                self.window = nil
+                self.hostingView = nil
+                
+                // Stop monitoring outside clicks
+                self.stopMonitoringOutsideClicks()
+                self.hidingPopup = false
+            }
         }
+        
     }
 
     
