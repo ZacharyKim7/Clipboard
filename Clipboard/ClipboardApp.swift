@@ -1,5 +1,6 @@
 import SwiftUI
 import AppKit
+import Cocoa
 
 @main
 struct ClipboardApp: App {
@@ -7,9 +8,6 @@ struct ClipboardApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
-        WindowGroup {
-            FirstTimeUserView().environmentObject(appDelegate)
-        }
         MenuBarExtra {
             MenuBarView().environmentObject(appDelegate)
         } label: {
@@ -43,6 +41,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         // Initialize popupMenuController after clipboardManager is set up
         popupMenuController = PopupMenuController(clipboardManager: clipboardManager)
         windowManager = WindowManager()
+        checkFirstLaunch()
     }
     
     func showPopup() {
@@ -58,6 +57,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     func openTestView() {
         windowManager?.openNewWindow(with: .test(TestView()))
+    }
+    
+    private func checkFirstLaunch() {
+        let userDefaults = UserDefaults.standard
+        let hasLaunchedBeforeKey = "hasLaunchedBefore"
+        
+        if userDefaults.bool(forKey: hasLaunchedBeforeKey) == false {
+            let newWindow = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 800, height: 800),
+                styleMask: [.titled, .closable, .resizable],
+                backing: .buffered, defer: false
+            )
+            
+            userDefaults.set(true, forKey: hasLaunchedBeforeKey)
+            
+            newWindow.title = "Clipboard"
+            // Dynamically opens window
+            newWindow.contentView = NSHostingView(rootView: FirstTimeUserView().environmentObject(self))
+            newWindow.center()
+            // Make the new window key and bring it to the front
+            newWindow.makeKeyAndOrderFront(nil)
+            newWindow.isReleasedWhenClosed = false
+
+            // Optionally set the window as a top-level window for better management
+            NSApp.activate(ignoringOtherApps: true)
+        }
     }
 }
 
