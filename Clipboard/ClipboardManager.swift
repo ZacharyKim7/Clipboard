@@ -1,10 +1,17 @@
 import Foundation
 import AppKit
 
+struct ClipboardItem: Identifiable, Codable {
+    let id: UUID
+    let content: String
+}
+
 class ClipboardManager: ObservableObject {
-    @Published var clipboardHistory: [String] = []
+    @Published var clipboardHistory: [ClipboardItem] = []
 
     private let historyKey = "ClipboardHistory"
+    private var lastCopy = NSPasteboard.general.string(forType: .string)
+
 
     init() {
         loadClipboardHistory()
@@ -12,13 +19,24 @@ class ClipboardManager: ObservableObject {
     }
 
     private func loadClipboardHistory() {
-        if let savedHistory = UserDefaults.standard.array(forKey: historyKey) as? [String] {
-            clipboardHistory = savedHistory
+        if let data = UserDefaults.standard.data(forKey: historyKey) {
+            let decoder = JSONDecoder()
+            do {
+                clipboardHistory = try decoder.decode([ClipboardItem].self, from: data)
+            } catch {
+                print("Error decoding clipboard history: \(error)")
+            }
         }
     }
 
     private func saveClipboardHistory() {
-        UserDefaults.standard.set(clipboardHistory, forKey: historyKey)
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(clipboardHistory)
+            UserDefaults.standard.set(data, forKey: historyKey)
+        } catch {
+            print("Error encoding clipboard history: \(error)")
+        }
     }
 
     private func startMonitoringClipboard() {
@@ -30,9 +48,15 @@ class ClipboardManager: ObservableObject {
 
     private func checkClipboard() {
         let pasteboard = NSPasteboard.general
-        if let copiedString = pasteboard.string(forType: .string), clipboardHistory.last != copiedString {
-            clipboardHistory.append(copiedString)
+        if let copiedString = pasteboard.string(forType: .string), lastCopy != nil && lastCopy != copiedString {
+            clipboardHistory.insert(ClipboardItem(id: UUID(), content: copiedString), at: 0)
             saveClipboardHistory()
+            lastCopy = copiedString
         }
+    }
+    
+    func deleteCopy(index: Int) {
+        clipboardHistory.remove(at: index)
+        saveClipboardHistory()
     }
 }

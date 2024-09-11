@@ -33,14 +33,14 @@ class PopupMenuController {
         )
         window.isOpaque = false
         window.backgroundColor = NSColor.clear
-        window.level = .floating
+        window.level = .modalPanel
         window.isReleasedWhenClosed = false
         
         // Create a blurred background effect view
         let visualEffectView = NSVisualEffectView(frame: window.contentView!.bounds)
         visualEffectView.autoresizingMask = [.width, .height]
         visualEffectView.blendingMode = .behindWindow
-        visualEffectView.material = .hudWindow
+        visualEffectView.material = .menu
         visualEffectView.state = .active
         visualEffectView.wantsLayer = true
         visualEffectView.layer?.masksToBounds = true
@@ -80,6 +80,7 @@ class PopupMenuController {
         }
         
         window.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
     }
 
     func hidePopup() {
