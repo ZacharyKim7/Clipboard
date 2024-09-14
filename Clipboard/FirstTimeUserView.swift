@@ -1,3 +1,4 @@
+import Cocoa
 import SwiftUI
 
 struct FirstTimeUserView: View {
@@ -9,7 +10,7 @@ struct FirstTimeUserView: View {
             Image(systemName: "doc.plaintext")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 100, height: 100)
+                .frame(width: 200, height: 100)
                 .foregroundColor(.blue)
                 .padding(.top, 5)
 
@@ -55,6 +56,25 @@ struct FirstTimeUserView: View {
             }
             .buttonStyle(PlainButtonStyle())
             .padding()
+            
+            Spacer() // To push the "Don't show again" button to the bottom
+
+            // Don't show again button aligned to the bottom-right
+            HStack {
+                Spacer()
+                Button(action: {
+                    let userDefaults = UserDefaults.standard
+                    let hasLaunchedBeforeKey = "hasLaunchedBefore"
+                    userDefaults.set(true, forKey: hasLaunchedBeforeKey)
+                }) {
+                    Text("Don't show this page again")
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                        .underline()
+                }
+                .padding(.bottom, 10)
+                .padding(.trailing, 10)
+            }
 
         }
         .padding()

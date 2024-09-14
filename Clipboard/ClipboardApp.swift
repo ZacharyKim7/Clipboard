@@ -1,6 +1,8 @@
-import SwiftUI
 import AppKit
+import Cocoa
 import MASShortcut
+import SwiftUI
+
 
 @main
 struct ClipboardApp: App {
@@ -8,9 +10,6 @@ struct ClipboardApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
-        WindowGroup {
-            FirstTimeUserView().environmentObject(appDelegate)
-        }
         MenuBarExtra {
             MenuBarView().environmentObject(appDelegate)
         } label: {
@@ -35,6 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         // Initialize popupMenuController after clipboardManager is set up
         popupMenuController = PopupMenuController(clipboardManager: clipboardManager)
         windowManager = WindowManager()
+        checkFirstLaunch()
         
         let shortcut = MASShortcut(keyCode: Int(kVK_ANSI_V), modifierFlags: .control)
         MASShortcutMonitor.shared().register(shortcut, withAction: {
@@ -59,6 +59,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     private func handleShortcut() {
         showPopup()
+    }
+    
+    private func checkFirstLaunch() {
+        let userDefaults = UserDefaults.standard
+        let hasLaunchedBeforeKey = "hasLaunchedBefore"
+        
+        if !userDefaults.bool(forKey: hasLaunchedBeforeKey) {
+            let newWindow = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 800, height: 520),
+                styleMask: [.titled, .closable],
+                backing: .buffered,
+                defer: false
+            )
+
+            newWindow.title = "Clipboard"
+            newWindow.contentView = NSHostingView(rootView: FirstTimeUserView().environmentObject(self))
+            newWindow.center()
+            newWindow.makeKeyAndOrderFront(nil)
+            newWindow.isReleasedWhenClosed = false
+
+            NSApp.activate(ignoringOtherApps: true)
+            
+            //userDefaults.set(true, forKey: hasLaunchedBeforeKey)
+        }
     }
 }
 
