@@ -26,7 +26,7 @@ struct PopupMenuView: View {
                                                 }
                                                 Spacer() // Spacer to push the text to the left
                                             }
-                                            Text("LINK")
+                                            Text(String(clipboardManager.interpretCopyType(index: index)))
                                                 .fontWeight(.bold)
                                                 .foregroundColor(Color.gray)
                                             HStack {
@@ -42,9 +42,40 @@ struct PopupMenuView: View {
                                         
                                         .padding(.top, 5)
                                         .padding(.horizontal, 5)
-                                        Text(item.content.trimmingCharacters(in: .whitespaces))
+                                        switch clipboardManager.interpretCopyType(index: index) {
+                                        case 0:
+                                            Text(item.content.trimmingCharacters(in: .whitespaces))
+                                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                                .multilineTextAlignment(.center)
+                                            
+                                        case 2:
+                                            if let imageURL = URL(string: item.content), imageURL.scheme != nil, imageURL.host != nil {
+                                                AsyncImage(url: imageURL) { image in
+                                                    image
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                                } placeholder: {
+                                                    ProgressView()
+                                                }
+                                            }
+                                            
+                                        case 1:
+                                            if let faviconURL = URL(string: "https://www.google.com/s2/favicons?sz=\(128)&domain=\(item.content)"), faviconURL.scheme != nil, faviconURL.host != nil {
+                                                AsyncImage(url: faviconURL) { image in
+                                                    image
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                                } placeholder: {
+                                                    ProgressView()
+                                                }
+                                            }
+                                        default:
+                                            Text("Unknown Content")
                                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                                             .multilineTextAlignment(.center)
+                                        }
                                     }.background(Color.gray.opacity(0.1))
                                         .cornerRadius(10)
                                         .padding(.vertical, 5)

@@ -84,4 +84,28 @@ class ClipboardManager: ObservableObject {
         // Reset the flag after copying is done
         copyingInProgress = false
     }
+
+    func interpretCopyType(index: Int) -> Int {
+        // Ensure the index is within bounds
+        guard index >= 0 && index < clipboardHistory.count else {
+            return -1 // Index out of bounds
+        }
+        
+        let content = clipboardHistory[index].content
+        
+        if let url = URL(string: content), url.scheme != nil, url.host != nil {
+                // Check if URL ends with an image file extension
+            let imageExtensions = ["jpg", "jpeg", "png", "gif", "bmp", "tiff"]
+            let pathExtension = url.pathExtension.lowercased()
+            if imageExtensions.contains(pathExtension) {
+                return 2
+            }
+            // Otherwise, return 1 for URL
+            return 1
+        }
+        
+        // If it's none of the above, assume it's normal text
+        return 0
+    }
+
 }
