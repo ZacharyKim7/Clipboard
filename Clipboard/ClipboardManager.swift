@@ -16,6 +16,7 @@ class ClipboardManager: ObservableObject {
 
     init() {
         loadClipboardHistory()
+        lastCopy = clipboardHistory[0].content
         startMonitoringClipboard()
     }
 
@@ -51,7 +52,7 @@ class ClipboardManager: ObservableObject {
         let pasteboard = NSPasteboard.general
         if let copiedString = pasteboard.string(forType: .string) {
             // Check if the copied string is new and not being copied currently
-            if !copyingInProgress && (lastCopy == nil || lastCopy != copiedString) {
+            if !copyingInProgress && lastCopy != copiedString {
                 clipboardHistory.insert(ClipboardItem(id: UUID(), content: copiedString), at: 0)
                 saveClipboardHistory()
                 lastCopy = copiedString

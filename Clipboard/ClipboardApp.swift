@@ -64,7 +64,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     private func checkFirstLaunch() {
         let userDefaults = UserDefaults.standard
         let hasLaunchedBeforeKey = "hasLaunchedBefore"
-                
+        userDefaults.set(false, forKey: hasLaunchedBeforeKey)
+
         if !userDefaults.bool(forKey: hasLaunchedBeforeKey) {
             let newWindow = NSWindow(
                 contentRect: NSRect(x: 0, y: 0, width: 800, height: 520),
@@ -81,7 +82,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
 
             NSApp.activate(ignoringOtherApps: true)
             
-            //userDefaults.set(true, forKey: hasLaunchedBeforeKey)
         }
     }
 }
