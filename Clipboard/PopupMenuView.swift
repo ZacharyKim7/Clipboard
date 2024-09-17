@@ -1,35 +1,19 @@
 import SwiftUI
 
 struct PopupMenuView: View {
-    // Sample clipboard history data
-    let clipboardHistory: [String] = [
-        "First copied text",
-        "Second copied text",
-        "Another copied text",
-        "Yet another copied text",
-        "More copied text",
-        "Final copied text"
-    ]
     
     @ObservedObject var clipboardManager: ClipboardManager
     @State private var deletingIndex: Int? = nil
     
-    
     var body: some View {
-        GeometryReader { geometry in
+        ScrollViewReader { proxy in
             ScrollView {
-                Button(action: {
-                    print("WOOHO")
-                }
-                        ) {
-                    Text("HEYY")
-                }.keyboardShortcut("2",modifiers: .command)
                 VStack(spacing: 0) {
                     ForEach(Array(clipboardManager.clipboardHistory.enumerated()), id: \.element.id) { index, item in
                         if index != deletingIndex {
                             Button(action: {
-                                        // Action to perform when the VStack is tapped
-                                        print("VStack tapped!")
+                                // Action to perform when the VStack is tapped
+                                clipboardManager.selectCopy(index: index)
                             }) {
                                 VStack {
                                     VStack {
@@ -39,10 +23,6 @@ struct PopupMenuView: View {
                                                     Text("⌘ + \(index+1)")
                                                         .fontWeight(.bold)
                                                         .foregroundColor(Color.red)
-                                                } else {
-                                                    Text("\(index+1)")
-                                                        .fontWeight(.bold)
-                                                        .foregroundColor(Color.gray)
                                                 }
                                                 Spacer() // Spacer to push the text to the left
                                             }
@@ -70,18 +50,20 @@ struct PopupMenuView: View {
                                         .padding(.vertical, 5)
                                         .padding(.horizontal, 10)
                                 }
-                                .frame(height: geometry.size.height / CGFloat(clipboardHistory.count))
+                                .frame(height: 200)
                                 .transition(.move(edge: .leading))
                                 .animation(.easeOut(duration: 0.3), value: deletingIndex)
                             }.buttonStyle(PlainButtonStyle())
-                                .keyboardShortcut("1", modifiers: .command)
-                      }
+                                .modifier(KeyboardShortcutModifier(index: index))
+                            
+                        }
                     }
                 }
             }
-            .padding(.vertical, 50)
-            
+            .padding(.vertical, 10)
+
         }
+        
     }
     
     private func startDeletion(at index: Int) {
@@ -96,4 +78,14 @@ struct PopupMenuView: View {
     }
 }
 
+struct KeyboardShortcutModifier: ViewModifier {
+    let index: Int
 
+    func body(content: Content) -> some View {
+        if (1...9).contains(index + 1) {
+            content.keyboardShortcut(KeyEquivalent(Character("\(index + 1)")), modifiers: .command)
+        } else {
+            content
+        }
+    }
+}

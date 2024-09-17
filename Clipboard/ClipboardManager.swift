@@ -10,8 +10,9 @@ class ClipboardManager: ObservableObject {
     @Published var clipboardHistory: [ClipboardItem] = []
 
     private let historyKey = "ClipboardHistory"
-    private var lastCopy = NSPasteboard.general.string(forType: .string)
-
+    private var lastCopy: String? // Changed to optional to avoid initial nil comparison issues
+    private var timer: Timer?
+    private var copyingInProgress: Bool = false // Flag to avoid adding copied content again
 
     init() {
         loadClipboardHistory()
@@ -40,23 +41,46 @@ class ClipboardManager: ObservableObject {
     }
 
     private func startMonitoringClipboard() {
-        let clipboardMonitor = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.checkClipboard()
         }
-        clipboardMonitor.tolerance = 0.5
+        timer?.tolerance = 0.5
     }
 
     private func checkClipboard() {
         let pasteboard = NSPasteboard.general
-        if let copiedString = pasteboard.string(forType: .string), lastCopy != nil && lastCopy != copiedString {
-            clipboardHistory.insert(ClipboardItem(id: UUID(), content: copiedString), at: 0)
-            saveClipboardHistory()
-            lastCopy = copiedString
+        if let copiedString = pasteboard.string(forType: .string) {
+            // Check if the copied string is new and not being copied currently
+            if !copyingInProgress && (lastCopy == nil || lastCopy != copiedString) {
+                clipboardHistory.insert(ClipboardItem(id: UUID(), content: copiedString), at: 0)
+                saveClipboardHistory()
+                lastCopy = copiedString
+            }
         }
     }
     
     func deleteCopy(index: Int) {
         clipboardHistory.remove(at: index)
         saveClipboardHistory()
+    }
+    
+    func selectCopy(index: Int) {
+        guard index >= 0 && index < clipboardHistory.count else {
+            print("Invalid index")
+            return
+        }
+
+        let selectedItem = clipboardHistory[index]
+        let pasteboard = NSPasteboard.general
+
+        // Set flag to avoid adding this copy to history again
+        copyingInProgress = true
+        
+        // Copy selected item to the clipboard
+        pasteboard.clearContents()
+        pasteboard.setString(selectedItem.content, forType: .string)
+        lastCopy = selectedItem.content
+        // Reset the flag after copying is done
+        copyingInProgress = false
     }
 }

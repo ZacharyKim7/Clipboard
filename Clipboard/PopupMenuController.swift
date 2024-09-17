@@ -5,17 +5,17 @@ class PopupMenuController {
     private var hostingView: NSHostingController<PopupMenuView>?
     private var window: NSWindow?
     private var clickEventMonitor: Any?
+    private var appActivationObserver: Any?
     private let clipboardManager: ClipboardManager
     private var hidingPopup: Bool = false
+    private var showingPopup: Bool = false
 
     init(clipboardManager: ClipboardManager) {
         self.clipboardManager = clipboardManager
+        self.createWindow()
     }
     
-    func showPopup() {
-        if window != nil {
-            return
-        }
+    func createWindow() {
         guard let screen = NSScreen.main else { return }
         // Get the full screen frame including the Dock
         let screenFrame = screen.frame
@@ -25,7 +25,7 @@ class PopupMenuController {
         let hostingController = NSHostingController(rootView: popupView)
         
         // Create an NSWindow to host the view
-        let window = NSWindow(
+        let window = PopupWindow(
             contentRect: NSRect(x: 0, y: 0, width: 250, height: screenFrame.height),
             styleMask: [.borderless],
             backing: .buffered,
@@ -33,7 +33,7 @@ class PopupMenuController {
         )
         window.isOpaque = false
         window.backgroundColor = NSColor.clear
-        window.level = .modalPanel
+        window.level = .popUpMenu
         window.isReleasedWhenClosed = false
         
         // Create a blurred background effect view
@@ -57,30 +57,43 @@ class PopupMenuController {
             width: 250, // Popup width
             height: screenFrame.height
         )
-        let finalFrame = NSRect(
-            x: 0,
-            y: screenFrame.minY,
-            width: 250, // Popup width
-            height: screenFrame.height
-        )
         
         window.setFrame(initialFrame, display: true)
         
-        // Animate the window to slide in from the left
-        NSAnimationContext.runAnimationGroup { context in
-            context.duration = 0.3 // Animation duration
-            context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-            window.animator().setFrame(finalFrame, display: true)
-        } completionHandler: {
-            self.window = window
-            self.hostingView = hostingController
+        self.window = window
+    }
+    
+    func showPopup() {
+        if window == nil {
+            return
+        }
+        if !self.showingPopup && !self.hidingPopup {
+            self.showingPopup = true
+            guard let screen = NSScreen.main else { return }
             
-            // Monitor mouse clicks outside the popup window
-            self.startMonitoringOutsideClicks()
+            let screenFrame = screen.frame
+            let finalFrame = NSRect(
+                x: 0,
+                y: screenFrame.minY,
+                width: 250, // Popup width
+                height: screenFrame.height
+            )
+            
+            // Animate the window to slide in from the left
+            NSAnimationContext.runAnimationGroup { context in
+                context.duration = 0.3 // Animation duration
+                context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+                window?.animator().setFrame(finalFrame, display: true)
+            } completionHandler: {
+                // Monitor mouse clicks outside the popup window
+                self.startMonitoringOutsideClicks()
+                self.startMonitoringAppActivation()
+                self.showingPopup = false
+            }
+            window?.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
         }
         
-        window.makeKeyAndOrderFront(nil)
-        NSApp.activate(ignoringOtherApps: true)
     }
 
     func hidePopup() {
@@ -88,7 +101,7 @@ class PopupMenuController {
             return }
         
         // Ensure the pane isn't already closing before attempting another close
-        if !self.hidingPopup {
+        if !self.hidingPopup && !self.showingPopup {
             self.hidingPopup = true
             // Animate the window to slide out to the left
             NSAnimationContext.runAnimationGroup { context in
@@ -104,11 +117,8 @@ class PopupMenuController {
                 window.animator().setFrame(finalFrame, display: true)
             } completionHandler: {
                 window.orderOut(nil)
-                self.window = nil
-                self.hostingView = nil
-                
-                // Stop monitoring outside clicks
                 self.stopMonitoringOutsideClicks()
+                self.stopMonitoringAppActivation()
                 self.hidingPopup = false
             }
         }
@@ -133,5 +143,24 @@ class PopupMenuController {
             NSEvent.removeMonitor(clickEventMonitor)
             self.clickEventMonitor = nil
         }
+    }
+    
+    private func startMonitoringAppActivation() {
+            appActivationObserver = NotificationCenter.default.addObserver(forName: NSApplication.didResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
+                self?.hidePopup()
+            }
+        }
+
+    private func stopMonitoringAppActivation() {
+        if let appActivationObserver = appActivationObserver {
+            NotificationCenter.default.removeObserver(appActivationObserver)
+            self.appActivationObserver = nil
+        }
+    }
+}
+
+class PopupWindow: NSWindow {
+    override var canBecomeKey: Bool {
+        return true
     }
 }
