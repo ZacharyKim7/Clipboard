@@ -1,7 +1,9 @@
+import Cocoa
 import SwiftUI
 
 struct FirstTimeUserView: View {
     @EnvironmentObject var appDelegate: AppDelegate
+    @State private var dontShowAgain = UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
     
     var body: some View {
         VStack(spacing: 20) {
@@ -9,9 +11,9 @@ struct FirstTimeUserView: View {
             Image(systemName: "doc.plaintext")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 100, height: 100)
+                .frame(width: 200, height: 100)
                 .foregroundColor(.blue)
-                .padding(.top, 5)
+                .padding(.top, 20)
 
             // Title
             Text("Welcome to Clipboard!")
@@ -41,23 +43,49 @@ struct FirstTimeUserView: View {
             .font(.body)
             .padding(.horizontal)
 
-            // Get Started Button
-            Button(action: {
-                appDelegate.showPopup()
-            }) {
-                Text("Get Started")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+            // Centered Get Started Button
+            HStack {
+                Spacer() // Left spacer to center the button
+                
+                Button(action: {
+                    appDelegate.showPopup()
+                }) {
+                    Text("Get Started")
+                        .font(.headline)
+                        .padding(.horizontal, 60)
+                        .padding(.vertical, 10)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                .buttonStyle(PlainButtonStyle())
+                
+                Spacer() // Right spacer to center the button
             }
-            .buttonStyle(PlainButtonStyle())
-            .padding()
+            .padding(.top, 20) // Add some spacing above the button
 
+            // "Don't show this page again" button aligned to bottom-right
+            HStack {
+                Spacer() // Push the button to the right
+                
+                Toggle(isOn: $dontShowAgain) {
+                    Text("Don't show this page again")
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                        .underline()
+                }
+                .onChange(of: dontShowAgain) { value in
+                    let userDefaults = UserDefaults.standard
+                    let hasLaunchedBeforeKey = "hasLaunchedBefore"
+                    userDefaults.set(value, forKey: hasLaunchedBeforeKey)
+                }
+                .toggleStyle(SwitchToggleStyle(tint: .blue))
+                .padding(.trailing, 10) // Right-align
+            }
+            .padding(.top, 10)
+            .padding(.bottom, 20)
         }
-        .padding()
+        .padding(.horizontal)
     }
 }
 
