@@ -26,7 +26,7 @@ struct PopupMenuView: View {
                                                 }
                                                 Spacer() // Spacer to push the text to the left
                                             }
-                                            Text(String(clipboardManager.interpretCopyType(index: index)))
+                                            Text(String(displayText(for: clipboardManager.interpretCopyType(index: index))))
                                                 .fontWeight(.bold)
                                                 .foregroundColor(Color.gray)
                                             HStack {
@@ -44,33 +44,11 @@ struct PopupMenuView: View {
                                         .padding(.horizontal, 5)
                                         switch clipboardManager.interpretCopyType(index: index) {
                                         case 0:
-                                            Text(item.content.trimmingCharacters(in: .whitespaces))
-                                                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                                .multilineTextAlignment(.center)
-                                            
-                                        case 2:
-                                            if let imageURL = URL(string: item.content), imageURL.scheme != nil, imageURL.host != nil {
-                                                AsyncImage(url: imageURL) { image in
-                                                    image
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                                } placeholder: {
-                                                    ProgressView()
-                                                }
-                                            }
-                                            
+                                            TextView(content: item.content)
                                         case 1:
-                                            if let faviconURL = URL(string: "https://www.google.com/s2/favicons?sz=\(128)&domain=\(item.content)"), faviconURL.scheme != nil, faviconURL.host != nil {
-                                                AsyncImage(url: faviconURL) { image in
-                                                    image
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                                } placeholder: {
-                                                    ProgressView()
-                                                }
-                                            }
+                                            LinkView(content: item.content)
+                                        case 2:
+                                            ImageView(content: item.content)
                                         default:
                                             Text("Unknown Content")
                                             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -107,6 +85,19 @@ struct PopupMenuView: View {
                 deletingIndex = nil
             }
     }
+    
+    private func displayText(for type: Int) -> String {
+            switch type {
+            case 0:
+                return "Text"
+            case 1:
+                return "Link"
+            case 2:
+                return "Image"
+            default:
+                return "Unknown" // Fallback for unexpected values
+            }
+    }
 }
 
 struct KeyboardShortcutModifier: ViewModifier {
@@ -117,6 +108,52 @@ struct KeyboardShortcutModifier: ViewModifier {
             content.keyboardShortcut(KeyEquivalent(Character("\(index + 1)")), modifiers: .command)
         } else {
             content
+        }
+    }
+}
+
+struct TextView: View {
+    var content: String
+    
+    var body: some View {
+        Text(content.trimmingCharacters(in: .whitespaces))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .multilineTextAlignment(.center)
+    }
+}
+
+struct LinkView: View {
+    var content: String
+    
+    var body: some View {
+        if let faviconURL = URL(string: "https://www.google.com/s2/favicons?sz=\(128)&domain=\(content)"), faviconURL.scheme != nil, faviconURL.host != nil {
+            AsyncImage(url: faviconURL) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(5)
+            } placeholder: {
+                ProgressView()
+            }
+        }
+    }
+}
+
+struct ImageView: View {
+    var content: String
+    
+    var body: some View {
+        if let imageURL = URL(string: content), imageURL.scheme != nil, imageURL.host != nil {
+            AsyncImage(url: imageURL) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(5)
+            } placeholder: {
+                ProgressView()
+            }
         }
     }
 }
