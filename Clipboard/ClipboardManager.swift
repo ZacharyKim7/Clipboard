@@ -16,7 +16,11 @@ class ClipboardManager: ObservableObject {
 
     init() {
         loadClipboardHistory()
-        lastCopy = clipboardHistory[0].content
+        if clipboardHistory.count > 0 {
+            lastCopy = clipboardHistory[0].content
+        } else {
+            lastCopy = nil
+        }
         startMonitoringClipboard()
     }
 
