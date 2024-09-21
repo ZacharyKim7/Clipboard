@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		195055FC2C8683EC00200B2E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195055FB2C8683EC00200B2E /* TestView.swift */; };
+		19539C042C9E7BFE00F6AB60 /* StoreVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19539C032C9E7BFE00F6AB60 /* StoreVM.swift */; };
+		19539C062C9E825E00F6AB60 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19539C052C9E825E00F6AB60 /* SubscriptionView.swift */; };
 		312E227AA53CD66EB5C0584B /* Pods_Clipboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28DBAE853ED19924211BEB1F /* Pods_Clipboard.framework */; };
 		C72865DA2C9B900F007F46AC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72865D92C9B900F007F46AC /* UserManager.swift */; };
 		C72865DC2C9E0919007F46AC /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72865DB2C9E0919007F46AC /* SubscriptionManager.swift */; };
@@ -26,6 +28,9 @@
 
 /* Begin PBXFileReference section */
 		195055FB2C8683EC00200B2E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		19539C022C9E7A8B00F6AB60 /* product.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = product.storekit; sourceTree = "<group>"; };
+		19539C032C9E7BFE00F6AB60 /* StoreVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreVM.swift; sourceTree = "<group>"; };
+		19539C052C9E825E00F6AB60 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		28DBAE853ED19924211BEB1F /* Pods_Clipboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clipboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E27D99E0427A746D348E9D0 /* Pods-Clipboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clipboard.release.xcconfig"; path = "Target Support Files/Pods-Clipboard/Pods-Clipboard.release.xcconfig"; sourceTree = "<group>"; };
 		BE2A8B87F93A5DA908AD23DD /* Pods-Clipboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clipboard.debug.xcconfig"; path = "Target Support Files/Pods-Clipboard/Pods-Clipboard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				195055FB2C8683EC00200B2E /* TestView.swift */,
+				19539C052C9E825E00F6AB60 /* SubscriptionView.swift */,
 				C7B9489E2C8668D4009BE618 /* SettingView.swift */,
 				C7D79FB52C83BA9A00D419EE /* PopupMenuView.swift */,
 				C7D79FB92C83C45800D419EE /* PopupMenuController.swift */,
@@ -103,6 +109,8 @@
 				C7B948A02C9B84DC009BE618 /* Localizable.strings */,
 				C72865D92C9B900F007F46AC /* UserManager.swift */,
 				C72865DB2C9E0919007F46AC /* SubscriptionManager.swift */,
+				19539C032C9E7BFE00F6AB60 /* StoreVM.swift */,
+				19539C022C9E7A8B00F6AB60 /* product.storekit */,
 			);
 			path = Clipboard;
 			sourceTree = "<group>";
@@ -244,7 +252,9 @@
 				C7D79FA12C80256800D419EE /* MenuBarView.swift in Sources */,
 				C7D79FB42C83B44300D419EE /* FirstTimeUserView.swift in Sources */,
 				C7B9489F2C8668D4009BE618 /* SettingView.swift in Sources */,
+				19539C062C9E825E00F6AB60 /* SubscriptionView.swift in Sources */,
 				195055FC2C8683EC00200B2E /* TestView.swift in Sources */,
+				19539C042C9E7BFE00F6AB60 /* StoreVM.swift in Sources */,
 				C72865DC2C9E0919007F46AC /* SubscriptionManager.swift in Sources */,
 				C7D79FB62C83BA9A00D419EE /* PopupMenuView.swift in Sources */,
 				C7B948972C857D3C009BE618 /* ClipboardManager.swift in Sources */,
@@ -385,7 +395,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Clipboard/Preview Content\"";
-				DEVELOPMENT_TEAM = 67883JM5KT;
+				DEVELOPMENT_TEAM = 52XUBPSGW2;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -419,7 +429,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Clipboard/Preview Content\"";
-				DEVELOPMENT_TEAM = 67883JM5KT;
+				DEVELOPMENT_TEAM = 52XUBPSGW2;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;

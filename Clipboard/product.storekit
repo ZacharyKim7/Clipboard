@@ -1,0 +1,118 @@
+{
+  "identifier" : "B54FC3A0",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "6705121261",
+      "localizations" : [
+        {
+          "description" : "bobby",
+          "displayName" : "bbobb",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.bob.lee",
+      "referenceName" : "bobby",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6705115841",
+    "_developerTeamID" : "67883JM5KT",
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 748583693.26657796,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21542784",
+      "localizations" : [
+
+      ],
+      "name" : "CopyCat Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "1.99",
+          "familyShareable" : true,
+          "groupNumber" : 1,
+          "internalID" : "6705116127",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Experience the full power with CopyCat Pro!",
+              "displayName" : "CopyCat Pro",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "10",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "CopyCat Pro",
+          "subscriptionGroupID" : "21542784",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}
