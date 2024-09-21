@@ -8,97 +8,119 @@ struct PopupMenuView: View {
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView {
-                VStack(spacing: 0) {
-                    ForEach(Array(clipboardManager.clipboardHistory.enumerated()), id: \.element.id) { index, item in
-                        if index != deletingIndex {
-                            Button(action: {
-                                // Action to perform when the VStack is tapped
-                                clipboardManager.selectCopy(index: index)
-                            }) {
-                                VStack {
-                                    VStack {
-                                        HStack {
-                                            HStack {
-                                                if index + 1 < 10 {
-                                                    Text("⌘ + \(index+1)")
-                                                        .fontWeight(.bold)
-                                                        .foregroundColor(Color.red)
-                                                }
-                                                Spacer() // Spacer to push the text to the left
-                                            }
-                                            Text(String(displayText(for: clipboardManager.interpretCopyType(index: index))))
-                                                .fontWeight(.bold)
-                                                .foregroundColor(Color.gray)
-                                            HStack {
-                                                Spacer() // Spacer to push the button to the right
-                                                Button(action: {
-                                                    startDeletion(at: index)
-                                                }) {
-                                                    Image(systemName: "xmark")
-                                                        .foregroundColor(Color.red)
-                                                }.buttonStyle(.plain)
-                                            }
-                                        }
-                                        
-                                        .padding(.top, 5)
-                                        .padding(.horizontal, 5)
-                                        switch clipboardManager.interpretCopyType(index: index) {
-                                        case 0:
-                                            TextView(content: item.content)
-                                        case 1:
-                                            LinkView(content: item.content)
-                                        case 2:
-                                            ImageView(content: item.content)
-                                        default:
-                                            Text("Unknown Content")
-                                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                            .multilineTextAlignment(.center)
-                                        }
-                                    }.background(Color.gray.opacity(0.1))
-                                        .cornerRadius(10)
-                                        .padding(.vertical, 5)
-                                        .padding(.horizontal, 10)
-                                }
-                                .frame(height: 200)
-                                .transition(.move(edge: .leading))
-                                .animation(.easeOut(duration: 0.3), value: deletingIndex)
-                            }.buttonStyle(PlainButtonStyle())
-                                .modifier(KeyboardShortcutModifier(index: index))
-                            
+                VStack {
+                    if clipboardManager.clipboardHistory.isEmpty {
+                        Text(NSLocalizedString("no_items", comment: "Message when clipboard history is empty"))
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .padding() // Add padding around the text
+                    } else {
+                        ForEach(Array(clipboardManager.clipboardHistory.enumerated()), id: \.element.id) { index, item in
+                            if index != deletingIndex {
+                                ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, deletingIndex: $deletingIndex)
+                            }
                         }
                     }
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity) // Ensures VStack takes full space
+                .padding(.vertical, 10)
             }
-            .padding(.vertical, 10)
+        }
+    }
 
+}
+
+struct ClipboardItemView: View {
+    let item: ClipboardItem
+    let index: Int
+    @ObservedObject var clipboardManager: ClipboardManager
+    @Binding var deletingIndex: Int?
+    
+    var body: some View {
+        Button(action: {
+            clipboardManager.selectCopy(index: index)
+        }) {
+            VStack {
+                HStack {
+                    HStack {
+                        if index + 1 < 10 {
+                            Text("⌘ + \(index + 1)")
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.red)
+                        }
+                        Spacer()
+                    }
+                    Text(displayText(for: item.contentType))
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.gray)
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            startDeletion(at: index)
+                        }) {
+                            Image(systemName: "xmark")
+                                .foregroundColor(Color.red)
+                        }.buttonStyle(.plain)
+                    }
+                }
+                .padding(.top, 5)
+                .padding(.horizontal, 15)
+
+                // Content view based on content type
+                contentView(for: item)
+                    .background(Color.gray.opacity(0.1))
+                    .cornerRadius(10)
+                    .padding(.vertical, 5)
+                    .padding(.horizontal, 10)
+            }
+            .frame(height: 200)
+            .transition(.move(edge: .leading))
+            .animation(.easeOut(duration: 0.3), value: deletingIndex)
+        }
+        .buttonStyle(PlainButtonStyle())
+        .modifier(KeyboardShortcutModifier(index: index))
+    }
+
+    private func contentView(for item: ClipboardItem) -> some View {
+        switch item.contentType {
+        case 0:
+            return AnyView(TextView(content: item.plainText))
+        case 1:
+            return AnyView(LinkView(content: item.plainText))
+        case 2:
+            return AnyView(ImageView(content: item.imgUrl))
+        default:
+            return AnyView(Text("Unknown Content")
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .multilineTextAlignment(.center))
+        }
+    }
+
+    private func startDeletion(at index: Int) {
+        withAnimation {
+            deletingIndex = index
         }
         
-    }
-    
-    private func startDeletion(at index: Int) {
-            withAnimation {
-                deletingIndex = index
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                clipboardManager.deleteCopy(index: index)
-                deletingIndex = nil
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            clipboardManager.deleteCopy(index: index)
+            deletingIndex = nil
+        }
     }
     
     private func displayText(for type: Int) -> String {
-            switch type {
-            case 0:
-                return "Text"
-            case 1:
-                return "Link"
-            case 2:
-                return "Image"
-            default:
-                return "Unknown" // Fallback for unexpected values
-            }
+        switch type {
+        case 0: return NSLocalizedString("text_label", comment: "Label for text copy cell")
+        case 1: return NSLocalizedString("link_label", comment: "Label for link copy cell")
+        case 2: return NSLocalizedString("image_label", comment: "Label for image copy cell")
+        default: return NSLocalizedString("text_label", comment: "Label for text copy cell")
+        }
     }
 }
+
+// Your other view structs remain unchanged (TextView, LinkView, ImageView)
+
+
 
 struct KeyboardShortcutModifier: ViewModifier {
     let index: Int
@@ -135,6 +157,7 @@ struct LinkView: View {
                     .padding(5)
             } placeholder: {
                 ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
     }
@@ -144,7 +167,21 @@ struct ImageView: View {
     var content: String
     
     var body: some View {
-        if let imageURL = URL(string: content), imageURL.scheme != nil, imageURL.host != nil {
+        if content.hasPrefix("data:image/") {
+            // Handle base64-encoded image
+            if let imageData = base64ToData(base64String: content),
+               let nsImage = NSImage(data: imageData) {
+                Image(nsImage: nsImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(5)
+            } else {
+                Text("Invalid Image")
+                    .foregroundColor(.gray)
+            }
+        } else if let imageURL = URL(string: content), imageURL.scheme != nil, imageURL.host != nil {
+            // Handle normal image URL
             AsyncImage(url: imageURL) { image in
                 image
                     .resizable()
@@ -153,7 +190,18 @@ struct ImageView: View {
                     .padding(5)
             } placeholder: {
                 ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
+        } else {
+            Text("Invalid Image URL")
+                .foregroundColor(.gray)
         }
+    }
+    
+    private func base64ToData(base64String: String) -> Data? {
+        let base64 = base64String.replacingOccurrences(of: "data:image/jpeg;base64,", with: "")
+            .replacingOccurrences(of: "data:image/png;base64,", with: "")
+            .replacingOccurrences(of: "data:image/gif;base64,", with: "")
+        return Data(base64Encoded: base64)
     }
 }

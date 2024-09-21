@@ -22,7 +22,7 @@ struct SettingView: View {
             // Display the selected section's settings
             switch selectedSection {
             case .general:
-                GeneralSettingsView()
+                GeneralSettingsView().environmentObject(appDelegate)
             case .subscription:
                 SubscriptionSettingsView()
             }

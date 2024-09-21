@@ -1,4 +1,5 @@
 import AppKit
+import StoreKit
 import Cocoa
 import MASShortcut
 import SwiftUI
@@ -26,6 +27,7 @@ enum ViewType
 
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @Published var clipboardManager = ClipboardManager()
+    @Published var iapManager = InAppPurchaseManager()
     private var popupMenuController: PopupMenuController?
     private var windowManager: WindowManager?
     
@@ -44,6 +46,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     func showPopup() {
         popupMenuController?.showPopup()
+        let productIdentifiers: Set<String> = ["10", "com.bob.lee", "21542784"]
+        iapManager.fetchProducts(productIdentifiers: productIdentifiers)
     }
     
     func hidePopup() {
@@ -65,7 +69,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         let userDefaults = UserDefaults.standard
         let hasLaunchedBeforeKey = "hasLaunchedBefore"
         userDefaults.set(false, forKey: hasLaunchedBeforeKey)
-
+//        userDefaults.removeObject(forKey: "ClipboardHistory")
         if !userDefaults.bool(forKey: hasLaunchedBeforeKey) {
             let newWindow = NSWindow(
                 contentRect: NSRect(x: 0, y: 0, width: 800, height: 520),

@@ -3,27 +3,31 @@ import AppKit
 
 struct ClipboardItem: Identifiable, Codable {
     let id: UUID
-    let content: String
+    let plainText: String
+    let htmlString: String
+    let contentType: Int
+    let imgUrl: String
+    
 }
 
 class ClipboardManager: ObservableObject {
     @Published var clipboardHistory: [ClipboardItem] = []
-
+    
     private let historyKey = "ClipboardHistory"
-    private var lastCopy: String? // Changed to optional to avoid initial nil comparison issues
+    private var lastCopy: ClipboardItem? // Changed to optional to avoid initial nil comparison issues
     private var timer: Timer?
     private var copyingInProgress: Bool = false // Flag to avoid adding copied content again
-
+    
     init() {
         loadClipboardHistory()
         if clipboardHistory.count > 0 {
-            lastCopy = clipboardHistory[0].content
+            lastCopy = clipboardHistory[0]
         } else {
             lastCopy = nil
         }
         startMonitoringClipboard()
     }
-
+    
     private func loadClipboardHistory() {
         if let data = UserDefaults.standard.data(forKey: historyKey) {
             let decoder = JSONDecoder()
@@ -34,7 +38,7 @@ class ClipboardManager: ObservableObject {
             }
         }
     }
-
+    
     private func saveClipboardHistory() {
         let encoder = JSONEncoder()
         do {
@@ -44,24 +48,81 @@ class ClipboardManager: ObservableObject {
             print("Error encoding clipboard history: \(error)")
         }
     }
-
+    
     private func startMonitoringClipboard() {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.checkClipboard()
         }
         timer?.tolerance = 0.5
     }
-
+    
     private func checkClipboard() {
-        let pasteboard = NSPasteboard.general
-        if let copiedString = pasteboard.string(forType: .string) {
-            // Check if the copied string is new and not being copied currently
-            if !copyingInProgress && lastCopy != copiedString {
-                clipboardHistory.insert(ClipboardItem(id: UUID(), content: copiedString), at: 0)
-                saveClipboardHistory()
-                lastCopy = copiedString
+        if !copyingInProgress {
+            let pasteboard = NSPasteboard.general
+            if let htmlData = pasteboard.data(forType: .html),
+               let htmlString = String(data: htmlData, encoding: .utf8),
+               htmlString.contains("<img") {
+                if lastCopy?.htmlString != extractImgTag(from: htmlString) {
+                    let item = ClipboardItem(id: UUID(), plainText: "", htmlString: extractImgTag(from: htmlString), contentType: 2, imgUrl: extractImageSrc(from: htmlString))
+                    clipboardHistory.insert(item, at: 0)
+                    saveClipboardHistory()
+                    lastCopy = item
+                    print("IMG")
+                }
             }
+            else {
+                if let copiedString = pasteboard.string(forType: .string) {
+                    // Check if the copied string is new and not being copied currently
+                    var item: ClipboardItem
+                    if lastCopy?.plainText != copiedString {
+                        // Check if the copied string is a valid URL
+                        if let url = URL(string: copiedString), url.scheme != nil, url.host != nil {
+                            // It's a valid URL, save it as type '1'
+                            item = ClipboardItem(id: UUID(), plainText: copiedString, htmlString: "", contentType: 1, imgUrl: "")
+                            clipboardHistory.insert(item, at: 0)
+                            print("URL")
+                        } else {
+                            // Not a valid URL, save as type '0'
+                            item = ClipboardItem(id: UUID(), plainText: copiedString, htmlString: "", contentType: 0, imgUrl: "")
+                            clipboardHistory.insert(item, at: 0)
+                            print("Text")
+                        }
+                        saveClipboardHistory()
+                        lastCopy = item
+                    }
+                }
+            }
+            
         }
+    }
+    
+    private func extractImgTag(from htmlString: String) -> String {
+        let imgTagPattern = "<img[^>]*>"
+        let regex = try? NSRegularExpression(pattern: imgTagPattern, options: .caseInsensitive)
+        let nsString = htmlString as NSString
+        let results = regex?.matches(in: htmlString, options: [], range: NSRange(location: 0, length: nsString.length))
+        
+        // Return the first <img> tag found
+        if let match = results?.first {
+            return nsString.substring(with: match.range)
+        }
+        
+        return ""
+    }
+    
+    private func extractImageSrc(from htmlString: String) -> String {
+        let regexPattern = "src=\"([^\"]+)\""
+        let regex = try? NSRegularExpression(pattern: regexPattern, options: [])
+        let nsString = htmlString as NSString
+        let results = regex?.matches(in: htmlString, options: [], range: NSRange(location: 0, length: nsString.length))
+        
+        // Return the first matched src URL if found
+        if let match = results?.first, match.numberOfRanges > 1 {
+            let range = match.range(at: 1) // The first capturing group
+            return nsString.substring(with: range)
+        }
+        
+        return ""
     }
     
     func deleteCopy(index: Int) {
@@ -74,42 +135,32 @@ class ClipboardManager: ObservableObject {
             print("Invalid index")
             return
         }
-
+        
         let selectedItem = clipboardHistory[index]
         let pasteboard = NSPasteboard.general
-
+        
         // Set flag to avoid adding this copy to history again
         copyingInProgress = true
         
-        // Copy selected item to the clipboard
+        // Clear the clipboard
         pasteboard.clearContents()
-        pasteboard.setString(selectedItem.content, forType: .string)
-        lastCopy = selectedItem.content
+        
+        // Check the content type
+        if selectedItem.contentType == 2 { // Image type
+            // Assuming selectedItem.content is the HTML string representation
+            if let htmlData = selectedItem.htmlString.data(using: .utf8) {
+                pasteboard.setData(htmlData, forType: .html) // Set HTML data
+                print("Copied HTML for image: \(selectedItem.htmlString)")
+            }
+        } else {
+            // For other types, just set the string
+            pasteboard.setString(selectedItem.plainText, forType: .string)
+            print("Copied Plain Text: \(selectedItem.plainText)")
+        }
+        
+        lastCopy = selectedItem
+        
         // Reset the flag after copying is done
         copyingInProgress = false
     }
-
-    func interpretCopyType(index: Int) -> Int {
-        // Ensure the index is within bounds
-        guard index >= 0 && index < clipboardHistory.count else {
-            return -1 // Index out of bounds
-        }
-        
-        let content = clipboardHistory[index].content
-        
-        if let url = URL(string: content), url.scheme != nil, url.host != nil {
-                // Check if URL ends with an image file extension
-            let imageExtensions = ["jpg", "jpeg", "png", "gif", "bmp", "tiff"]
-            let pathExtension = url.pathExtension.lowercased()
-            if imageExtensions.contains(pathExtension) {
-                return 2
-            }
-            // Otherwise, return 1 for URL
-            return 1
-        }
-        
-        // If it's none of the above, assume it's normal text
-        return 0
-    }
-
 }

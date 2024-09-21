@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Clipboard
+
+  Created by Garrett Moody on 9/18/24.
+  
+*/
+
+"no_items" = "It looks like your clipboard is clear. Try copying something to begin tracking your history.";
+"text_label" = "Text";
+"link_label" = "Link";
+"image_label" = "Image";
+"show_copies" = "Show Copies";
+"settings" = "Settings";
+"quit" = "Quit";
+

@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		195055FC2C8683EC00200B2E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195055FB2C8683EC00200B2E /* TestView.swift */; };
 		312E227AA53CD66EB5C0584B /* Pods_Clipboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28DBAE853ED19924211BEB1F /* Pods_Clipboard.framework */; };
+		C72865DA2C9B900F007F46AC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72865D92C9B900F007F46AC /* UserManager.swift */; };
+		C72865DC2C9E0919007F46AC /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72865DB2C9E0919007F46AC /* SubscriptionManager.swift */; };
 		C7B948972C857D3C009BE618 /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B948962C857D3C009BE618 /* ClipboardManager.swift */; };
 		C7B9489F2C8668D4009BE618 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9489E2C8668D4009BE618 /* SettingView.swift */; };
+		C7B948A12C9B84DC009BE618 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7B948A02C9B84DC009BE618 /* Localizable.strings */; };
 		C7D79F9F2C80256800D419EE /* ClipboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79F9E2C80256800D419EE /* ClipboardApp.swift */; };
 		C7D79FA12C80256800D419EE /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79FA02C80256800D419EE /* MenuBarView.swift */; };
 		C7D79FA32C80256900D419EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D79FA22C80256900D419EE /* Assets.xcassets */; };
@@ -18,6 +21,7 @@
 		C7D79FB42C83B44300D419EE /* FirstTimeUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79FB32C83B44300D419EE /* FirstTimeUserView.swift */; };
 		C7D79FB62C83BA9A00D419EE /* PopupMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79FB52C83BA9A00D419EE /* PopupMenuView.swift */; };
 		C7D79FBA2C83C45800D419EE /* PopupMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D79FB92C83C45800D419EE /* PopupMenuController.swift */; };
+		C7FC8AC82C9E338500C3AA8A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FC8AC72C9E338500C3AA8A /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +29,11 @@
 		28DBAE853ED19924211BEB1F /* Pods_Clipboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clipboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E27D99E0427A746D348E9D0 /* Pods-Clipboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clipboard.release.xcconfig"; path = "Target Support Files/Pods-Clipboard/Pods-Clipboard.release.xcconfig"; sourceTree = "<group>"; };
 		BE2A8B87F93A5DA908AD23DD /* Pods-Clipboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clipboard.debug.xcconfig"; path = "Target Support Files/Pods-Clipboard/Pods-Clipboard.debug.xcconfig"; sourceTree = "<group>"; };
+		C72865D92C9B900F007F46AC /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		C72865DB2C9E0919007F46AC /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		C7B948962C857D3C009BE618 /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
 		C7B9489E2C8668D4009BE618 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		C7B948A02C9B84DC009BE618 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		C7D79F9B2C80256800D419EE /* Clipboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D79F9E2C80256800D419EE /* ClipboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardApp.swift; sourceTree = "<group>"; };
 		C7D79FA02C80256800D419EE /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
@@ -36,6 +43,7 @@
 		C7D79FB32C83B44300D419EE /* FirstTimeUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTimeUserView.swift; sourceTree = "<group>"; };
 		C7D79FB52C83BA9A00D419EE /* PopupMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMenuView.swift; sourceTree = "<group>"; };
 		C7D79FB92C83C45800D419EE /* PopupMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMenuController.swift; sourceTree = "<group>"; };
+		C7FC8AC72C9E338500C3AA8A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				312E227AA53CD66EB5C0584B /* Pods_Clipboard.framework in Frameworks */,
+				C7FC8AC82C9E338500C3AA8A /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +62,7 @@
 		981B265020D02E43A3914F89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7FC8AC72C9E338500C3AA8A /* StoreKit.framework */,
 				28DBAE853ED19924211BEB1F /* Pods_Clipboard.framework */,
 			);
 			name = Frameworks;
@@ -90,6 +100,9 @@
 				C7D79FA72C80256900D419EE /* Clipboard.entitlements */,
 				C7D79FA42C80256900D419EE /* Preview Content */,
 				C7B948962C857D3C009BE618 /* ClipboardManager.swift */,
+				C7B948A02C9B84DC009BE618 /* Localizable.strings */,
+				C72865D92C9B900F007F46AC /* UserManager.swift */,
+				C72865DB2C9E0919007F46AC /* SubscriptionManager.swift */,
 			);
 			path = Clipboard;
 			sourceTree = "<group>";
@@ -172,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7D79FA62C80256900D419EE /* Preview Assets.xcassets in Resources */,
+				C7B948A12C9B84DC009BE618 /* Localizable.strings in Resources */,
 				C7D79FA32C80256900D419EE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,11 +239,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72865DA2C9B900F007F46AC /* UserManager.swift in Sources */,
 				C7D79FBA2C83C45800D419EE /* PopupMenuController.swift in Sources */,
 				C7D79FA12C80256800D419EE /* MenuBarView.swift in Sources */,
 				C7D79FB42C83B44300D419EE /* FirstTimeUserView.swift in Sources */,
 				C7B9489F2C8668D4009BE618 /* SettingView.swift in Sources */,
 				195055FC2C8683EC00200B2E /* TestView.swift in Sources */,
+				C72865DC2C9E0919007F46AC /* SubscriptionManager.swift in Sources */,
 				C7D79FB62C83BA9A00D419EE /* PopupMenuView.swift in Sources */,
 				C7B948972C857D3C009BE618 /* ClipboardManager.swift in Sources */,
 				C7D79F9F2C80256800D419EE /* ClipboardApp.swift in Sources */,
@@ -363,16 +379,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Clipboard/Clipboard.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Clipboard/Preview Content\"";
-				DEVELOPMENT_TEAM = WX4NLHGMXD;
+				DEVELOPMENT_TEAM = 67883JM5KT;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -380,8 +398,9 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.moody.Clipboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moody.CopyCat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -394,16 +413,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Clipboard/Clipboard.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Clipboard/Preview Content\"";
-				DEVELOPMENT_TEAM = WX4NLHGMXD;
+				DEVELOPMENT_TEAM = 67883JM5KT;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -411,8 +432,9 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.moody.Clipboard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moody.CopyCat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
