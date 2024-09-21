@@ -12,11 +12,9 @@ struct TestView: View {
     @StateObject var storeVM = StoreVM()
     var body: some View {
         VStack {
-            // what the fuck is this
             if let subscriptionGroupStatus = storeVM.subscriptionGroupStatus {
                 if subscriptionGroupStatus == .expired || subscriptionGroupStatus == .revoked {
                     Text("Welcome back, give the subscription another try.")
-                    //display products
                 }
             }
             if storeVM.purchasedSubscriptions.isEmpty {
@@ -30,8 +28,8 @@ struct TestView: View {
     }
 }
 
-struct TestView_Previews: PreviewProvider {
-    static var previews: some View {
-        TestView()
-    }
-}
+//struct TestView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TestView()
+//    }
+//}

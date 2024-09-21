@@ -1,34 +1,59 @@
 import SwiftUI
+import StoreKit
+
 
 struct SettingView: View {
     @EnvironmentObject var appDelegate: AppDelegate
     @State private var selectedSection: SettingSection = .general
+    
+    let generalSettingsLabel = LabelSettings(
+        title: "General Settings",
+        systemImage: "gear",
+        fontSize: 14,
+        width: 140,
+        height: 35
+        )
+    
+    let subscriptionLabel = LabelSettings(
+        title: "Subscription Plan",
+        systemImage: "creditcard",
+        fontSize: 14,
+        width: 140,
+        height: 35
+        )
 
     var body: some View {
         NavigationView {
             List {
                 Section {
                     Button(action: { selectedSection = .general }) {
-                        Label("General Settings", systemImage: "gear")
+                        configureLabel(with: generalSettingsLabel)
                     }
                     Button(action: { selectedSection = .subscription }) {
-                        Label("Subscription Plan", systemImage: "creditcard")
+                        configureLabel(with: subscriptionLabel)
                     }
                 }
             }
             .listStyle(SidebarListStyle())
-            .frame(minWidth: 150)
+            .frame(minWidth: 180)
 
             // Display the selected section's settings
             switch selectedSection {
             case .general:
-                GeneralSettingsView().environmentObject(appDelegate)
+                GeneralSettingsView()
             case .subscription:
                 SubscriptionSettingsView()
             }
         }
-        .frame(width: 500, height: 400)
+        .frame(width: 650, height: 500)
     }
+    
+    // Helper method to configure a label using the LabelSettings
+        func configureLabel(with settings: LabelSettings) -> some View {
+            Label(settings.title, systemImage: settings.systemImage)
+                .font(.system(size: settings.fontSize))
+                .frame(width: settings.width, height: settings.height)
+        }
 }
 
 enum SettingSection {
@@ -38,29 +63,26 @@ enum SettingSection {
 
 struct GeneralSettingsView: View {
     @EnvironmentObject var appDelegate: AppDelegate
-    @AppStorage("isDarkMode") private var isDarkMode = false
-    @AppStorage("volume") private var volume: Double = 0.5
-    @AppStorage("notificationsEnable") private var notificationsEnabled = true
 
     var body: some View {
-        Form {
-            Toggle("Dark Mode", isOn: $isDarkMode)
-            
-            HStack {
-                Text("Volume")
-                Slider(value: $volume, in: 0...1)
-            }
-            
-            Toggle("Enable Notifications", isOn: $notificationsEnabled)
+        GeometryReader { geometry in
+            VStack(alignment: .leading) {
+                Text("CopyCat Shortcuts")
+                    .font(.headline)
+                    .padding(.bottom, 10)
+                
+                Divider()
+                
+                // Placeholder
+                Text("Shortcut 1: Action")
+                    .padding([.bottom, .top], 10)
+                Text("Shortcut 2: Action")
+                    .padding(.bottom, 10)
 
-            // Example usage of appDelegate
-            Button(action: {
-                appDelegate.showPopup()
-            }) {
-                Text("Show Popup")
             }
+            .padding([.top, .leading], 16)
+            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .topLeading) // Align the VStack to top-left
         }
-        .padding()
         .navigationTitle("General Settings")
     }
 }
@@ -75,11 +97,9 @@ struct SubscriptionSettingsView: View {
                 Text("Basic").tag("Basic")
                 Text("Pro").tag("Pro")
                 Text("Enterprise").tag("Enterprise")
-            }
+            }            
 
-            // Example usage of appDelegate
             Button(action: {
-                appDelegate.showPopup()
             }) {
                 Text("Show Popup")
             }
