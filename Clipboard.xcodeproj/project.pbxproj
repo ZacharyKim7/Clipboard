@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1945C2482C9F7B89000F3E18 /* LabelSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1945C2472C9F7B89000F3E18 /* LabelSettings.swift */; };
 		195055FC2C8683EC00200B2E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195055FB2C8683EC00200B2E /* TestView.swift */; };
 		19539C042C9E7BFE00F6AB60 /* StoreVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19539C032C9E7BFE00F6AB60 /* StoreVM.swift */; };
 		19539C062C9E825E00F6AB60 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19539C052C9E825E00F6AB60 /* SubscriptionView.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1945C2472C9F7B89000F3E18 /* LabelSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSettings.swift; sourceTree = "<group>"; };
 		195055FB2C8683EC00200B2E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		19539C022C9E7A8B00F6AB60 /* product.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = product.storekit; sourceTree = "<group>"; };
 		19539C032C9E7BFE00F6AB60 /* StoreVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreVM.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				195055FB2C8683EC00200B2E /* TestView.swift */,
 				19539C052C9E825E00F6AB60 /* SubscriptionView.swift */,
 				C7B9489E2C8668D4009BE618 /* SettingView.swift */,
+				1945C2472C9F7B89000F3E18 /* LabelSettings.swift */,
 				C7D79FB52C83BA9A00D419EE /* PopupMenuView.swift */,
 				C7D79FB92C83C45800D419EE /* PopupMenuController.swift */,
 				C7D79FB32C83B44300D419EE /* FirstTimeUserView.swift */,
@@ -255,6 +258,7 @@
 				C7D79FBA2C83C45800D419EE /* PopupMenuController.swift in Sources */,
 				C7D79FA12C80256800D419EE /* MenuBarView.swift in Sources */,
 				C7D79FB42C83B44300D419EE /* FirstTimeUserView.swift in Sources */,
+				1945C2482C9F7B89000F3E18 /* LabelSettings.swift in Sources */,
 				C7B9489F2C8668D4009BE618 /* SettingView.swift in Sources */,
 				19539C062C9E825E00F6AB60 /* SubscriptionView.swift in Sources */,
 				195055FC2C8683EC00200B2E /* TestView.swift in Sources */,
