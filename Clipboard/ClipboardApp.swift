@@ -24,19 +24,25 @@ enum ViewType
     case setting(SettingView)
     case test(TestView)
 }
-
+@MainActor
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
-    @Published var clipboardManager = ClipboardManager()
-    @Published var iapManager = InAppPurchaseManager()
+    @Published var clipboardManager: ClipboardManager?
+    @Published var storeVM = StoreVM()
+    @Published var entitlementManager = EntitlementManager()
+    private var subscriptionsManager: SubscriptionManager?
     private var popupMenuController: PopupMenuController?
     private var windowManager: WindowManager?
     
     override init() {
+        
         super.init()
         // Initialize popupMenuController after clipboardManager is set up
-        popupMenuController = PopupMenuController(clipboardManager: clipboardManager)
+        subscriptionsManager = SubscriptionManager(entitlementManager: entitlementManager)
+        clipboardManager = ClipboardManager(entitlementManager: entitlementManager)
+        popupMenuController = PopupMenuController(clipboardManager: clipboardManager!, appDelegate: self)
         windowManager = WindowManager()
         checkFirstLaunch()
+        
         
         let shortcut = MASShortcut(keyCode: Int(kVK_ANSI_V), modifierFlags: .control)
         MASShortcutMonitor.shared().register(shortcut, withAction: {
@@ -46,8 +52,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     func showPopup() {
         popupMenuController?.showPopup()
-        let productIdentifiers: Set<String> = ["10", "com.bob.lee", "21542784"]
-        iapManager.fetchProducts(productIdentifiers: productIdentifiers)
     }
     
     func hidePopup() {
@@ -55,10 +59,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     
     func openSettings() {
-        windowManager?.openNewWindow(with: .setting(SettingView()))
+        windowManager?.openNewWindow(with: .setting(SettingView()), with: subscriptionsManager!, with: entitlementManager)
     }
     func openTestView() {
-        windowManager?.openNewWindow(with: .test(TestView()))
+        windowManager?.openNewWindow(with: .test(TestView()), with: subscriptionsManager!, with: entitlementManager)
     }
     
     private func handleShortcut() {
@@ -92,7 +96,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
 
 class WindowManager: ObservableObject {
     
-    func openNewWindow(with viewType: ViewType) {
+    func openNewWindow(with viewType: ViewType, with manager: SubscriptionManager, with entitlementManager: EntitlementManager) {
         let newWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
             styleMask: [.titled, .closable, .resizable],
@@ -101,7 +105,7 @@ class WindowManager: ObservableObject {
         
         newWindow.title = "Settings"
         // Dynamically opens window
-        setWindowContentView(with: newWindow, with: viewType)
+        setWindowContentView(with: newWindow, with: viewType, with: manager, with: entitlementManager)
         newWindow.center()
         // Make the new window key and bring it to the front
         newWindow.makeKeyAndOrderFront(nil)
@@ -111,12 +115,14 @@ class WindowManager: ObservableObject {
         NSApp.activate(ignoringOtherApps: true)
     }
     
-    func setWindowContentView(with currWindow: NSWindow, with viewType: ViewType) {
-        switch viewType {
-        case .setting(let view):
-            currWindow.contentView = NSHostingView(rootView: view)
-        case .test(let view):
-            currWindow.contentView = NSHostingView(rootView: view)
-        }
+    func setWindowContentView(with currWindow: NSWindow, with viewType: ViewType, with manager: SubscriptionManager, with entitlementManager: EntitlementManager) {
+            switch viewType {
+            case .setting:
+                let settingsView = SettingView()
+                currWindow.contentView = NSHostingView(rootView: settingsView)
+            case .test:
+                let testView = TestView().environmentObject(manager).environmentObject(entitlementManager)
+                currWindow.contentView = NSHostingView(rootView: testView)
+            }
     }
 }

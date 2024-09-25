@@ -124,6 +124,12 @@ class StoreVM: ObservableObject {
         }
     }
     
+    @MainActor
+    func isUserPaid() -> Bool {
+        // Check if there are any purchased subscriptions
+        return !purchasedSubscriptions.isEmpty
+    }
+    
     public enum StoreError: Error {
         case failedVerification
     }

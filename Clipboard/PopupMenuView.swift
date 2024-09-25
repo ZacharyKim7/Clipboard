@@ -3,6 +3,8 @@ import SwiftUI
 struct PopupMenuView: View {
     
     @ObservedObject var clipboardManager: ClipboardManager
+    @ObservedObject var appDelegate: AppDelegate
+//    @ObservedObject var subscriptionManager = SubscriptionManager()
     @State private var deletingIndex: Int? = nil
     
     var body: some View {
@@ -16,11 +18,35 @@ struct PopupMenuView: View {
                             .multilineTextAlignment(.center)
                             .padding() // Add padding around the text
                     } else {
-                        ForEach(Array(clipboardManager.clipboardHistory.enumerated()), id: \.element.id) { index, item in
-                            if index != deletingIndex {
-                                ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, deletingIndex: $deletingIndex)
+                            if !appDelegate.entitlementManager.hasPro {
+                                ForEach(Array(clipboardManager.clipboardHistory.enumerated()), id: \.element.id) { index, item in
+                                    // Display only the first 3 items and the lock icon
+                                    if index < 3 {
+                                        if index != deletingIndex {
+                                            ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, deletingIndex: $deletingIndex)
+                                        }
+                                    }
+                                }
+                                if clipboardManager.clipboardHistory.count == 3 {
+                                    Button(action: {
+                                        appDelegate.openTestView()
+                                    }) {
+                                        LockIconView()
+                                            .background(Color.gray.opacity(0.1))
+                                            .cornerRadius(10)
+                                            .padding(.vertical, 5)
+                                            .padding(.horizontal, 10)
+                                            .frame(height: 160)
+                                    }.buttonStyle(.plain)
+                                }
+                            } else {
+                                // For paid users, display all items
+                                ForEach(Array(clipboardManager.clipboardHistory.enumerated()), id: \.element.id) { index, item in
+                                    if index != deletingIndex {
+                                        ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, deletingIndex: $deletingIndex)
+                                    }
+                                }
                             }
-                        }
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity) // Ensures VStack takes full space
@@ -141,6 +167,23 @@ struct TextView: View {
         Text(content.trimmingCharacters(in: .whitespaces))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .multilineTextAlignment(.center)
+    }
+}
+
+struct LockIconView: View {
+
+    var body: some View {
+        VStack {
+            Spacer()
+            Image(systemName: "lock.fill") // Use the appropriate lock icon
+                .font(.largeTitle) // Adjust size as needed
+            Spacer()
+            Text("Unlock more copies")
+                .frame(maxWidth: .infinity)
+                .multilineTextAlignment(.center)
+            Spacer()
+        }
+        .padding()
     }
 }
 

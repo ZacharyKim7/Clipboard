@@ -7,6 +7,11 @@ struct SubscriptionView: View {
 
     var body: some View {
         Group {
+            if storeVM.isUserPaid() {
+                Text("This user is PAID!")
+            } else {
+                Text("GOOFY")
+            }
             Section("Upgrade to Premium") {
                 ForEach(storeVM.subscriptions) { product in
                     Button(action: {

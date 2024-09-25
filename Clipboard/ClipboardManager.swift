@@ -17,8 +17,10 @@ class ClipboardManager: ObservableObject {
     private var lastCopy: ClipboardItem? // Changed to optional to avoid initial nil comparison issues
     private var timer: Timer?
     private var copyingInProgress: Bool = false // Flag to avoid adding copied content again
+    private let entitlementManager: EntitlementManager
     
-    init() {
+    init(entitlementManager: EntitlementManager) {
+        self.entitlementManager = entitlementManager
         loadClipboardHistory()
         if clipboardHistory.count > 0 {
             lastCopy = clipboardHistory[0]
@@ -59,18 +61,25 @@ class ClipboardManager: ObservableObject {
     private func checkClipboard() {
         if !copyingInProgress {
             let pasteboard = NSPasteboard.general
+            let maxClipboardHistory = entitlementManager.hasPro ? 50 : 3 // Check user status
+
             if let htmlData = pasteboard.data(forType: .html),
                let htmlString = String(data: htmlData, encoding: .utf8),
                htmlString.contains("<img") {
                 if lastCopy?.htmlString != extractImgTag(from: htmlString) {
                     let item = ClipboardItem(id: UUID(), plainText: "", htmlString: extractImgTag(from: htmlString), contentType: 2, imgUrl: extractImageSrc(from: htmlString))
                     clipboardHistory.insert(item, at: 0)
+                    
+                    // Limit the history size
+                    if clipboardHistory.count > maxClipboardHistory {
+                        clipboardHistory.removeLast(clipboardHistory.count - maxClipboardHistory)
+                    }
+
                     saveClipboardHistory()
                     lastCopy = item
                     print("IMG")
                 }
-            }
-            else {
+            } else {
                 if let copiedString = pasteboard.string(forType: .string) {
                     // Check if the copied string is new and not being copied currently
                     var item: ClipboardItem
@@ -87,12 +96,17 @@ class ClipboardManager: ObservableObject {
                             clipboardHistory.insert(item, at: 0)
                             print("Text")
                         }
+                        
+                        // Limit the history size
+                        if clipboardHistory.count > maxClipboardHistory {
+                            clipboardHistory.removeLast(clipboardHistory.count - maxClipboardHistory)
+                        }
+
                         saveClipboardHistory()
                         lastCopy = item
                     }
                 }
             }
-            
         }
     }
     
@@ -126,6 +140,12 @@ class ClipboardManager: ObservableObject {
     }
     
     func deleteCopy(index: Int) {
+        // Check if the index is within the valid range
+        guard index >= 0 && index < clipboardHistory.count else {
+            print("Index \(index) is out of range. No item deleted.")
+            return
+        }
+        
         clipboardHistory.remove(at: index)
         saveClipboardHistory()
     }
