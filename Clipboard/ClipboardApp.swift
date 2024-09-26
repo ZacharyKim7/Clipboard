@@ -59,10 +59,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     
     func openSettings() {
-        windowManager?.openNewWindow(with: .setting(SettingView()), with: subscriptionsManager!, with: entitlementManager)
+        windowManager?.openNewWindow(with: .setting(SettingView()), with: subscriptionsManager!, with: entitlementManager, with: clipboardManager!)
     }
     func openTestView() {
-        windowManager?.openNewWindow(with: .test(TestView()), with: subscriptionsManager!, with: entitlementManager)
+        windowManager?.openNewWindow(with: .test(TestView()), with: subscriptionsManager!, with: entitlementManager, with: clipboardManager!)
     }
     
     private func handleShortcut() {
@@ -96,7 +96,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
 
 class WindowManager: ObservableObject {
     
-    func openNewWindow(with viewType: ViewType, with manager: SubscriptionManager, with entitlementManager: EntitlementManager) {
+    func openNewWindow(with viewType: ViewType, with manager: SubscriptionManager, with entitlementManager: EntitlementManager, with clipboardManager: ClipboardManager) {
         let newWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
             styleMask: [.titled, .closable, .resizable],
@@ -105,7 +105,7 @@ class WindowManager: ObservableObject {
         
         newWindow.title = "Settings"
         // Dynamically opens window
-        setWindowContentView(with: newWindow, with: viewType, with: manager, with: entitlementManager)
+        setWindowContentView(with: newWindow, with: viewType, with: manager, with: entitlementManager, with: clipboardManager)
         newWindow.center()
         // Make the new window key and bring it to the front
         newWindow.makeKeyAndOrderFront(nil)
@@ -115,10 +115,10 @@ class WindowManager: ObservableObject {
         NSApp.activate(ignoringOtherApps: true)
     }
     
-    func setWindowContentView(with currWindow: NSWindow, with viewType: ViewType, with manager: SubscriptionManager, with entitlementManager: EntitlementManager) {
+    func setWindowContentView(with currWindow: NSWindow, with viewType: ViewType, with manager: SubscriptionManager, with entitlementManager: EntitlementManager, with clipboardManager: ClipboardManager) {
             switch viewType {
             case .setting:
-                let settingsView = SettingView()
+                let settingsView = SettingView().environmentObject(clipboardManager)
                 currWindow.contentView = NSHostingView(rootView: settingsView)
             case .test:
                 let testView = TestView().environmentObject(manager).environmentObject(entitlementManager)

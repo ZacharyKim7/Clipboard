@@ -4,6 +4,7 @@ import StoreKit
 
 struct SettingView: View {
     @EnvironmentObject var appDelegate: AppDelegate
+    @EnvironmentObject var ClipboardManager: ClipboardManager
     @State private var selectedSection: SettingSection = .general
     
     let generalSettingsLabel = LabelSettings(
@@ -61,31 +62,57 @@ enum SettingSection {
     case subscription
 }
 
+struct GrowingButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+            configuration.label
+                .padding()
+                .background(.red)
+                .font(.system(size: 12))
+                .foregroundStyle(.white)
+                .clipShape(Capsule())
+                .scaleEffect(configuration.isPressed ? 1.2 : 1)
+                .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
+                .frame(width: 150, height: 15)
+        }
+}
+
 struct GeneralSettingsView: View {
     @EnvironmentObject var appDelegate: AppDelegate
-
+    @EnvironmentObject var clipboardManager: ClipboardManager
+    
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
-                Text("CopyCat Shortcuts")
-                    .font(.headline)
-                    .padding(.bottom, 10)
+                Text("General Settings")
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .font(.system(size: 15))
+                    .padding(.top, 10)
+                    .padding(.horizontal, 5)
                 
                 Divider()
                 
-                // Placeholder
-                Text("Shortcut 1: Action")
-                    .padding([.bottom, .top], 10)
-                Text("Shortcut 2: Action")
-                    .padding(.bottom, 10)
-
+                HStack {
+                    Text("Deletes all saved copies from cache")
+                        .font(.system(size: 13))
+                        .foregroundColor(.gray)
+                    
+                    
+                    Spacer()
+                    
+                    Button("Clean Cache") {
+                        clipboardManager.clearCache()
+                    }
+                    .buttonStyle(GrowingButtonStyle())
+                    
+                }
+                .padding([.top, .leading, .trailing], 12)
+                .frame(width: geometry.size.width, height: geometry.size.height, alignment: .topLeading) // Align the VStack to top-left
             }
-            .padding([.top, .leading], 16)
-            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .topLeading) // Align the VStack to top-left
+            .navigationTitle("General Settings")
         }
-        .navigationTitle("General Settings")
     }
 }
+ 
 
 struct SubscriptionSettingsView: View {
     @EnvironmentObject var appDelegate: AppDelegate

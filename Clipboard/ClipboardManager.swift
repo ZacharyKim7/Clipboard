@@ -183,4 +183,12 @@ class ClipboardManager: ObservableObject {
         // Reset the flag after copying is done
         copyingInProgress = false
     }
+    
+    func clearCache() {
+        clipboardHistory.removeAll()
+        UserDefaults.standard.removeObject(forKey: historyKey)
+        saveClipboardHistory()
+        
+        print("Log: Clipboard cache been cleared!")
+    }
 }
