@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19313BB92CA89A0C006B1095 /* UpdateShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19313BB82CA89A0C006B1095 /* UpdateShortcutView.swift */; };
+		19313BBB2CAD0462006B1095 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19313BBA2CAD0462006B1095 /* Constants.swift */; };
 		1945C2482C9F7B89000F3E18 /* LabelSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1945C2472C9F7B89000F3E18 /* LabelSettings.swift */; };
 		195055FC2C8683EC00200B2E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195055FB2C8683EC00200B2E /* TestView.swift */; };
+		19521ACE2CA66191002083F5 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19521ACD2CA66191002083F5 /* SettingManager.swift */; };
 		19539C042C9E7BFE00F6AB60 /* StoreVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19539C032C9E7BFE00F6AB60 /* StoreVM.swift */; };
 		19539C062C9E825E00F6AB60 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19539C052C9E825E00F6AB60 /* SubscriptionView.swift */; };
 		312E227AA53CD66EB5C0584B /* Pods_Clipboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28DBAE853ED19924211BEB1F /* Pods_Clipboard.framework */; };
@@ -29,8 +32,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19313BB82CA89A0C006B1095 /* UpdateShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateShortcutView.swift; sourceTree = "<group>"; };
+		19313BBA2CAD0462006B1095 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1945C2472C9F7B89000F3E18 /* LabelSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSettings.swift; sourceTree = "<group>"; };
 		195055FB2C8683EC00200B2E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		19521ACD2CA66191002083F5 /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 		19539C022C9E7A8B00F6AB60 /* product.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = product.storekit; sourceTree = "<group>"; };
 		19539C032C9E7BFE00F6AB60 /* StoreVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreVM.swift; sourceTree = "<group>"; };
 		19539C052C9E825E00F6AB60 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
@@ -117,6 +123,9 @@
 				19539C032C9E7BFE00F6AB60 /* StoreVM.swift */,
 				19539C022C9E7A8B00F6AB60 /* product.storekit */,
 				C7C1E60F2C9F590200449781 /* EntitlementManager.swift */,
+				19521ACD2CA66191002083F5 /* SettingManager.swift */,
+				19313BB82CA89A0C006B1095 /* UpdateShortcutView.swift */,
+				19313BBA2CAD0462006B1095 /* Constants.swift */,
 			);
 			path = Clipboard;
 			sourceTree = "<group>";
@@ -184,6 +193,9 @@
 				Base,
 			);
 			mainGroup = C7D79F922C80256800D419EE;
+			packageReferences = (
+				19521AD32CA894DA002083F5 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+			);
 			productRefGroup = C7D79F9C2C80256800D419EE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,8 +270,10 @@
 				C7D79FBA2C83C45800D419EE /* PopupMenuController.swift in Sources */,
 				C7D79FA12C80256800D419EE /* MenuBarView.swift in Sources */,
 				C7D79FB42C83B44300D419EE /* FirstTimeUserView.swift in Sources */,
+				19521ACE2CA66191002083F5 /* SettingManager.swift in Sources */,
 				1945C2482C9F7B89000F3E18 /* LabelSettings.swift in Sources */,
 				C7B9489F2C8668D4009BE618 /* SettingView.swift in Sources */,
+				19313BB92CA89A0C006B1095 /* UpdateShortcutView.swift in Sources */,
 				19539C062C9E825E00F6AB60 /* SubscriptionView.swift in Sources */,
 				195055FC2C8683EC00200B2E /* TestView.swift in Sources */,
 				19539C042C9E7BFE00F6AB60 /* StoreVM.swift in Sources */,
@@ -267,6 +281,7 @@
 				C7D79FB62C83BA9A00D419EE /* PopupMenuView.swift in Sources */,
 				C7B948972C857D3C009BE618 /* ClipboardManager.swift in Sources */,
 				C7D79F9F2C80256800D419EE /* ClipboardApp.swift in Sources */,
+				19313BBB2CAD0462006B1095 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +495,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		19521AD32CA894DA002083F5 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = exactVersion;
+				version = 2.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = C7D79F932C80256800D419EE /* Project object */;
 }

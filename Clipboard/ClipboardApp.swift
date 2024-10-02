@@ -3,6 +3,7 @@ import StoreKit
 import Cocoa
 import MASShortcut
 import SwiftUI
+import KeyboardShortcuts
 
 
 @main
@@ -21,7 +22,7 @@ struct ClipboardApp: App {
 
 enum ViewType
 {
-    case setting(SettingView)
+    //    case setting(SettingView)
     case test(TestView)
 }
 @MainActor
@@ -29,6 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     @Published var clipboardManager: ClipboardManager?
     @Published var storeVM = StoreVM()
     @Published var entitlementManager = EntitlementManager()
+    private var settingManager: SettingManager?
     private var subscriptionsManager: SubscriptionManager?
     private var popupMenuController: PopupMenuController?
     private var windowManager: WindowManager?
@@ -41,13 +43,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         clipboardManager = ClipboardManager(entitlementManager: entitlementManager)
         popupMenuController = PopupMenuController(clipboardManager: clipboardManager!, appDelegate: self)
         windowManager = WindowManager()
+        settingManager = SettingManager(subscriptionManager: subscriptionsManager!, clipboardManager: clipboardManager!)
         checkFirstLaunch()
-        
-        
-        let shortcut = MASShortcut(keyCode: Int(kVK_ANSI_V), modifierFlags: .control)
-        MASShortcutMonitor.shared().register(shortcut, withAction: {
-            self.handleShortcut()
-        })
+        setShortcutToOpenCopiesPanel()
+    }
+    
+    func setShortcutToOpenCopiesPanel() {
+        KeyboardShortcuts.setShortcut(.init(.m, modifiers: [.control]), for: .viewCopiesPanel)
+        KeyboardShortcuts.onKeyUp(for: .viewCopiesPanel) {
+            self.showPopup()
+        }
     }
     
     func showPopup() {
@@ -59,21 +64,37 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     
     func openSettings() {
-        windowManager?.openNewWindow(with: .setting(SettingView()), with: subscriptionsManager!, with: entitlementManager, with: clipboardManager!)
+        guard let settingManager = settingManager else { return }
+        
+        let newWindow = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 600, height: 400),
+            styleMask: [.titled, .closable, .resizable],
+            backing: .buffered, defer: false
+        )
+        newWindow.title = "Settings"
+        
+        // Set the content view to your SettingView and pass the SettingManager
+        //let settingsView = SettingView(settingManager: settingManager)
+        let testView = SettingView(settingManager: settingManager)
+        newWindow.contentView = NSHostingView(rootView: testView)
+        
+        newWindow.center()
+        newWindow.makeKeyAndOrderFront(nil)
+        newWindow.isReleasedWhenClosed = false
+        
+        NSApp.activate(ignoringOtherApps: true)
     }
+    
     func openTestView() {
         windowManager?.openNewWindow(with: .test(TestView()), with: subscriptionsManager!, with: entitlementManager, with: clipboardManager!)
     }
     
-    private func handleShortcut() {
-        showPopup()
-    }
     
     private func checkFirstLaunch() {
         let userDefaults = UserDefaults.standard
         let hasLaunchedBeforeKey = "hasLaunchedBefore"
         userDefaults.set(false, forKey: hasLaunchedBeforeKey)
-//        userDefaults.removeObject(forKey: "ClipboardHistory")
+        //        userDefaults.removeObject(forKey: "ClipboardHistory")
         if !userDefaults.bool(forKey: hasLaunchedBeforeKey) {
             let newWindow = NSWindow(
                 contentRect: NSRect(x: 0, y: 0, width: 800, height: 520),
@@ -81,13 +102,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
                 backing: .buffered,
                 defer: false
             )
-
+            
             newWindow.title = "Clipboard"
             newWindow.contentView = NSHostingView(rootView: FirstTimeUserView().environmentObject(self))
             newWindow.center()
             newWindow.makeKeyAndOrderFront(nil)
             newWindow.isReleasedWhenClosed = false
-
+            
             NSApp.activate(ignoringOtherApps: true)
             
         }
@@ -110,19 +131,19 @@ class WindowManager: ObservableObject {
         // Make the new window key and bring it to the front
         newWindow.makeKeyAndOrderFront(nil)
         newWindow.isReleasedWhenClosed = false
-
+        
         // Optionally set the window as a top-level window for better management
         NSApp.activate(ignoringOtherApps: true)
     }
     
     func setWindowContentView(with currWindow: NSWindow, with viewType: ViewType, with manager: SubscriptionManager, with entitlementManager: EntitlementManager, with clipboardManager: ClipboardManager) {
-            switch viewType {
-            case .setting:
-                let settingsView = SettingView().environmentObject(clipboardManager)
-                currWindow.contentView = NSHostingView(rootView: settingsView)
-            case .test:
-                let testView = TestView().environmentObject(manager).environmentObject(entitlementManager)
-                currWindow.contentView = NSHostingView(rootView: testView)
-            }
+        switch viewType {
+            //            case .setting:
+            //                let settingsView = SettingView(settingManager: SettingManager)
+            //                currWindow.contentView = NSHostingView(rootView: settingsView)
+        case .test:
+            let testView = TestView().environmentObject(manager).environmentObject(entitlementManager)
+            currWindow.contentView = NSHostingView(rootView: testView)
+        }
     }
 }

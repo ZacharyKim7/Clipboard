@@ -49,8 +49,8 @@ struct SubscriptionView: View {
     }
 }
 
-struct SubscriptionView_Previews: PreviewProvider {
-    static var previews: some View {
-        SubscriptionView().environmentObject(StoreVM())
-    }
-}
+//struct SubscriptionView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SubscriptionView().environmentObject(StoreVM())
+//    }
+//}
