@@ -114,11 +114,25 @@ struct GeneralSettingsView: View {
                     
                     ShortcutRecorderView(name: .viewCopiesPanel)
                         .frame(width: 50, height: 50)
-                        // Need to clean this, tried aligning both clean cache button and these to be
-                        // centered but need to manual align it
+                    // Need to clean this, tried aligning both clean cache button and these to be
+                    // centered but need to manual align it
                         .padding([.trailing], 50)
                 }
                 .padding([.top, .leading, .trailing, .bottom], 14)
+                
+                // Color Picker Section
+                HStack {
+                    Text("Set copies panel background color: ")
+                        .font(.system(size: 13))
+                        .foregroundColor(.gray)
+                    
+                    Spacer()
+                    
+                    // Dont allow users to change opacity
+                    ColorPicker("Select Color", selection: $settingManager.panelColor, supportsOpacity: false)
+                        
+                }
+                .padding([.leading, .trailing, .bottom], 14)
                 
                 Spacer()
             }
@@ -130,11 +144,11 @@ struct GeneralSettingsView: View {
 
 struct ShortcutRecorderView: NSViewRepresentable {
     let name: KeyboardShortcuts.Name
-
+    
     func makeNSView(context: Context) -> KeyboardShortcuts.RecorderCocoa {
         return KeyboardShortcuts.RecorderCocoa(for: name)
     }
-
+    
     func updateNSView(_ nsView: KeyboardShortcuts.RecorderCocoa, context: Context) {
     }
 }

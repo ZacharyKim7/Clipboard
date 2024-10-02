@@ -11,6 +11,7 @@ import SwiftUI
 class SettingManager: ObservableObject {
     @Published var selectedSection: SettingSection = .general
     @Published var subscriptionPlan: String = "Basic"
+    @Published var panelColor: Color = Color.gray.opacity(0.1)
     public var subscriptionManager: SubscriptionManager? = nil
     public var clipboardManager: ClipboardManager? = nil
     

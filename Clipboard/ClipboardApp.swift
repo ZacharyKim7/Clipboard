@@ -41,9 +41,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         // Initialize popupMenuController after clipboardManager is set up
         subscriptionsManager = SubscriptionManager(entitlementManager: entitlementManager)
         clipboardManager = ClipboardManager(entitlementManager: entitlementManager)
-        popupMenuController = PopupMenuController(clipboardManager: clipboardManager!, appDelegate: self)
         windowManager = WindowManager()
         settingManager = SettingManager(subscriptionManager: subscriptionsManager!, clipboardManager: clipboardManager!)
+        popupMenuController = PopupMenuController(clipboardManager: clipboardManager!, appDelegate: self, settingManager: settingManager!)
         checkFirstLaunch()
         setShortcutToOpenCopiesPanel()
     }

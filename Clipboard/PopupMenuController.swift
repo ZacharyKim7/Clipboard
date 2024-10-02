@@ -8,12 +8,14 @@ class PopupMenuController {
     private var appActivationObserver: Any?
     private let clipboardManager: ClipboardManager
     private let appDelegate: AppDelegate
+    private let settingManger: SettingManager
     private var hidingPopup: Bool = false
     private var showingPopup: Bool = false
 
-    init(clipboardManager: ClipboardManager, appDelegate: AppDelegate) {
+    init(clipboardManager: ClipboardManager, appDelegate: AppDelegate, settingManager: SettingManager) {
         self.clipboardManager = clipboardManager
         self.appDelegate = appDelegate
+        self.settingManger = settingManager
         self.createWindow()
     }
     
@@ -23,7 +25,7 @@ class PopupMenuController {
         let screenFrame = screen.frame
 
         // Create the SwiftUI view
-        let popupView = PopupMenuView(clipboardManager: clipboardManager, appDelegate: appDelegate)
+        let popupView = PopupMenuView(clipboardManager: clipboardManager, appDelegate: appDelegate, settingsManager: settingManger)
         let hostingController = NSHostingController(rootView: popupView)
         
         // Create an NSWindow to host the view
@@ -34,7 +36,6 @@ class PopupMenuController {
             defer: false
         )
         window.isOpaque = false
-        window.backgroundColor = NSColor.clear
         window.level = .popUpMenu
         window.isReleasedWhenClosed = false
         

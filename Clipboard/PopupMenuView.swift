@@ -4,9 +4,9 @@ struct PopupMenuView: View {
     
     @ObservedObject var clipboardManager: ClipboardManager
     @ObservedObject var appDelegate: AppDelegate
+    @ObservedObject var settingsManager: SettingManager
     //    @ObservedObject var subscriptionManager = SubscriptionManager()
     @State private var deletingIndex: Int? = nil
-    @State var panelColor: Color? = Color.gray
     
     var body: some View {
         ScrollViewReader { proxy in
@@ -53,6 +53,7 @@ struct PopupMenuView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity) // Ensures VStack takes full space
                 .padding(.vertical, 10)
             }
+            .background(settingsManager.panelColor)
         }
     }
 }
@@ -95,7 +96,7 @@ struct ClipboardItemView: View {
                 
                 // Content view based on content type
                 contentView(for: item)
-                    .background(Color.gray.opacity(0.1))
+                    .background(Color.gray.opacity(0.8))
                     .cornerRadius(10)
                     .padding(.vertical, 5)
                     .padding(.horizontal, 10)
