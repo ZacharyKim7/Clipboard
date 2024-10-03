@@ -130,7 +130,24 @@ struct GeneralSettingsView: View {
                     
                     // Dont allow users to change opacity
                     ColorPicker("Select Color", selection: $settingManager.panelColor, supportsOpacity: false)
-                        
+                    
+                }
+                .padding([.leading, .trailing, .bottom], 14)
+                
+                HStack {
+                    Text("Select Item Size:")
+                        .font(.system(size: 13))
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 5)
+                    
+                    Picker("", selection: $settingManager.itemSize) {
+                        Text("Small").tag(ItemSize.small)
+                        Text("Medium").tag(ItemSize.medium)
+                        Text("Large").tag(ItemSize.large)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(.leading, 10)
+                    
                 }
                 .padding([.leading, .trailing, .bottom], 14)
                 

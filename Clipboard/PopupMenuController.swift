@@ -16,10 +16,10 @@ class PopupMenuController {
         self.clipboardManager = clipboardManager
         self.appDelegate = appDelegate
         self.settingManger = settingManager
-        self.createWindow()
+        self.createWindow(settingManager: settingManager)
     }
     
-    func createWindow() {
+    func createWindow(settingManager: SettingManager) {
         guard let screen = NSScreen.main else { return }
         // Get the full screen frame including the Dock
         let screenFrame = screen.frame
@@ -55,9 +55,9 @@ class PopupMenuController {
         
         // Position the window
         let initialFrame = NSRect(
-            x: -250, // Popup width
+            x: -settingManager.itemSize.dimensions.panelSize, // Popup width
             y: screenFrame.minY,
-            width: 250, // Popup width
+            width: settingManager.itemSize.dimensions.panelSize, // Popup width
             height: screenFrame.height
         )
         

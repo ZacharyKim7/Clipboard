@@ -24,7 +24,7 @@ struct PopupMenuView: View {
                                 // Display only the first 3 items and the lock icon
                                 if index < 3 {
                                     if index != deletingIndex {
-                                        ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, deletingIndex: $deletingIndex)
+                                        ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, settingManager: settingsManager, deletingIndex: $deletingIndex)
                                     }
                                 }
                             }
@@ -37,14 +37,14 @@ struct PopupMenuView: View {
                                         .cornerRadius(10)
                                         .padding(.vertical, 5)
                                         .padding(.horizontal, 10)
-                                        .frame(height: 160)
+                                        .frame(height: settingsManager.itemSize.dimensions.height)
                                 }.buttonStyle(.plain)
                             }
                         } else {
                             // For paid users, display all items
                             ForEach(Array(clipboardManager.clipboardHistory.enumerated()), id: \.element.id) { index, item in
                                 if index != deletingIndex {
-                                    ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, deletingIndex: $deletingIndex)
+                                    ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, settingManager: settingsManager, deletingIndex: $deletingIndex)
                                 }
                             }
                         }
@@ -62,6 +62,7 @@ struct ClipboardItemView: View {
     let item: ClipboardItem
     let index: Int
     @ObservedObject var clipboardManager: ClipboardManager
+    @ObservedObject var settingManager: SettingManager
     @Binding var deletingIndex: Int?
     
     var body: some View {
@@ -101,7 +102,7 @@ struct ClipboardItemView: View {
                     .padding(.vertical, 5)
                     .padding(.horizontal, 10)
             }
-            .frame(height: 200)
+            .frame(height: settingManager.itemSize.dimensions.width)
             .transition(.move(edge: .leading))
             .animation(.easeOut(duration: 0.3), value: deletingIndex)
         }
