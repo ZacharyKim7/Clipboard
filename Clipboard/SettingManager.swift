@@ -26,16 +26,21 @@ enum ItemSize {
 }
 
 class SettingManager: ObservableObject {
+    @ObservedObject var entitlementManager: EntitlementManager
     @Published var selectedSection: SettingSection = .general
     @Published var subscriptionPlan: String = "Basic"
     @Published var panelColor: Color = Color.gray.opacity(0.1)
     @Published var itemSize: ItemSize = .medium
+    @Published var numberOfCopies: Int = 3
     public var subscriptionManager: SubscriptionManager? = nil
     public var clipboardManager: ClipboardManager? = nil
     
-    init(subscriptionManager: SubscriptionManager? = nil, clipboardManager: ClipboardManager? = nil) {
+    init(subscriptionManager: SubscriptionManager? = nil, clipboardManager: ClipboardManager? = nil, entitlementManager: EntitlementManager) {
         self.subscriptionManager = subscriptionManager
         self.clipboardManager = clipboardManager
+        self.entitlementManager = entitlementManager
+
+        numberOfCopies = entitlementManager.hasPro ? 50 : 3
     }
     
     let generalSettingsLabel = LabelSettings(

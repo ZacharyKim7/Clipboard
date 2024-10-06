@@ -20,15 +20,12 @@ struct PopupMenuView: View {
                             .padding() // Add padding around the text
                     } else {
                         if !appDelegate.entitlementManager.hasPro {
-                            ForEach(Array(clipboardManager.clipboardHistory.enumerated()), id: \.element.id) { index, item in
-                                // Display only the first 3 items and the lock icon
-                                if index < 3 {
-                                    if index != deletingIndex {
-                                        ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, settingManager: settingsManager, deletingIndex: $deletingIndex)
-                                    }
+                            ForEach(Array(clipboardManager.clipboardHistory.prefix(settingsManager.numberOfCopies).enumerated()), id: \.element.id) { index, item in
+                                if index != deletingIndex {
+                                    ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, settingManager: settingsManager, deletingIndex: $deletingIndex)
                                 }
                             }
-                            if clipboardManager.clipboardHistory.count == 3 {
+                            if clipboardManager.clipboardHistory.count > 3 {
                                 Button(action: {
                                     appDelegate.openTestView()
                                 }) {

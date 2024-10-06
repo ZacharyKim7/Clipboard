@@ -78,6 +78,9 @@ struct GrowingButtonStyle: ButtonStyle {
 
 struct GeneralSettingsView: View {
     @ObservedObject var settingManager: SettingManager
+    @Environment(\.requestReview) var requestReview
+    @State private var launchCount = UserDefaults.standard.integer(forKey: "launchCount")
+    
     
     var body: some View {
         GeometryReader { geometry in
@@ -134,6 +137,7 @@ struct GeneralSettingsView: View {
                 }
                 .padding([.leading, .trailing, .bottom], 14)
                 
+                // Select Copies Size
                 HStack {
                     Text("Select Item Size:")
                         .font(.system(size: 13))
@@ -150,6 +154,34 @@ struct GeneralSettingsView: View {
                     
                 }
                 .padding([.leading, .trailing, .bottom], 14)
+                
+                // Select Number of copies to appear on panel
+                HStack {
+                    Text("Adjust number of copies to display:")
+                        .font(.system(size: 13))
+                        .foregroundColor(.gray)
+                    
+                    Spacer()
+                    
+                    Text(String(settingManager.numberOfCopies))
+                        .font(.system(size: 13))
+                        .foregroundColor(.gray)
+                }
+                .padding([.leading, .trailing, .bottom], 14)
+                
+                HStack(alignment: .center) {
+                    Text("Rate our app")
+                        .font(.system(size: 13))
+                        .foregroundColor(.gray)
+                    
+                    Spacer()
+                    
+                    Button("RateApp", action: {
+                        // Trigger the review request when the button is pressed
+                        requestReview()
+                    }).buttonStyle(GrowingButtonStyle())
+                }
+                .padding([.top, .leading, .trailing, .bottom], 14)
                 
                 Spacer()
             }
@@ -190,6 +222,7 @@ struct SubscriptionSettingsView: View {
         .navigationTitle("Subscription Plan")
     }
 }
+
 
 //struct SettingView_Previews: PreviewProvider {
 //    static var previews: some View {

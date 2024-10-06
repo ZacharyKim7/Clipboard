@@ -42,7 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         subscriptionsManager = SubscriptionManager(entitlementManager: entitlementManager)
         clipboardManager = ClipboardManager(entitlementManager: entitlementManager)
         windowManager = WindowManager()
-        settingManager = SettingManager(subscriptionManager: subscriptionsManager!, clipboardManager: clipboardManager!)
+        settingManager = SettingManager(subscriptionManager: subscriptionsManager!, clipboardManager: clipboardManager!, entitlementManager: entitlementManager)
         popupMenuController = PopupMenuController(clipboardManager: clipboardManager!, appDelegate: self, settingManager: settingManager!)
         checkFirstLaunch()
         setShortcutToOpenCopiesPanel()
