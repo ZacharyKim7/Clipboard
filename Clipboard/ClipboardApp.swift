@@ -35,6 +35,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     private var popupMenuController: PopupMenuController?
     private var windowManager: WindowManager?
     
+    // Keep a reference to the settings window
+    private var settingsWindow: NSWindow?
+    
+    
     override init() {
         
         super.init()
@@ -64,25 +68,43 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     
     func openSettings() {
-        guard let settingManager = settingManager else { return }
-        
-        let newWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 600, height: 400),
-            styleMask: [.titled, .closable, .resizable],
-            backing: .buffered, defer: false
-        )
-        newWindow.title = "Settings"
-        
-        // Set the content view to your SettingView and pass the SettingManager
-        //let settingsView = SettingView(settingManager: settingManager)
-        let testView = SettingView(settingManager: settingManager)
-        newWindow.contentView = NSHostingView(rootView: testView)
-        
-        newWindow.center()
-        newWindow.makeKeyAndOrderFront(nil)
-        newWindow.isReleasedWhenClosed = false
-        
-        NSApp.activate(ignoringOtherApps: true)
+        // Check if the window already exists and is open
+        if let window = settingsWindow {
+            // Bring the window to the front if it already exists
+            window.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+        } else {
+            // Create the settings window
+            let newWindow = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 600, height: 400),
+                styleMask: [.titled, .closable, .resizable],
+                backing: .buffered, defer: false
+            )
+            newWindow.title = "Settings"
+            
+            // Set the content view to the SettingView and pass the SettingManager
+            let settingsView = SettingView(settingManager: settingManager!)
+            newWindow.contentView = NSHostingView(rootView: settingsView)
+            newWindow.center()
+            newWindow.makeKeyAndOrderFront(nil)
+            newWindow.isReleasedWhenClosed = false
+            
+            // Activate the app and bring the window to the front
+            NSApp.activate(ignoringOtherApps: true)
+            
+            // Store the window reference to avoid recreating it
+            settingsWindow = newWindow
+            
+            // Add an observer to clean up the reference when the window is closed
+            NotificationCenter.default.addObserver(self, selector: #selector(windowDidClose(_:)), name: NSWindow.willCloseNotification, object: newWindow)
+        }
+    }
+    
+    // Handle window close to release the reference
+    @objc func windowDidClose(_ notification: Notification) {
+        if let window = notification.object as? NSWindow, window == settingsWindow {
+            settingsWindow = nil // Release the reference when window is closed
+        }
     }
     
     func openTestView() {
