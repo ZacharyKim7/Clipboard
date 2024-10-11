@@ -2,18 +2,19 @@ import SwiftUI
 import StoreKit
 
 struct SubscriptionView: View {
-    @EnvironmentObject var storeVM: StoreVM
+    @EnvironmentObject var subscriptionManager: SubscriptionManager
+    @EnvironmentObject var entitlementManager: EntitlementManager
     @State var isPurchased = false
 
     var body: some View {
         Group {
-            if storeVM.isUserPaid() {
+            if entitlementManager.hasPro {
                 Text("This user is PAID!")
             } else {
                 Text("GOOFY")
             }
             Section("Upgrade to Premium") {
-                ForEach(storeVM.subscriptions) { product in
+                ForEach(subscriptionManager.products) { product in
                     Button(action: {
                         Task {
                             await buy(product: product)
@@ -39,18 +40,6 @@ struct SubscriptionView: View {
     }
     
     func buy(product: Product) async {
-        do {
-            if try await storeVM.purchase(product) != nil {
-                isPurchased = true
-            }
-        } catch {
-            print("purchase failed")
-        }
-    }
-}
-
-struct SubscriptionView_Previews: PreviewProvider {
-    static var previews: some View {
-        SubscriptionView().environmentObject(StoreVM())
+        await subscriptionManager.buyProduct(product)
     }
 }

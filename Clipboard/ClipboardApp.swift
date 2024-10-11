@@ -23,6 +23,7 @@ enum ViewType
 {
     case setting(SettingView)
     case test(TestView)
+    case subscriptionView(SubscriptionView)
 }
 @MainActor
 class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
@@ -62,7 +63,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         windowManager?.openNewWindow(with: .setting(SettingView()), with: subscriptionsManager!, with: entitlementManager, with: clipboardManager!)
     }
     func openTestView() {
-        windowManager?.openNewWindow(with: .test(TestView()), with: subscriptionsManager!, with: entitlementManager, with: clipboardManager!)
+        // Create the new window
+        let newWindow = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 520, height: 620),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+        
+        newWindow.title = "Subscriptions"
+        
+        // Set the content view with the environment objects
+        let testView = TestView()
+            .environmentObject(subscriptionsManager!)
+            .environmentObject(entitlementManager)
+
+        newWindow.contentView = NSHostingView(rootView: testView)
+
+        // Center the window on the screen
+        newWindow.center()
+
+        // Make the window key and front
+        newWindow.makeKeyAndOrderFront(nil)
+        newWindow.isReleasedWhenClosed = false
+
+        // Activate the app
+        NSApp.activate(ignoringOtherApps: true)
     }
     
     private func handleShortcut() {
@@ -99,7 +125,7 @@ class WindowManager: ObservableObject {
     func openNewWindow(with viewType: ViewType, with manager: SubscriptionManager, with entitlementManager: EntitlementManager, with clipboardManager: ClipboardManager) {
         let newWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
-            styleMask: [.titled, .closable, .resizable],
+            styleMask: [.titled, .closable],
             backing: .buffered, defer: false
         )
         
@@ -123,6 +149,9 @@ class WindowManager: ObservableObject {
             case .test:
                 let testView = TestView().environmentObject(manager).environmentObject(entitlementManager)
                 currWindow.contentView = NSHostingView(rootView: testView)
+            case .subscriptionView:
+                let subscriptionView = SubscriptionView().environmentObject(manager).environmentObject(entitlementManager)
+                currWindow.contentView = NSHostingView(rootView: subscriptionView)
             }
     }
 }
