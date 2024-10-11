@@ -82,7 +82,7 @@ extension SubscriptionManager {
     }
     
     func updatePurchasedProducts() async {
-        print("Beginning")
+        
         for await result in Transaction.currentEntitlements {
             guard case .verified(let transaction) = result else {
                 continue

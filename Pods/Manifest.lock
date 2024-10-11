@@ -1,16 +1,20 @@
 PODS:
+  - KeyboardShortcuts (0.7.1)
   - MASShortcut (2.4.0)
 
 DEPENDENCIES:
+  - KeyboardShortcuts
   - MASShortcut
 
 SPEC REPOS:
   trunk:
+    - KeyboardShortcuts
     - MASShortcut
 
 SPEC CHECKSUMS:
+  KeyboardShortcuts: de68625ae0471476fa92dc363a341f4981b29947
   MASShortcut: d9e4909e878661cc42877cc9d6efbe638273ab57
 
-PODFILE CHECKSUM: 88c899d1778f5cd533313294225ddf1ce2654eaa
+PODFILE CHECKSUM: 094fba24551af42495010b23c2974dfe2e0efc3c
 
-COCOAPODS: 1.13.0
+COCOAPODS: 1.15.2

@@ -4,7 +4,8 @@ struct PopupMenuView: View {
     
     @ObservedObject var clipboardManager: ClipboardManager
     @ObservedObject var appDelegate: AppDelegate
-//    @ObservedObject var subscriptionManager = SubscriptionManager()
+    @ObservedObject var settingsManager: SettingManager
+    //    @ObservedObject var subscriptionManager = SubscriptionManager()
     @State private var deletingIndex: Int? = nil
     
     var body: some View {
@@ -18,49 +19,47 @@ struct PopupMenuView: View {
                             .multilineTextAlignment(.center)
                             .padding() // Add padding around the text
                     } else {
-                            if !appDelegate.entitlementManager.hasPro {
-                                ForEach(Array(clipboardManager.clipboardHistory.enumerated()), id: \.element.id) { index, item in
-                                    // Display only the first 3 items and the lock icon
-                                    if index < 3 {
-                                        if index != deletingIndex {
-                                            ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, deletingIndex: $deletingIndex)
-                                        }
-                                    }
-                                }
-                                if clipboardManager.clipboardHistory.count == 3 {
-                                    Button(action: {
-                                        appDelegate.openTestView()
-                                    }) {
-                                        LockIconView()
-                                            .background(Color.gray.opacity(0.1))
-                                            .cornerRadius(10)
-                                            .padding(.vertical, 5)
-                                            .padding(.horizontal, 10)
-                                            .frame(height: 160)
-                                    }.buttonStyle(.plain)
-                                }
-                            } else {
-                                // For paid users, display all items
-                                ForEach(Array(clipboardManager.clipboardHistory.enumerated()), id: \.element.id) { index, item in
-                                    if index != deletingIndex {
-                                        ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, deletingIndex: $deletingIndex)
-                                    }
+                        if !appDelegate.entitlementManager.hasPro {
+                            ForEach(Array(clipboardManager.clipboardHistory.prefix(settingsManager.numberOfCopies).enumerated()), id: \.element.id) { index, item in
+                                if index != deletingIndex {
+                                    ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, settingManager: settingsManager, deletingIndex: $deletingIndex)
                                 }
                             }
+                            if clipboardManager.clipboardHistory.count > 3 {
+                                Button(action: {
+                                    appDelegate.openTestView()
+                                }) {
+                                    LockIconView()
+                                        .background(Color.red.opacity(0.1))
+                                        .cornerRadius(10)
+                                        .padding(.vertical, 5)
+                                        .padding(.horizontal, 10)
+                                        .frame(height: settingsManager.itemSize.dimensions.height)
+                                }.buttonStyle(.plain)
+                            }
+                        } else {
+                            // For paid users, display all items
+                            ForEach(Array(clipboardManager.clipboardHistory.enumerated()), id: \.element.id) { index, item in
+                                if index != deletingIndex {
+                                    ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, settingManager: settingsManager, deletingIndex: $deletingIndex)
+                                }
+                            }
+                        }
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity) // Ensures VStack takes full space
                 .padding(.vertical, 10)
             }
+            .background(settingsManager.panelColor)
         }
     }
-
 }
 
 struct ClipboardItemView: View {
     let item: ClipboardItem
     let index: Int
     @ObservedObject var clipboardManager: ClipboardManager
+    @ObservedObject var settingManager: SettingManager
     @Binding var deletingIndex: Int?
     
     var body: some View {
@@ -92,22 +91,22 @@ struct ClipboardItemView: View {
                 }
                 .padding(.top, 5)
                 .padding(.horizontal, 15)
-
+                
                 // Content view based on content type
                 contentView(for: item)
-                    .background(Color.gray.opacity(0.1))
+                    .background(Color.gray.opacity(0.8))
                     .cornerRadius(10)
                     .padding(.vertical, 5)
                     .padding(.horizontal, 10)
             }
-            .frame(height: 200)
+            .frame(height: settingManager.itemSize.dimensions.width)
             .transition(.move(edge: .leading))
             .animation(.easeOut(duration: 0.3), value: deletingIndex)
         }
         .buttonStyle(PlainButtonStyle())
         .modifier(KeyboardShortcutModifier(index: index))
     }
-
+    
     private func contentView(for item: ClipboardItem) -> some View {
         switch item.contentType {
         case 0:
@@ -118,11 +117,11 @@ struct ClipboardItemView: View {
             return AnyView(ImageView(content: item.imgUrl))
         default:
             return AnyView(Text("Unknown Content")
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .multilineTextAlignment(.center))
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .multilineTextAlignment(.center))
         }
     }
-
+    
     private func startDeletion(at index: Int) {
         withAnimation {
             deletingIndex = index
@@ -150,7 +149,7 @@ struct ClipboardItemView: View {
 
 struct KeyboardShortcutModifier: ViewModifier {
     let index: Int
-
+    
     func body(content: Content) -> some View {
         if (1...9).contains(index + 1) {
             content.keyboardShortcut(KeyEquivalent(Character("\(index + 1)")), modifiers: .command)
@@ -165,13 +164,13 @@ struct TextView: View {
     
     var body: some View {
         Text(content.trimmingCharacters(in: .whitespaces))
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .multilineTextAlignment(.center)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .multilineTextAlignment(.center)
     }
 }
 
 struct LockIconView: View {
-
+    
     var body: some View {
         VStack {
             Spacer()
