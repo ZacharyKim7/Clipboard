@@ -531,7 +531,6 @@
 				"zh-Hant",
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			minimizedProjectReferenceProxies = 0;
 			productRefGroup = DE884C1B6EE24E510E78161D4B4FA62C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

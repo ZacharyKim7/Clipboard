@@ -25,12 +25,12 @@ struct PopupMenuView: View {
                                     ClipboardItemView(item: item, index: index, clipboardManager: clipboardManager, settingManager: settingsManager, deletingIndex: $deletingIndex)
                                 }
                             }
-                            if clipboardManager.clipboardHistory.count > 3 {
+                            if clipboardManager.clipboardHistory.count == 3 {
                                 Button(action: {
                                     appDelegate.openTestView()
                                 }) {
                                     LockIconView()
-                                        .background(Color.red.opacity(0.1))
+                                        .background(Color.gray.opacity(0.1))
                                         .cornerRadius(10)
                                         .padding(.vertical, 5)
                                         .padding(.horizontal, 10)
@@ -94,18 +94,35 @@ struct ClipboardItemView: View {
                 
                 // Content view based on content type
                 contentView(for: item)
-                    .background(Color.gray.opacity(0.8))
+                    .background(Color.gray.opacity(0.1))
                     .cornerRadius(10)
-                    .padding(.vertical, 5)
+                    .padding(.top, 5)
                     .padding(.horizontal, 10)
+                    .padding(.bottom, 10)
             }
             .frame(height: settingManager.itemSize.dimensions.width)
             .transition(.move(edge: .leading))
             .animation(.easeOut(duration: 0.3), value: deletingIndex)
         }
         .buttonStyle(PlainButtonStyle())
+        .background(backgroundColor(for: item))
+        .cornerRadius(10)
+        .padding(10)
         .modifier(KeyboardShortcutModifier(index: index))
     }
+    
+    func backgroundColor(for item: ClipboardItem) -> Color {
+        switch item.contentType {
+            case 0:
+                return Color.black.opacity(0.1)
+            case 1:
+                return Color.blue.opacity(0.1)
+            case 2:
+                return Color.red.opacity(0.1)
+            default:
+                return Color.clear
+            }
+        }
     
     private func contentView(for item: ClipboardItem) -> some View {
         switch item.contentType {
