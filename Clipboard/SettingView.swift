@@ -24,28 +24,7 @@ struct SettingView: View {
     )
     
     var body: some View {
-        NavigationView {
-            List {
-                Section {
-                    Button(action: { selectedSection = .general }) {
-                        configureLabel(with: settingManager.generalSettingsLabel)
-                    }
-                    Button(action: { selectedSection = .subscription }) {
-                        configureLabel(with: settingManager.subscriptionLabel)
-                    }
-                }
-            }
-            .listStyle(SidebarListStyle())
-            .frame(minWidth: 180)
-            
-            // Display the selected section's settings
-            switch selectedSection {
-            case .general:
-                GeneralSettingsView(settingManager: settingManager)
-            case .subscription:
-                SubscriptionSettingsView()
-            }
-        }
+        GeneralSettingsView(settingManager: settingManager)
         .frame(width: 650, height: 500)
     }
     
@@ -53,7 +32,6 @@ struct SettingView: View {
     func configureLabel(with settings: LabelSettings) -> some View {
         Label(settings.title, systemImage: settings.systemImage)
             .font(.system(size: settings.fontSize))
-            .frame(width: settings.width, height: settings.height)
     }
 }
 
@@ -89,7 +67,7 @@ struct GeneralSettingsView: View {
                     .fontWeight(.bold)
                     .font(.system(size: 15))
                     .padding(.top, 10)
-                    .padding(.horizontal, 5)
+                    .padding(.horizontal, 10)
                 
                 Divider()
                 
