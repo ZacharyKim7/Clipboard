@@ -114,11 +114,11 @@ struct ClipboardItemView: View {
     func backgroundColor(for item: ClipboardItem) -> Color {
         switch item.contentType {
             case 0:
-                return Color.black.opacity(0.1)
+                return Color.black.opacity(0.7)
             case 1:
-                return Color.blue.opacity(0.1)
+                return Color.blue.opacity(0.7)
             case 2:
-                return Color.red.opacity(0.1)
+                return Color.red.opacity(0.7)
             default:
                 return Color.clear
             }

@@ -54,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     
     func setShortcutToOpenCopiesPanel() {
-        KeyboardShortcuts.setShortcut(.init(.m, modifiers: [.control]), for: .viewCopiesPanel)
+        KeyboardShortcuts.setShortcut(.init(.v, modifiers: [.control]), for: .viewCopiesPanel)
         KeyboardShortcuts.onKeyUp(for: .viewCopiesPanel) {
             self.showPopup()
         }

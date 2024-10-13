@@ -1,17 +1,10 @@
-//
-//  SettingManager.swift
-//  Clipboard
-//
-//  Created by Matija Benko on 9/26/24.
-//
-
 import Foundation
 import SwiftUI
 
-enum ItemSize {
-    case small
-    case medium
-    case large
+enum ItemSize: String {
+    case small = "small"
+    case medium = "medium"
+    case large = "large"
     
     var dimensions: (width: CGFloat, height: CGFloat, panelSize: CGFloat) {
         switch self {
@@ -29,9 +22,22 @@ class SettingManager: ObservableObject {
     @ObservedObject var entitlementManager: EntitlementManager
     @Published var selectedSection: SettingSection = .general
     @Published var subscriptionPlan: String = "Basic"
-    @Published var panelColor: Color = Color.gray.opacity(0.1)
-    @Published var itemSize: ItemSize = .medium
-    @Published var numberOfCopies: Int = 3
+    @Published var panelColor: Color = Color.gray {
+        didSet {
+            savePanelColor()
+        }
+    }
+    @Published var itemSize: ItemSize = .medium {
+        didSet {
+            saveItemSize()
+        }
+    }
+    @Published var numberOfCopies: Int = 3 {
+        didSet {
+            saveNumberOfCopies()
+        }
+    }
+    
     public var subscriptionManager: SubscriptionManager? = nil
     public var clipboardManager: ClipboardManager? = nil
     
@@ -39,8 +45,11 @@ class SettingManager: ObservableObject {
         self.subscriptionManager = subscriptionManager
         self.clipboardManager = clipboardManager
         self.entitlementManager = entitlementManager
-
-        numberOfCopies = entitlementManager.hasPro ? 50 : 3
+        
+        loadSettings() // Load saved settings on initialization
+        
+        // Adjust the number of copies based on the entitlement
+        numberOfCopies = entitlementManager.hasPro ? 50 : numberOfCopies
     }
     
     let generalSettingsLabel = LabelSettings(
@@ -59,4 +68,39 @@ class SettingManager: ObservableObject {
         height: 35
     )
     
+    // MARK: - Load and Save Settings
+    
+    private func loadSettings() {
+        let defaults = UserDefaults.standard
+        
+        // Load numberOfCopies from UserDefaults
+        if let savedCopies = defaults.value(forKey: "numberOfCopies") as? Int {
+            numberOfCopies = savedCopies
+        }
+        
+        // Load panelColor from UserDefaults
+        if let savedColorString = defaults.string(forKey: "panelColor"),
+           let color = Color(rawValue: savedColorString) {
+            panelColor = color
+        }
+        
+        // Load panelSize from UserDefaults
+        let savedSize = defaults.string(forKey: "panelSize") ?? ItemSize.medium.rawValue
+        itemSize = ItemSize(rawValue: savedSize) ?? .medium
+    }
+    
+    private func saveNumberOfCopies() {
+        let defaults = UserDefaults.standard
+        defaults.set(numberOfCopies, forKey: "numberOfCopies")
+    }
+    
+    private func savePanelColor() {
+        let defaults = UserDefaults.standard
+        defaults.set(panelColor.rawValue, forKey: "panelColor")
+    }
+    
+    private func saveItemSize() {
+        let defaults = UserDefaults.standard
+        defaults.set(itemSize.rawValue, forKey: "panelSize")  // Save itemSize to UserDefaults
+    }
 }
