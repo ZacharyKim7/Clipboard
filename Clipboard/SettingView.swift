@@ -132,7 +132,7 @@ struct GeneralSettingsView: View {
                     Spacer()
                     
                     // Dont allow users to change opacity
-                    ColorPicker("Select Color", selection: $settingManager.panelColor, supportsOpacity: false)
+                    ColorPicker("Select Color", selection: $settingManager.panelColor, supportsOpacity: true)
                     
                 }
                 .padding([.leading, .trailing, .bottom], 14)
