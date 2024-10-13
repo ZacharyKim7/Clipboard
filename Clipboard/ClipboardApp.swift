@@ -84,7 +84,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             newWindow.title = "Settings"
             
             // Set the content view to the SettingView and pass the SettingManager
-            let settingsView = SettingView(settingManager: settingManager!)
+            let settingsView = SettingView(settingManager: settingManager!, appDelegate: self)
             newWindow.contentView = NSHostingView(rootView: settingsView)
             newWindow.center()
             newWindow.makeKeyAndOrderFront(nil)

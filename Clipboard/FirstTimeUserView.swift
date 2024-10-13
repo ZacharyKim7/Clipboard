@@ -8,7 +8,7 @@ struct FirstTimeUserView: View {
     var body: some View {
         VStack(spacing: 20) {
             // App Logo or Cool Symbol
-            Image(systemName: "doc.plaintext")
+            Image("CopyCat")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 100)

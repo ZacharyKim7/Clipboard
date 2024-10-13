@@ -5,6 +5,7 @@ import KeyboardShortcuts
 
 struct SettingView: View {
     @ObservedObject var settingManager: SettingManager
+    @ObservedObject var appDelegate: AppDelegate
     @State private var selectedSection: SettingSection = .general
     
     let generalSettingsLabel = LabelSettings(
@@ -24,7 +25,7 @@ struct SettingView: View {
     )
     
     var body: some View {
-        GeneralSettingsView(settingManager: settingManager)
+        GeneralSettingsView(settingManager: settingManager, appDelegate: appDelegate)
             .frame(width: 650, height: 500)
     }
     
@@ -58,6 +59,7 @@ struct GrowingButtonStyle: ButtonStyle {
 
 struct GeneralSettingsView: View {
     @ObservedObject var settingManager: SettingManager
+    @ObservedObject var appDelegate: AppDelegate
     @Environment(\.requestReview) var requestReview
     @State private var launchCount = UserDefaults.standard.integer(forKey: "launchCount")
     
@@ -138,20 +140,6 @@ struct GeneralSettingsView: View {
                 }
                 .padding([.leading, .trailing, .bottom], 14)
                 
-                // Select Number of copies to appear on panel
-                HStack {
-                    Text("Adjust number of copies to display:")
-                        .font(.system(size: 13))
-                        .foregroundColor(.gray)
-                    
-                    Spacer()
-                    
-                    Text(String(settingManager.numberOfCopies))
-                        .font(.system(size: 13))
-                        .foregroundColor(.gray)
-                }
-                .padding([.leading, .trailing, .bottom], 14)
-                
                 HStack(alignment: .center) {
                     Text("Rate our app")
                         .font(.system(size: 13))
@@ -174,9 +162,8 @@ struct GeneralSettingsView: View {
 
                     Spacer()
                     
-                    Button("Subscribe", action: {
-                        // Trigger the review request when the button is pressed
-                        
+                    Button("Upgrade", action: {
+                        appDelegate.openTestView()
                     }).buttonStyle(GrowingButtonStyle(backgroundColor: .yellow.opacity(0.5)))
                 }
                 .padding([.top, .leading, .trailing, .bottom], 14)

@@ -8,41 +8,6 @@
 import SwiftUI
 import StoreKit
 
-//struct TestView: View {
-//    @StateObject var storeVM = StoreVM()
-//    var body: some View {
-//        VStack {
-//            // what the fuck is this
-//            if let subscriptionGroupStatus = storeVM.subscriptionGroupStatus {
-//                if subscriptionGroupStatus == .expired || subscriptionGroupStatus == .revoked {
-//                    Text("Welcome back, give the subscription another try.")
-//                    //display products
-//                }
-//            }
-//            if storeVM.purchasedSubscriptions.isEmpty {
-//                SubscriptionView()
-//
-//            } else {
-//                Text("Premium Content")
-//            }
-//        }
-//        .environmentObject(storeVM)
-//    }
-//}
-//
-//struct TestView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TestView()
-//    }
-//}
-
-//
-//  ContentView.swift
-//  storekit-2-demo-app
-//
-//  Created by Aisultan Askarov on 11.01.2024.
-//
-
 struct TestView: View {
     // MARK: - Properties
     @EnvironmentObject private var entitlementManager: EntitlementManager
@@ -107,10 +72,9 @@ struct TestView: View {
     
     private var proAccessView: some View {
         VStack(alignment: .center, spacing: 10) {
-            Image(systemName: "dollarsign.circle.fill")
-                .foregroundStyle(.tint)
-                .font(Font.system(size: 80))
-            
+            Image("CopyCat")
+                .resizable()
+                .scaledToFit()
             Text("Unlock CopyCat Pro")
                 .font(.system(size: 33.0, weight: .bold))
 //                .fontDesign(.rounded)
@@ -153,6 +117,9 @@ struct TestView: View {
                 Text(subscriptionsManager.products[0].displayPrice)
                     .font(.system(size: 14.0, weight: .bold, design: .rounded)) // Adjust the font style if needed
                     .foregroundColor(.blue) // Change this to your desired color
+                Text("a month")
+                    .font(.system(size: 14.0, weight: .regular, design: .rounded))
+                    .multilineTextAlignment(.leading)
             }
         }
     }
@@ -161,13 +128,17 @@ struct TestView: View {
         VStack(alignment: .center, spacing: 15) {
             purchaseButtonView
             
-            Button("Restore Purchases") {
+            Button(action: {
                 Task {
                     await subscriptionsManager.restorePurchases()
                 }
+            }) {
+                Text("Restore Purchases")
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+                    .underline()
             }
-            .font(.system(size: 14.0, weight: .regular))
-            .frame(height: 15, alignment: .center)
+            .buttonStyle(.plain)
         }
     }
     
@@ -179,11 +150,14 @@ struct TestView: View {
             }
         }) {
             Text("Purchase")
-                .foregroundStyle(.white)
-                .font(.system(size: 16.5, weight: .semibold))
-                .padding(5)
+                .font(.headline)
+                .padding(.horizontal, 60)
+                .padding(.vertical, 10)
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10)
         }
-        .padding(.horizontal, 20)
-        .frame(height: 46)
+        .buttonStyle(.plain)
+        .padding(.top, 20)
     }
 }
