@@ -21,8 +21,8 @@ struct MenuBarView: View {
                 Divider()
                 Button(action: openTestView) {
                     HStack {
-                        Image(systemName: "lock")
-                        Text("Test")
+                        Image(systemName: "lock.open")
+                        Text("Upgrade")
                     }
                 }
                 Divider()
