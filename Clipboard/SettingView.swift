@@ -25,7 +25,7 @@ struct SettingView: View {
     
     var body: some View {
         GeneralSettingsView(settingManager: settingManager)
-        .frame(width: 650, height: 500)
+            .frame(width: 650, height: 500)
     }
     
     // Helper method to configure a label using the LabelSettings
@@ -41,10 +41,12 @@ enum SettingSection {
 }
 
 struct GrowingButtonStyle: ButtonStyle {
+    var backgroundColor: Color = .red
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            .background(.red)
+            .background(backgroundColor)
             .font(.system(size: 12))
             .foregroundStyle(.white)
             .clipShape(Capsule())
@@ -95,6 +97,7 @@ struct GeneralSettingsView: View {
                     
                     ShortcutRecorderView(name: .viewCopiesPanel)
                         .frame(width: 50, height: 50)
+                        .disabled(!settingManager.entitlementManager.hasPro)
                     // Need to clean this, tried aligning both clean cache button and these to be
                     // centered but need to manual align it
                         .padding([.trailing], 50)
@@ -111,6 +114,7 @@ struct GeneralSettingsView: View {
                     
                     // Dont allow users to change opacity
                     ColorPicker("Select Color", selection: $settingManager.panelColor, supportsOpacity: true)
+                        .disabled(!settingManager.entitlementManager.hasPro)
                     
                 }
                 .padding([.leading, .trailing, .bottom], 14)
@@ -127,6 +131,7 @@ struct GeneralSettingsView: View {
                         Text("Medium").tag(ItemSize.medium)
                         Text("Large").tag(ItemSize.large)
                     }
+                    .disabled(!settingManager.entitlementManager.hasPro)
                     .pickerStyle(SegmentedPickerStyle())
                     .padding(.leading, 10)
                     
@@ -154,12 +159,29 @@ struct GeneralSettingsView: View {
                     
                     Spacer()
                     
-                    Button("RateApp", action: {
+                    Button("Rate App", action: {
                         // Trigger the review request when the button is pressed
                         requestReview()
-                    }).buttonStyle(GrowingButtonStyle())
+                    }).buttonStyle(GrowingButtonStyle(backgroundColor: .green.opacity(0.5)))
                 }
                 .padding([.top, .leading, .trailing, .bottom], 14)
+                
+                HStack(alignment: .center) {
+                    Text("Upgrade to Pro to access additional settings:")
+                        .font(.system(size: 13))
+                        .foregroundColor(.yellow.opacity(0.5))
+                        .padding(.top, 14)
+
+                    Spacer()
+                    
+                    Button("Subscribe", action: {
+                        // Trigger the review request when the button is pressed
+                        
+                    }).buttonStyle(GrowingButtonStyle(backgroundColor: .yellow.opacity(0.5)))
+                }
+                .padding([.top, .leading, .trailing, .bottom], 14)
+                
+                
                 
                 Spacer()
             }
