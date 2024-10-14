@@ -5,18 +5,18 @@
   ],
   "products" : [
     {
-      "displayPrice" : "4.99",
+      "displayPrice" : "1.99",
       "familyShareable" : false,
-      "internalID" : "6705121261",
+      "internalID" : "6736877422",
       "localizations" : [
         {
-          "description" : "bobby",
-          "displayName" : "bbobb",
+          "description" : "Monthly subscription fee",
+          "displayName" : "Monthly Subscription",
           "locale" : "en_US"
         }
       ],
-      "productID" : "com.bob.lee",
-      "referenceName" : "bobby",
+      "productID" : "22",
+      "referenceName" : "member",
       "type" : "Consumable"
     }
   ],
@@ -24,7 +24,7 @@
     "_applicationInternalID" : "6705115841",
     "_developerTeamID" : "67883JM5KT",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 748652055.68575799,
+    "_lastSynchronizedDate" : 750578514.44159102,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -77,7 +77,7 @@
   },
   "subscriptionGroups" : [
     {
-      "id" : "21542784",
+      "id" : "21559664",
       "localizations" : [
 
       ],
@@ -91,28 +91,28 @@
 
           ],
           "displayPrice" : "1.99",
-          "familyShareable" : true,
+          "familyShareable" : false,
           "groupNumber" : 1,
-          "internalID" : "6705116127",
+          "internalID" : "6736894036",
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "Experience the full power with CopyCat Pro!",
+              "description" : "Unlock all features!",
               "displayName" : "CopyCat Pro",
               "locale" : "en_US"
             }
           ],
-          "productID" : "10",
+          "productID" : "com.Moody.CopyCat.CopyCatPro",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "CopyCat Pro",
-          "subscriptionGroupID" : "21542784",
+          "subscriptionGroupID" : "21559664",
           "type" : "RecurringSubscription"
         }
       ]
     }
   ],
   "version" : {
-    "major" : 3,
+    "major" : 2,
     "minor" : 0
   }
 }

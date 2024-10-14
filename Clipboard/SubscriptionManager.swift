@@ -9,7 +9,7 @@ import StoreKit
 
 @MainActor
 class SubscriptionManager: NSObject, ObservableObject {
-    let productIDs: [String] = ["10"]
+    let productIDs: [String] = ["com.Moody.CopyCat.CopyCatPro"]
     var purchasedProductIDs: Set<String> = []
 
     @Published var products: [Product] = []
