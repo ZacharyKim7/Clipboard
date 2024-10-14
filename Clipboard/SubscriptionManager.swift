@@ -94,7 +94,7 @@ extension SubscriptionManager {
             }
         }
         
-        self.entitlementManager?.hasPro = !self.purchasedProductIDs.isEmpty
+        self.entitlementManager?.hasPro = self.purchasedProductIDs.contains("com.Moody.CopyCat.CopyCatPro")
     }
     
     func restorePurchases() async {
