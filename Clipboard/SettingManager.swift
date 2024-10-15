@@ -37,7 +37,11 @@ class SettingManager: ObservableObject {
             saveNumberOfCopies()
         }
     }
-    
+    @Published var selectedScreen: String = NSScreen.main?.localizedName ?? "" {
+        didSet {
+            saveSelectedScreen()
+        }
+    }
     public var subscriptionManager: SubscriptionManager? = nil
     public var clipboardManager: ClipboardManager? = nil
     
@@ -87,6 +91,11 @@ class SettingManager: ObservableObject {
         // Load panelSize from UserDefaults
         let savedSize = defaults.string(forKey: "panelSize") ?? ItemSize.medium.rawValue
         itemSize = ItemSize(rawValue: savedSize) ?? .medium
+        
+        if let savedScreen = defaults.value(forKey: "selectedScreen") as? String {
+            selectedScreen = savedScreen
+        }
+        
     }
     
     private func saveNumberOfCopies() {
@@ -102,5 +111,10 @@ class SettingManager: ObservableObject {
     private func saveItemSize() {
         let defaults = UserDefaults.standard
         defaults.set(itemSize.rawValue, forKey: "panelSize")  // Save itemSize to UserDefaults
+    }
+    
+    private func saveSelectedScreen() {
+        let defaults = UserDefaults.standard
+        defaults.set(selectedScreen, forKey: "selectedScreen")  // Save itemSize to UserDefaults
     }
 }

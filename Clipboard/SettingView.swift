@@ -16,14 +16,6 @@ struct SettingView: View {
         height: 35
     )
     
-    let subscriptionLabel = LabelSettings(
-        title: "Subscription Plan",
-        systemImage: "creditcard",
-        fontSize: 14,
-        width: 140,
-        height: 35
-    )
-    
     var body: some View {
         GeneralSettingsView(settingManager: settingManager, appDelegate: appDelegate)
             .frame(width: 650, height: 500)
@@ -137,6 +129,23 @@ struct GeneralSettingsView: View {
                     .pickerStyle(SegmentedPickerStyle())
                     .padding(.leading, 10)
                     
+                }
+                .padding([.leading, .trailing, .bottom], 14)
+                
+                HStack {
+                    Text("Selected Display:")
+                        .font(.system(size: 13))
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 5)
+                    
+                    Picker("", selection: $settingManager.selectedScreen) {
+                        ForEach(NSScreen.screens, id: \.self) { screen in
+                            Text(screen.localizedName).tag(screen.localizedName)
+                        }
+                    }
+                    .disabled(NSScreen.screens.isEmpty) // Disable if no screens are available
+                    .pickerStyle(MenuPickerStyle()) // Use MenuPickerStyle for dropdown
+                    .padding(.leading, 10)
                 }
                 .padding([.leading, .trailing, .bottom], 14)
                 

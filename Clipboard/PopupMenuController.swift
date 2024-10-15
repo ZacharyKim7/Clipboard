@@ -20,7 +20,10 @@ class PopupMenuController {
     }
     
     func createWindow(settingManager: SettingManager) {
-        guard let screen = NSScreen.main else { return }
+        var screen: NSScreen {
+            // Find and return the NSScreen that matches the selected screen name
+            return NSScreen.screens.first { $0.localizedName == settingManager.selectedScreen } ?? NSScreen.main!
+        }
         // Get the full screen frame including the Dock
         let screenFrame = screen.frame
 
