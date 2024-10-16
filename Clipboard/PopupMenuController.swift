@@ -56,22 +56,15 @@ class PopupMenuController {
         hostingController.view.frame = visualEffectView.bounds
         visualEffectView.addSubview(hostingController.view)
         
-        // Position the window
-//        let initialFrame = NSRect(
-//            x: -settingManager.itemSize.dimensions.panelSize, // Popup width
-//            y: screenFrame.minY,
-//            width: settingManager.itemSize.dimensions.panelSize, // Popup width
-//            height: screenFrame.height
-//        )
-        
-        let screenFrame2 = NSScreen.main?.frame ?? NSRect.zero
+//         Position the window
         let initialFrame = NSRect(
-            x: -250, // Popup width
-            y: screenFrame2.minY,
-            width: 250, // Popup width
-            height: screenFrame2.height
+            x: screenFrame.minX - settingManager.itemSize.dimensions.panelSize, // Popup width
+            y: screenFrame.minY,
+            width: settingManager.itemSize.dimensions.panelSize, // Popup width
+            height: screenFrame.height
         )
         
+    
         window.setFrame(initialFrame, display: true)
         
         self.window = window
@@ -90,7 +83,7 @@ class PopupMenuController {
             
             let screenFrame = screen.frame
             let finalFrame = NSRect(
-                x: 0,
+                x: screenFrame.minX,
                 y: screenFrame.minY,
                 width: 250, // Popup width
                 height: screenFrame.height
@@ -103,8 +96,8 @@ class PopupMenuController {
                 window?.animator().setFrame(finalFrame, display: true)
             } completionHandler: {
                 // Monitor mouse clicks outside the popup window
-                self.startMonitoringOutsideClicks()
-                self.startMonitoringAppActivation()
+                self.startMonitoringOutsideClicks(settingManager: settingManager)
+                self.startMonitoringAppActivation(settingManager: settingManager)
                 self.showingPopup = false
             }
             window?.makeKeyAndOrderFront(nil)
@@ -113,7 +106,7 @@ class PopupMenuController {
         
     }
 
-    func hidePopup() {
+    func hidePopup(settingManager: SettingManager) {
         guard let window = self.window else {
             return }
         
@@ -126,7 +119,7 @@ class PopupMenuController {
                 context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
                 let screenFrame = NSScreen.main?.frame ?? NSRect.zero
                 let finalFrame = NSRect(
-                    x: -250, // Popup width
+                    x: screenFrame.minX - settingManager.itemSize.dimensions.panelSize, // Popup width
                     y: screenFrame.minY,
                     width: 250, // Popup width
                     height: screenFrame.height
@@ -143,13 +136,13 @@ class PopupMenuController {
     }
 
     
-    private func startMonitoringOutsideClicks() {
+    private func startMonitoringOutsideClicks(settingManager: SettingManager) {
         clickEventMonitor = NSEvent.addGlobalMonitorForEvents(matching: .leftMouseDown) { [weak self] event in
             guard let self = self else { return }
             if let window = self.window {
                 let clickLocation = window.convertFromScreen(NSRect(origin: event.locationInWindow, size: .zero)).origin
                 if !window.contentView!.frame.contains(clickLocation) {
-                    self.hidePopup()
+                    self.hidePopup(settingManager: settingManager)
                 }
             }
         }
@@ -162,9 +155,9 @@ class PopupMenuController {
         }
     }
     
-    private func startMonitoringAppActivation() {
+    private func startMonitoringAppActivation(settingManager: SettingManager) {
             appActivationObserver = NotificationCenter.default.addObserver(forName: NSApplication.didResignActiveNotification, object: nil, queue: .main) { [weak self] _ in
-                self?.hidePopup()
+                self?.hidePopup(settingManager: settingManager)
             }
         }
 
