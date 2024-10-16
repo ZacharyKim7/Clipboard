@@ -43,6 +43,7 @@ class PopupMenuController {
         window.isOpaque = false
         window.level = .popUpMenu
         window.isReleasedWhenClosed = false
+        window.collectionBehavior = [.auxiliary, .stationary, .moveToActiveSpace, .fullScreenAuxiliary]
         window.backgroundColor = .clear
         window.contentView = hostingController.view
         
@@ -56,7 +57,7 @@ class PopupMenuController {
         
     
         window.setFrame(initialFrame, display: true)
-        window.makeKeyAndOrderFront(nil)
+        window.orderFrontRegardless()
         self.window = window
     }
     
@@ -64,6 +65,7 @@ class PopupMenuController {
         if window == nil {
             return
         }
+        window?.orderFrontRegardless()
         viewModel.showingPopup = true
         self.startMonitoringOutsideClicks(settingManager: settingManager)
         self.startMonitoringAppActivation(settingManager: settingManager)
