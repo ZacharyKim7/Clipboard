@@ -57,7 +57,6 @@ class PopupMenuController {
         
     
         window.setFrame(initialFrame, display: true)
-        window.orderFrontRegardless()
         self.window = window
     }
     
