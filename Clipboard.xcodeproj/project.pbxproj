@@ -16,7 +16,7 @@
 		312E227AA53CD66EB5C0584B /* Pods_Clipboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28DBAE853ED19924211BEB1F /* Pods_Clipboard.framework */; };
 		C72865DA2C9B900F007F46AC /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72865D92C9B900F007F46AC /* UserManager.swift */; };
 		C72865DC2C9E0919007F46AC /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72865DB2C9E0919007F46AC /* SubscriptionManager.swift */; };
-		C72C12412CBE2D7300DBEA02 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C72C12402CBE2D7300DBEA02 /* Localizable.xcstrings */; };
+		C72C12432CBFC3B400DBEA02 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C72C12422CBFC3B400DBEA02 /* Localizable.xcstrings */; };
 		C7B948972C857D3C009BE618 /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B948962C857D3C009BE618 /* ClipboardManager.swift */; };
 		C7B9489F2C8668D4009BE618 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B9489E2C8668D4009BE618 /* SettingView.swift */; };
 		C7C1E6102C9F590200449781 /* EntitlementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1E60F2C9F590200449781 /* EntitlementManager.swift */; };
@@ -43,7 +43,7 @@
 		BE2A8B87F93A5DA908AD23DD /* Pods-Clipboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clipboard.debug.xcconfig"; path = "Target Support Files/Pods-Clipboard/Pods-Clipboard.debug.xcconfig"; sourceTree = "<group>"; };
 		C72865D92C9B900F007F46AC /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		C72865DB2C9E0919007F46AC /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
-		C72C12402CBE2D7300DBEA02 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		C72C12422CBFC3B400DBEA02 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		C7B948962C857D3C009BE618 /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
 		C7B9489E2C8668D4009BE618 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		C7C1E60F2C9F590200449781 /* EntitlementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitlementManager.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 				C7C1E60F2C9F590200449781 /* EntitlementManager.swift */,
 				19521ACD2CA66191002083F5 /* SettingManager.swift */,
 				19313BBA2CAD0462006B1095 /* Constants.swift */,
-				C72C12402CBE2D7300DBEA02 /* Localizable.xcstrings */,
+				C72C12422CBFC3B400DBEA02 /* Localizable.xcstrings */,
 			);
 			path = Clipboard;
 			sourceTree = "<group>";
@@ -210,7 +210,7 @@
 			files = (
 				C7D79FA62C80256900D419EE /* Preview Assets.xcassets in Resources */,
 				C7D79FA32C80256900D419EE /* Assets.xcassets in Resources */,
-				C72C12412CBE2D7300DBEA02 /* Localizable.xcstrings in Resources */,
+				C72C12432CBFC3B400DBEA02 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,13 +11,40 @@
 
     },
     "1. Copy text or images to your clipboard as usual." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "uuh"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "copiio texxto)"
+          }
+        }
+      }
     },
     "2. Access your stored copies from the menu bar or from the clipboard history toolbar (" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "booty"
+          }
+        }
+      }
     },
     "3. Click on an item to paste it or manage your clipboard history." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "bbboo"
+          }
+        }
+      }
     },
     "4. Upgrade for unlimited storage and advanced features." : {
 
@@ -72,23 +99,6 @@
     },
     "Large" : {
 
-    },
-    "launch_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Welcome to CopyCat!"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Bienvenido a CopyCat!"
-          }
-        }
-      }
     },
     "link_label" : {
       "comment" : "Label for link copy cell"
