@@ -42,6 +42,11 @@ class SettingManager: ObservableObject {
             saveSelectedScreen()
         }
     }
+    @Published var pasteImmediately: Bool = false {
+        didSet {
+            savePasteImmediately()
+        }
+    }
     public var subscriptionManager: SubscriptionManager? = nil
     public var clipboardManager: ClipboardManager? = nil
     
@@ -96,6 +101,10 @@ class SettingManager: ObservableObject {
             selectedScreen = savedScreen
         }
         
+        if let savedPasteImmediately = defaults.value(forKey: "pasteImmediately") as? Bool {
+            pasteImmediately = savedPasteImmediately
+        }
+        
     }
     
     private func saveNumberOfCopies() {
@@ -116,5 +125,10 @@ class SettingManager: ObservableObject {
     private func saveSelectedScreen() {
         let defaults = UserDefaults.standard
         defaults.set(selectedScreen, forKey: "selectedScreen")  // Save itemSize to UserDefaults
+    }
+    
+    private func savePasteImmediately() {
+        let defaults = UserDefaults.standard
+        defaults.set(pasteImmediately, forKey: "pasteImmediately")  
     }
 }

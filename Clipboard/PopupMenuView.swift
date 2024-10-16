@@ -88,11 +88,7 @@ struct ClipboardItemView: View {
             VStack {
                 HStack {
                     HStack {
-                        if index + 1 < 10 {
-                            Text("⌘ + \(index + 1)")
-                                .fontWeight(.bold)
-                                .foregroundColor(Color.red)
-                        }
+                        Text("")
                         Spacer()
                     }
                     Text(displayText(for: item.contentType))
@@ -127,7 +123,7 @@ struct ClipboardItemView: View {
         .background(backgroundColor(for: item))
         .cornerRadius(10)
         .padding(10)
-        .modifier(KeyboardShortcutModifier(index: index))
+//        .modifier(KeyboardShortcutModifier(index: index))
     }
     
     func backgroundColor(for item: ClipboardItem) -> Color {
@@ -171,10 +167,10 @@ struct ClipboardItemView: View {
     
     private func displayText(for type: Int) -> String {
         switch type {
-        case 0: return NSLocalizedString("text_label", comment: "Label for text copy cell")
-        case 1: return NSLocalizedString("link_label", comment: "Label for link copy cell")
-        case 2: return NSLocalizedString("image_label", comment: "Label for image copy cell")
-        default: return NSLocalizedString("text_label", comment: "Label for text copy cell")
+        case 0: return "Text"
+        case 1: return "Link"
+        case 2: return "Image"
+        default: return "Text"
         }
     }
 }

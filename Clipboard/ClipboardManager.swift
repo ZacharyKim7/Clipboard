@@ -19,6 +19,7 @@ class ClipboardManager: ObservableObject {
     private var timer: Timer?
     private var copyingInProgress: Bool = false // Flag to avoid adding copied content again
     private let entitlementManager: EntitlementManager
+    weak var settingManager: SettingManager?
     
     init(entitlementManager: EntitlementManager) {
         self.entitlementManager = entitlementManager
@@ -158,7 +159,9 @@ class ClipboardManager: ObservableObject {
         }
         
         // If user has the paste immediate setting on
-        pasteText()
+        if settingManager!.pasteImmediately {
+            pasteText()
+        }
         
         let selectedItem = clipboardHistory[index]
         let pasteboard = NSPasteboard.general

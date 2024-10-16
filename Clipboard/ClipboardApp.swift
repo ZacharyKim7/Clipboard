@@ -48,6 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         clipboardManager = ClipboardManager(entitlementManager: entitlementManager)
         windowManager = WindowManager()
         settingManager = SettingManager(subscriptionManager: subscriptionsManager!, clipboardManager: clipboardManager!, entitlementManager: entitlementManager)
+        clipboardManager!.settingManager = settingManager
         popupMenuController = PopupMenuController(clipboardManager: clipboardManager!, appDelegate: self, settingManager: settingManager!)
         checkFirstLaunch()
         setShortcutToOpenCopiesPanel()
@@ -143,7 +144,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         let hasLaunchedBeforeKey = "hasLaunchedBefore"
         userDefaults.set(false, forKey: hasLaunchedBeforeKey)
         //        userDefaults.removeObject(forKey: "ClipboardHistory")
-        if !userDefaults.bool(forKey: hasLaunchedBeforeKey) {
+        if !userDefaults.bool(forKey: hasLaunchedBeforeKey) && !entitlementManager.hasPro {
             let newWindow = NSWindow(
                 contentRect: NSRect(x: 0, y: 0, width: 800, height: 520),
                 styleMask: [.titled, .closable],

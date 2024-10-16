@@ -17,7 +17,7 @@ struct SettingView: View {
     )
     
     var body: some View {
-        GeneralSettingsView(settingManager: settingManager, appDelegate: appDelegate)
+        GeneralSettingsView(settingManager: settingManager, appDelegate: appDelegate, entitlementManager: settingManager.entitlementManager)
             .frame(width: 650, height: 500)
     }
     
@@ -52,6 +52,7 @@ struct GrowingButtonStyle: ButtonStyle {
 struct GeneralSettingsView: View {
     @ObservedObject var settingManager: SettingManager
     @ObservedObject var appDelegate: AppDelegate
+    @ObservedObject var entitlementManager: EntitlementManager
     @Environment(\.requestReview) var requestReview
     @State private var launchCount = UserDefaults.standard.integer(forKey: "launchCount")
     
@@ -91,7 +92,7 @@ struct GeneralSettingsView: View {
                     
                     ShortcutRecorderView(name: .viewCopiesPanel)
                         .frame(width: 50, height: 50)
-                        .disabled(!settingManager.entitlementManager.hasPro)
+                        .disabled(!entitlementManager.hasPro)
                     // Need to clean this, tried aligning both clean cache button and these to be
                     // centered but need to manual align it
                         .padding([.trailing], 50)
@@ -108,7 +109,7 @@ struct GeneralSettingsView: View {
                     
                     // Dont allow users to change opacity
                     ColorPicker("Select Color", selection: $settingManager.panelColor, supportsOpacity: true)
-                        .disabled(!settingManager.entitlementManager.hasPro)
+                        .disabled(!entitlementManager.hasPro)
                     
                 }
                 .padding([.leading, .trailing, .bottom], 14)
@@ -125,7 +126,7 @@ struct GeneralSettingsView: View {
                         Text("Medium").tag(ItemSize.medium)
                         Text("Large").tag(ItemSize.large)
                     }
-                    .disabled(!settingManager.entitlementManager.hasPro)
+                    .disabled(!entitlementManager.hasPro)
                     .pickerStyle(SegmentedPickerStyle())
                     .padding(.leading, 10)
                     
@@ -146,6 +147,18 @@ struct GeneralSettingsView: View {
                     .disabled(NSScreen.screens.isEmpty) // Disable if no screens are available
                     .pickerStyle(MenuPickerStyle()) // Use MenuPickerStyle for dropdown
                     .padding(.leading, 10)
+                }
+                .padding([.leading, .trailing, .bottom], 14)
+                
+                HStack {
+                    Text("Paste Immediately:")
+                        .font(.system(size: 13))
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 5)
+                    Spacer()
+                    Toggle("", isOn: $settingManager.pasteImmediately)
+                    .toggleStyle(SwitchToggleStyle(tint: .blue))// Use MenuPickerStyle for dropdown
+                    .padding([.trailing], 55)
                 }
                 .padding([.leading, .trailing, .bottom], 14)
                 

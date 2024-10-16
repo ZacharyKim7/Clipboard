@@ -7,10 +7,8 @@
     ")" : {
 
     },
-    "⌘ + %lld" : {
-
-    },
     "1. Copy text or images to your clipboard as usual." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -25,6 +23,9 @@
           }
         }
       }
+    },
+    "1. Copy text, images, or links to your clipboard as usual." : {
+
     },
     "2. Access your stored copies from the menu bar or from the clipboard history toolbar (" : {
       "localizations" : {
@@ -46,7 +47,7 @@
         }
       }
     },
-    "4. Upgrade for unlimited storage and advanced features." : {
+    "4. Upgrade for more copies and advanced settings." : {
 
     },
     "a month" : {
@@ -88,9 +89,6 @@
     "How to Use:" : {
 
     },
-    "image_label" : {
-      "comment" : "Label for image copy cell"
-    },
     "Invalid Image" : {
 
     },
@@ -100,14 +98,14 @@
     "Large" : {
 
     },
-    "link_label" : {
-      "comment" : "Label for link copy cell"
-    },
     "Medium" : {
 
     },
     "no_items" : {
       "comment" : "Message when clipboard history is empty"
+    },
+    "Paste Immediately:" : {
+
     },
     "Pro" : {
 
@@ -157,9 +155,6 @@
     "Subscription Plan" : {
 
     },
-    "text_label" : {
-      "comment" : "Label for text copy cell"
-    },
     "This user is PAID!" : {
 
     },
@@ -181,10 +176,10 @@
     "Upgrade to Pro to access additional settings:" : {
 
     },
-    "Welcome to Clipboard!" : {
+    "Welcome to CopyCat!" : {
 
     },
-    "You’re using the free version of Clipboard Manager. This version allows you to store up to 5 copies." : {
+    "You’re using the free version of CopyCat. This version allows you to store up to 3 copies." : {
 
     },
     "You've unlocked CopyCat Pro!" : {

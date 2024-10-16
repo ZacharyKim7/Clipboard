@@ -16,12 +16,12 @@ struct FirstTimeUserView: View {
                 .padding(.top, 20)
 
             // Title
-            Text("Welcome to Clipboard!")
+            Text("Welcome to CopyCat!")
                 .font(.title)
                 .fontWeight(.bold)
 
             // Brief Explanation
-            Text("You’re using the free version of Clipboard Manager. This version allows you to store up to 5 copies.")
+            Text("You’re using the free version of CopyCat. This version allows you to store up to 3 copies.")
                 .font(.body)
                 .multilineTextAlignment(.center)
                 .padding()
@@ -31,14 +31,14 @@ struct FirstTimeUserView: View {
                 Text("How to Use:")
                     .font(.headline)
                 
-                Text("1. Copy text or images to your clipboard as usual.")
+                Text("1. Copy text, images, or links to your clipboard as usual.")
                 Text("2. Access your stored copies from the menu bar or from the clipboard history toolbar (")
                                 + Text("Control + V")
                                     .fontWeight(.bold) // Highlighting shortcut
                                     .foregroundColor(.blue) // Change color to blue
                                 + Text(")")
                 Text("3. Click on an item to paste it or manage your clipboard history.")
-                Text("4. Upgrade for unlimited storage and advanced features.")
+                Text("4. Upgrade for more copies and advanced settings.")
             }
             .font(.body)
             .padding(.horizontal)
