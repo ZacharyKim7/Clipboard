@@ -11,11 +11,13 @@ class PopupMenuController {
     private let settingManger: SettingManager
     private var hidingPopup: Bool = false
     private var showingPopup: Bool = false
+    private var viewModel: PopupMenuViewModel
 
     init(clipboardManager: ClipboardManager, appDelegate: AppDelegate, settingManager: SettingManager) {
         self.clipboardManager = clipboardManager
         self.appDelegate = appDelegate
         self.settingManger = settingManager
+        self.viewModel = PopupMenuViewModel()
         self.createWindow(settingManager: settingManager)
     }
     
@@ -28,45 +30,33 @@ class PopupMenuController {
         let screenFrame = screen.frame
 
         // Create the SwiftUI view
-        let popupView = PopupMenuView(clipboardManager: clipboardManager, appDelegate: appDelegate, settingsManager: settingManger)
+        let popupView = PopupMenuView(clipboardManager: clipboardManager, appDelegate: appDelegate, settingsManager: settingManger, viewModel: viewModel)
         let hostingController = NSHostingController(rootView: popupView)
         
         // Create an NSWindow to host the view
         let window = PopupWindow(
             contentRect: NSRect(x: 0, y: 0, width: 250, height: screenFrame.height),
-            styleMask: [.borderless],
+            styleMask: [.borderless, .nonactivatingPanel],
             backing: .buffered,
             defer: false
         )
         window.isOpaque = false
         window.level = .popUpMenu
         window.isReleasedWhenClosed = false
-        
-        // Create a blurred background effect view
-        let visualEffectView = NSVisualEffectView(frame: window.contentView!.bounds)
-        visualEffectView.autoresizingMask = [.width, .height]
-        visualEffectView.blendingMode = .behindWindow
-        visualEffectView.material = .menu
-        visualEffectView.state = .active
-        visualEffectView.wantsLayer = true
-        visualEffectView.layer?.masksToBounds = true
-        
-        // Add the visual effect view to the window
-        window.contentView = visualEffectView
-        hostingController.view.frame = visualEffectView.bounds
-        visualEffectView.addSubview(hostingController.view)
+        window.backgroundColor = .clear
+        window.contentView = hostingController.view
         
 //         Position the window
         let initialFrame = NSRect(
-            x: screenFrame.minX - settingManager.itemSize.dimensions.panelSize, // Popup width
+            x: screenFrame.minX, // Popup width
             y: screenFrame.minY,
-            width: settingManager.itemSize.dimensions.panelSize, // Popup width
+            width: 250, // Popup width
             height: screenFrame.height
         )
         
     
         window.setFrame(initialFrame, display: true)
-        
+        window.makeKeyAndOrderFront(nil)
         self.window = window
     }
     
@@ -74,65 +64,17 @@ class PopupMenuController {
         if window == nil {
             return
         }
-        if !self.showingPopup && !self.hidingPopup {
-            self.showingPopup = true
-            var screen: NSScreen {
-                // Find and return the NSScreen that matches the selected screen name
-                return NSScreen.screens.first { $0.localizedName == settingManager.selectedScreen } ?? NSScreen.main!
-            }
-            
-            let screenFrame = screen.frame
-            let finalFrame = NSRect(
-                x: screenFrame.minX,
-                y: screenFrame.minY,
-                width: 250, // Popup width
-                height: screenFrame.height
-            )
-            
-            // Animate the window to slide in from the left
-            NSAnimationContext.runAnimationGroup { context in
-                context.duration = 0.3 // Animation duration
-                context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-                window?.animator().setFrame(finalFrame, display: true)
-            } completionHandler: {
-                // Monitor mouse clicks outside the popup window
-                self.startMonitoringOutsideClicks(settingManager: settingManager)
-                self.startMonitoringAppActivation(settingManager: settingManager)
-                self.showingPopup = false
-            }
-            window?.makeKeyAndOrderFront(nil)
-            NSApp.activate(ignoringOtherApps: true)
-        }
+        viewModel.showingPopup = true
+        self.startMonitoringOutsideClicks(settingManager: settingManager)
+        self.startMonitoringAppActivation(settingManager: settingManager)
+        self.showingPopup = false
         
     }
 
     func hidePopup(settingManager: SettingManager) {
-        guard let window = self.window else {
-            return }
-        
-        // Ensure the pane isn't already closing before attempting another close
-        if !self.hidingPopup && !self.showingPopup {
-            self.hidingPopup = true
-            // Animate the window to slide out to the left
-            NSAnimationContext.runAnimationGroup { context in
-                context.duration = 0.3 // Animation duration
-                context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-                let screenFrame = NSScreen.main?.frame ?? NSRect.zero
-                let finalFrame = NSRect(
-                    x: screenFrame.minX - settingManager.itemSize.dimensions.panelSize, // Popup width
-                    y: screenFrame.minY,
-                    width: 250, // Popup width
-                    height: screenFrame.height
-                )
-                window.animator().setFrame(finalFrame, display: true)
-            } completionHandler: {
-                window.orderOut(nil)
-                self.stopMonitoringOutsideClicks()
-                self.stopMonitoringAppActivation()
-                self.hidingPopup = false
-            }
-        }
-        
+        viewModel.showingPopup = false
+        self.stopMonitoringOutsideClicks()
+        self.stopMonitoringAppActivation()
     }
 
     
@@ -169,7 +111,7 @@ class PopupMenuController {
     }
 }
 
-class PopupWindow: NSWindow {
+class PopupWindow: NSPanel {
     override var canBecomeKey: Bool {
         return true
     }

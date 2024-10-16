@@ -1,5 +1,10 @@
 import SwiftUI
 
+class PopupMenuViewModel: ObservableObject {
+    @Published var showingPopup: Bool = false
+    // Add other state variables as needed
+}
+
 struct PopupMenuView: View {
     
     @ObservedObject var clipboardManager: ClipboardManager
@@ -7,6 +12,8 @@ struct PopupMenuView: View {
     @ObservedObject var settingsManager: SettingManager
     //    @ObservedObject var subscriptionManager = SubscriptionManager()
     @State private var deletingIndex: Int? = nil
+    @State private var offsetX: CGFloat = -250
+    @ObservedObject var viewModel: PopupMenuViewModel
     
     var body: some View {
         ScrollViewReader { proxy in
@@ -51,6 +58,18 @@ struct PopupMenuView: View {
                 .padding(.vertical, 10)
             }
             .background(settingsManager.panelColor)
+            .background(.thinMaterial)
+            .offset(x: offsetX) // Apply the offset
+            .animation(.easeInOut(duration: 0.35), value: offsetX)
+            .onChange(of: viewModel.showingPopup) { newValue in
+                if newValue {
+                    // Animate to the right when showingPopup becomes true
+                    offsetX = 0 // Adjust the value as needed
+                } else {
+                    // Reset offset if it becomes false
+                    offsetX = -250
+                }
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 import Foundation
 import AppKit
+import MASShortcut
 
 struct ClipboardItem: Identifiable, Codable {
     let id: UUID
@@ -156,6 +157,9 @@ class ClipboardManager: ObservableObject {
             return
         }
         
+        // If user has the paste immediate setting on
+        pasteText()
+        
         let selectedItem = clipboardHistory[index]
         let pasteboard = NSPasteboard.general
         
@@ -182,6 +186,23 @@ class ClipboardManager: ObservableObject {
         
         // Reset the flag after copying is done
         copyingInProgress = false
+    }
+    
+    func pasteText() {
+        DispatchQueue.main.async {
+          let vCode = UInt16(kVK_ANSI_V)
+          let source = CGEventSource(stateID: .combinedSessionState)
+          // Disable local keyboard events while pasting
+          source?.setLocalEventsFilterDuringSuppressionState([.permitLocalMouseEvents, .permitSystemDefinedEvents],
+                                                             state: .eventSuppressionStateSuppressionInterval)
+
+          let keyVDown = CGEvent(keyboardEventSource: source, virtualKey: vCode, keyDown: true)
+          let keyVUp = CGEvent(keyboardEventSource: source, virtualKey: vCode, keyDown: false)
+          keyVDown?.flags = .maskCommand
+          keyVUp?.flags = .maskCommand
+          keyVDown?.post(tap: .cgAnnotatedSessionEventTap)
+          keyVUp?.post(tap: .cgAnnotatedSessionEventTap)
+        }
     }
     
     func clearCache() {
