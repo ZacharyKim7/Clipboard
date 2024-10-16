@@ -57,11 +57,19 @@ class PopupMenuController {
         visualEffectView.addSubview(hostingController.view)
         
         // Position the window
+//        let initialFrame = NSRect(
+//            x: -settingManager.itemSize.dimensions.panelSize, // Popup width
+//            y: screenFrame.minY,
+//            width: settingManager.itemSize.dimensions.panelSize, // Popup width
+//            height: screenFrame.height
+//        )
+        
+        let screenFrame2 = NSScreen.main?.frame ?? NSRect.zero
         let initialFrame = NSRect(
-            x: -settingManager.itemSize.dimensions.panelSize, // Popup width
-            y: screenFrame.minY,
-            width: settingManager.itemSize.dimensions.panelSize, // Popup width
-            height: screenFrame.height
+            x: -250, // Popup width
+            y: screenFrame2.minY,
+            width: 250, // Popup width
+            height: screenFrame2.height
         )
         
         window.setFrame(initialFrame, display: true)
