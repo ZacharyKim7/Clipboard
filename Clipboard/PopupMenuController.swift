@@ -69,13 +69,16 @@ class PopupMenuController {
         self.window = window
     }
     
-    func showPopup() {
+    func showPopup(settingManager: SettingManager) {
         if window == nil {
             return
         }
         if !self.showingPopup && !self.hidingPopup {
             self.showingPopup = true
-            guard let screen = NSScreen.main else { return }
+            var screen: NSScreen {
+                // Find and return the NSScreen that matches the selected screen name
+                return NSScreen.screens.first { $0.localizedName == settingManager.selectedScreen } ?? NSScreen.main!
+            }
             
             let screenFrame = screen.frame
             let finalFrame = NSRect(

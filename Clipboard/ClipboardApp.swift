@@ -61,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     }
     
     func showPopup() {
-        popupMenuController?.showPopup()
+        popupMenuController?.showPopup(settingManager: settingManager!)
     }
     
     func hidePopup() {
