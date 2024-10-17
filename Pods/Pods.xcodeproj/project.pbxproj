@@ -51,7 +51,7 @@
 		A0F2C1A14A2F7E797FCAEDE773B918BC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80803B72F17D1845B8A96AA6B817F68B /* Cocoa.framework */; };
 		ACD7B12DD8341612F480C5E87015BF66 /* Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADE6801B4A82D2A2F441FB9F8145AD2 /* Shortcut.swift */; };
 		AE83FF445663A0CA7B6BAB43E276D2CB /* fr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = E595E952F9BDD1DEE9B6C3B7C6660B4F /* fr.lproj */; };
-		BD227A88D50B87748A8DB3C7D5C73656 /* MASShortcut-MASShortcut in Resources */ = {isa = PBXBuildFile; fileRef = 230F8208BE63C052A548A7D41A1158B2 /* MASShortcut-MASShortcut */; };
+		BD227A88D50B87748A8DB3C7D5C73656 /* MASShortcut.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 230F8208BE63C052A548A7D41A1158B2 /* MASShortcut.bundle */; };
 		C0D5689E12B2D21A62DCF54F4558D615 /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 0CE69EC6BC6EA44B9B2287DD47E7D6FA /* zh-Hant.lproj */; };
 		D111A680791D2D7A8BFC167E3509201D /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F5CF9CE92E0FBE62A7F0A95167537BE9 /* zh-Hans.lproj */; };
 		D5780D3668212CB26EFE215A2A266FAD /* NSMenuItem++.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C29ADD464441850D56121A50EC67E4 /* NSMenuItem++.swift */; };
@@ -94,14 +94,14 @@
 		02172410E7DEB9C87163A6CF72BDBD89 /* MASShortcut-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MASShortcut-dummy.m"; sourceTree = "<group>"; };
 		02E4CE8E253435F636245B6B0C623A6F /* MASShortcutValidator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASShortcutValidator.m; path = Framework/Model/MASShortcutValidator.m; sourceTree = "<group>"; };
 		06895677725AE84EF3319300C80D6DE6 /* KeyboardShortcuts-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KeyboardShortcuts-Info.plist"; sourceTree = "<group>"; };
-		0954DC9F57EC67E82200510C9686A1C3 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pt.lproj; path = Resources/pt.lproj; sourceTree = "<group>"; };
+		0954DC9F57EC67E82200510C9686A1C3 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = pt.lproj; path = Resources/pt.lproj; sourceTree = "<group>"; };
 		095D5C2DAD860E588D5543394F67497F /* MASShortcut-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MASShortcut-umbrella.h"; sourceTree = "<group>"; };
-		0CE69EC6BC6EA44B9B2287DD47E7D6FA /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hant.lproj"; path = "Resources/zh-Hant.lproj"; sourceTree = "<group>"; };
+		0CE69EC6BC6EA44B9B2287DD47E7D6FA /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hant.lproj"; path = "Resources/zh-Hant.lproj"; sourceTree = "<group>"; };
 		17C8C9F39B64656FE39E3B4915BDB0A7 /* MASShortcut.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASShortcut.h; path = Framework/Model/MASShortcut.h; sourceTree = "<group>"; };
 		183E52EA88C115C0899A80D20E5D7575 /* KeyboardShortcuts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardShortcuts.swift; path = Sources/KeyboardShortcuts/KeyboardShortcuts.swift; sourceTree = "<group>"; };
 		1EB13BF97C1DAA5F25EEDC6948C82D9B /* MASShortcutValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASShortcutValidator.h; path = Framework/Model/MASShortcutValidator.h; sourceTree = "<group>"; };
-		230F8208BE63C052A548A7D41A1158B2 /* MASShortcut-MASShortcut */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "MASShortcut-MASShortcut"; path = MASShortcut.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		26A8810424438A12E7ADBFB3E068C658 /* MASShortcut */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MASShortcut; path = MASShortcut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		230F8208BE63C052A548A7D41A1158B2 /* MASShortcut.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MASShortcut.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		26A8810424438A12E7ADBFB3E068C658 /* MASShortcut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MASShortcut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E76E369D089B381CE5ECAA13FDB43F /* Pods-Clipboard-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Clipboard-Info.plist"; sourceTree = "<group>"; };
 		29E04394F2FA77C1E1F3FCC293A5C15C /* Pods-Clipboard-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Clipboard-frameworks.sh"; sourceTree = "<group>"; };
 		2B446BA7469D61DD8BDA5D3C9CE61541 /* Pods-Clipboard-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Clipboard-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		3F2503F20C4C125AA7D36664000E4169 /* MASHotKey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASHotKey.h; path = Framework/Monitoring/MASHotKey.h; sourceTree = "<group>"; };
 		404E96B222C69519229A5CFE1D2229FC /* MASShortcut.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MASShortcut.modulemap; sourceTree = "<group>"; };
 		4274771F6E0AC7E1CBEB54E3239BAE79 /* KeyboardShortcuts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeyboardShortcuts-prefix.pch"; sourceTree = "<group>"; };
-		4473F12850F1F7C5E4FB91C93C333E67 /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = es.lproj; path = Resources/es.lproj; sourceTree = "<group>"; };
+		4473F12850F1F7C5E4FB91C93C333E67 /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = es.lproj; path = Resources/es.lproj; sourceTree = "<group>"; };
 		4CFAFDAB644B72489340F75B3BAD200F /* KeyboardShortcuts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KeyboardShortcuts.debug.xcconfig; sourceTree = "<group>"; };
 		4E7A3717588D36022ED77F4BE32A4C2F /* Key.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Key.swift; path = Sources/KeyboardShortcuts/Key.swift; sourceTree = "<group>"; };
 		5130BF9DE6E4DF345CE11D4C65D3D703 /* MASShortcut-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MASShortcut-prefix.pch"; sourceTree = "<group>"; };
@@ -121,37 +121,37 @@
 		5171E78FA3DC0533B9383E7AE28E6F77 /* Pods-Clipboard-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Clipboard-dummy.m"; sourceTree = "<group>"; };
 		5815ED7330EB53AD81F6AA1B7BCB45FD /* Shortcut.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Shortcut.h; path = Framework/Shortcut.h; sourceTree = "<group>"; };
 		693CE38BFB2845F7C8415A5770A398B0 /* util.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = util.swift; path = Sources/KeyboardShortcuts/util.swift; sourceTree = "<group>"; };
-		6D0A8479839B002D2BAD44E45BBF8787 /* pl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pl.lproj; path = Resources/pl.lproj; sourceTree = "<group>"; };
+		6D0A8479839B002D2BAD44E45BBF8787 /* pl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = pl.lproj; path = Resources/pl.lproj; sourceTree = "<group>"; };
 		7A6E3A586A9D4109EF9A45AE89032EF6 /* Pods-Clipboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Clipboard.debug.xcconfig"; sourceTree = "<group>"; };
 		80803B72F17D1845B8A96AA6B817F68B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		81CF95A6236A2DF5099FAE7AA44F4AD8 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = Resources/en.lproj; sourceTree = "<group>"; };
+		81CF95A6236A2DF5099FAE7AA44F4AD8 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = Resources/en.lproj; sourceTree = "<group>"; };
 		8253970B6A77CA3B8B9C6E60C18988AB /* ResourceBundle-MASShortcut-MASShortcut-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-MASShortcut-MASShortcut-Info.plist"; sourceTree = "<group>"; };
-		839324F3535A4F1E1418EDDE2B2B21FD /* ko.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ko.lproj; path = Resources/ko.lproj; sourceTree = "<group>"; };
+		839324F3535A4F1E1418EDDE2B2B21FD /* ko.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ko.lproj; path = Resources/ko.lproj; sourceTree = "<group>"; };
 		8542458FFFEDD0E0179EADCCBD7CD50F /* Pods-Clipboard-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Clipboard-umbrella.h"; sourceTree = "<group>"; };
 		889A48EAE2E3D0A000811601E3A7C607 /* MASShortcutBinder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASShortcutBinder.m; path = "Framework/User Defaults Storage/MASShortcutBinder.m"; sourceTree = "<group>"; };
 		88F91429F39F710FA67AD493E33847AB /* Pods-Clipboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Clipboard.release.xcconfig"; sourceTree = "<group>"; };
-		8A9A1CA789824710D96DA9519639C780 /* cs.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = cs.lproj; path = Resources/cs.lproj; sourceTree = "<group>"; };
+		8A9A1CA789824710D96DA9519639C780 /* cs.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = cs.lproj; path = Resources/cs.lproj; sourceTree = "<group>"; };
 		8ADE6801B4A82D2A2F441FB9F8145AD2 /* Shortcut.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Shortcut.swift; path = Sources/KeyboardShortcuts/Shortcut.swift; sourceTree = "<group>"; };
 		8B292946EFF35E73C87162E87B50A789 /* CarbonKeyboardShortcuts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CarbonKeyboardShortcuts.swift; path = Sources/KeyboardShortcuts/CarbonKeyboardShortcuts.swift; sourceTree = "<group>"; };
-		905338D571E390D4C09CC95B00F27670 /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ru.lproj; path = Resources/ru.lproj; sourceTree = "<group>"; };
+		905338D571E390D4C09CC95B00F27670 /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ru.lproj; path = Resources/ru.lproj; sourceTree = "<group>"; };
 		93D1A58E38C3A72F746149710F86F823 /* KeyboardShortcuts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KeyboardShortcuts-dummy.m"; sourceTree = "<group>"; };
 		98582BC92C58189A6F96E1CD923D2179 /* MASLocalization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLocalization.h; path = Framework/UI/MASLocalization.h; sourceTree = "<group>"; };
 		98DA8C00E2D5FDC94E0BFADF463AECBF /* MASShortcutMonitor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASShortcutMonitor.h; path = Framework/Monitoring/MASShortcutMonitor.h; sourceTree = "<group>"; };
-		99795909D1B93C42E708F8C68232CA66 /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ja.lproj; path = Resources/ja.lproj; sourceTree = "<group>"; };
-		9A9D26819263D03B3D69EE413AF202D7 /* sv.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = sv.lproj; path = Resources/sv.lproj; sourceTree = "<group>"; };
-		9C03C478111678038B6A4153F13DE416 /* KeyboardShortcuts */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeyboardShortcuts; path = KeyboardShortcuts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		99795909D1B93C42E708F8C68232CA66 /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ja.lproj; path = Resources/ja.lproj; sourceTree = "<group>"; };
+		9A9D26819263D03B3D69EE413AF202D7 /* sv.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = sv.lproj; path = Resources/sv.lproj; sourceTree = "<group>"; };
+		9C03C478111678038B6A4153F13DE416 /* KeyboardShortcuts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeyboardShortcuts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A1268B4AAF6FD55C478E4B791547821B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		A3C29ADD464441850D56121A50EC67E4 /* NSMenuItem++.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSMenuItem++.swift"; path = "Sources/KeyboardShortcuts/NSMenuItem++.swift"; sourceTree = "<group>"; };
 		A5D2DABEC35BAF5D7FAA086898E2FC6C /* MASKeyCodes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASKeyCodes.h; path = Framework/Model/MASKeyCodes.h; sourceTree = "<group>"; };
 		A61E30E50DAB02C809DCEFF9722160DF /* MASDictionaryTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASDictionaryTransformer.h; path = "Framework/User Defaults Storage/MASDictionaryTransformer.h"; sourceTree = "<group>"; };
-		A65B34DF3AFE7EC76395E4DA14513211 /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nl.lproj; path = Resources/nl.lproj; sourceTree = "<group>"; };
+		A65B34DF3AFE7EC76395E4DA14513211 /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = nl.lproj; path = Resources/nl.lproj; sourceTree = "<group>"; };
 		A80A8620FDEC2F05F6DB861242957CCE /* KeyboardShortcuts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KeyboardShortcuts.modulemap; sourceTree = "<group>"; };
 		A83337284F651ECBBB655DFC8950D381 /* KeyboardShortcuts-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeyboardShortcuts-umbrella.h"; sourceTree = "<group>"; };
 		A9D9630240B5FAAFB0A56A18EBDFEAE9 /* MASShortcut.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASShortcut.m; path = Framework/Model/MASShortcut.m; sourceTree = "<group>"; };
 		B1716147CF0457EA657697D3B1D4AE5D /* Pods-Clipboard.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Clipboard.modulemap"; sourceTree = "<group>"; };
 		B3D1F59442075B35E9BBE0389135D615 /* KeyboardShortcuts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KeyboardShortcuts.release.xcconfig; sourceTree = "<group>"; };
-		B6802D26F23AEF9F6328A8264667FB04 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = de.lproj; path = Resources/de.lproj; sourceTree = "<group>"; };
+		B6802D26F23AEF9F6328A8264667FB04 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = de.lproj; path = Resources/de.lproj; sourceTree = "<group>"; };
 		B7FBE14D2323668701AEB6CBDD1E7679 /* MASShortcutMonitor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASShortcutMonitor.m; path = Framework/Monitoring/MASShortcutMonitor.m; sourceTree = "<group>"; };
 		BA8B26D8B0DC5FD829EF699A7B563C96 /* MASShortcut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MASShortcut.release.xcconfig; sourceTree = "<group>"; };
 		BE5F10E1A595EB202BDCC2F0864BC311 /* Pods-Clipboard-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Clipboard-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -161,12 +161,12 @@
 		DC0522E50D9B2577B84498D3324FD9EE /* MASLocalization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLocalization.m; path = Framework/UI/MASLocalization.m; sourceTree = "<group>"; };
 		DCB0A345FC83D26419098B2971263099 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Carbon.framework; sourceTree = DEVELOPER_DIR; };
 		E2D0B394DA3ACC3489E3383365A4B9CD /* MASShortcut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MASShortcut.debug.xcconfig; sourceTree = "<group>"; };
-		E595E952F9BDD1DEE9B6C3B7C6660B4F /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fr.lproj; path = Resources/fr.lproj; sourceTree = "<group>"; };
-		EAFB5B5A69D78DDA5B0A7985C63E9B09 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = it.lproj; path = Resources/it.lproj; sourceTree = "<group>"; };
+		E595E952F9BDD1DEE9B6C3B7C6660B4F /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = fr.lproj; path = Resources/fr.lproj; sourceTree = "<group>"; };
+		EAFB5B5A69D78DDA5B0A7985C63E9B09 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = it.lproj; path = Resources/it.lproj; sourceTree = "<group>"; };
 		EEE6198AAA7E3645F5676D207D379E8B /* RecorderCocoa.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecorderCocoa.swift; path = Sources/KeyboardShortcuts/RecorderCocoa.swift; sourceTree = "<group>"; };
 		F41EE4C7AA9E4C43163421627A3382FF /* MASShortcutView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASShortcutView.m; path = Framework/UI/MASShortcutView.m; sourceTree = "<group>"; };
-		F5CF9CE92E0FBE62A7F0A95167537BE9 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "Resources/zh-Hans.lproj"; sourceTree = "<group>"; };
-		FCF7843CF8A29137C60889C1BD5B06A1 /* Pods-Clipboard */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Clipboard"; path = Pods_Clipboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5CF9CE92E0FBE62A7F0A95167537BE9 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hans.lproj"; path = "Resources/zh-Hans.lproj"; sourceTree = "<group>"; };
+		FCF7843CF8A29137C60889C1BD5B06A1 /* Pods_Clipboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clipboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAA557441229176A83800B8512D8321 /* MASDictionaryTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASDictionaryTransformer.m; path = "Framework/User Defaults Storage/MASDictionaryTransformer.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,7 +269,6 @@
 				693CE38BFB2845F7C8415A5770A398B0 /* util.swift */,
 				0D260E6AB3105D4876F517C90FFB365F /* Support Files */,
 			);
-			name = KeyboardShortcuts;
 			path = KeyboardShortcuts;
 			sourceTree = "<group>";
 		};
@@ -318,7 +317,6 @@
 				EE5E50685FCA20D8831B6B178AF62F76 /* Resources */,
 				283A37887B40EC90D96B3B052B99DBD3 /* Support Files */,
 			);
-			name = MASShortcut;
 			path = MASShortcut;
 			sourceTree = "<group>";
 		};
@@ -353,10 +351,10 @@
 		DE884C1B6EE24E510E78161D4B4FA62C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9C03C478111678038B6A4153F13DE416 /* KeyboardShortcuts */,
-				26A8810424438A12E7ADBFB3E068C658 /* MASShortcut */,
-				230F8208BE63C052A548A7D41A1158B2 /* MASShortcut-MASShortcut */,
-				FCF7843CF8A29137C60889C1BD5B06A1 /* Pods-Clipboard */,
+				9C03C478111678038B6A4153F13DE416 /* KeyboardShortcuts.framework */,
+				26A8810424438A12E7ADBFB3E068C658 /* MASShortcut.framework */,
+				230F8208BE63C052A548A7D41A1158B2 /* MASShortcut.bundle */,
+				FCF7843CF8A29137C60889C1BD5B06A1 /* Pods_Clipboard.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -440,7 +438,7 @@
 			);
 			name = KeyboardShortcuts;
 			productName = KeyboardShortcuts;
-			productReference = 9C03C478111678038B6A4153F13DE416 /* KeyboardShortcuts */;
+			productReference = 9C03C478111678038B6A4153F13DE416 /* KeyboardShortcuts.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		2B2B481A164695722839BD581D442457 /* MASShortcut */ = {
@@ -459,7 +457,7 @@
 			);
 			name = MASShortcut;
 			productName = MASShortcut;
-			productReference = 26A8810424438A12E7ADBFB3E068C658 /* MASShortcut */;
+			productReference = 26A8810424438A12E7ADBFB3E068C658 /* MASShortcut.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		73C37A16ECCEAD845651DCDEE95675BE /* MASShortcut-MASShortcut */ = {
@@ -476,7 +474,7 @@
 			);
 			name = "MASShortcut-MASShortcut";
 			productName = MASShortcut;
-			productReference = 230F8208BE63C052A548A7D41A1158B2 /* MASShortcut-MASShortcut */;
+			productReference = 230F8208BE63C052A548A7D41A1158B2 /* MASShortcut.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		FD061CBBA054AD167E7F5083B4904DCD /* Pods-Clipboard */ = {
@@ -496,7 +494,7 @@
 			);
 			name = "Pods-Clipboard";
 			productName = Pods_Clipboard;
-			productReference = FCF7843CF8A29137C60889C1BD5B06A1 /* Pods-Clipboard */;
+			productReference = FCF7843CF8A29137C60889C1BD5B06A1 /* Pods_Clipboard.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -584,7 +582,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD227A88D50B87748A8DB3C7D5C73656 /* MASShortcut-MASShortcut in Resources */,
+				BD227A88D50B87748A8DB3C7D5C73656 /* MASShortcut.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,7 +685,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MODULEMAP_FILE = "Target Support Files/MASShortcut/MASShortcut.modulemap";
 				PRODUCT_MODULE_NAME = MASShortcut;
 				PRODUCT_NAME = MASShortcut;
@@ -723,7 +721,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MODULEMAP_FILE = "Target Support Files/Pods-Clipboard/Pods-Clipboard.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -760,7 +758,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MODULEMAP_FILE = "Target Support Files/MASShortcut/MASShortcut.modulemap";
 				PRODUCT_MODULE_NAME = MASShortcut;
 				PRODUCT_NAME = MASShortcut;
@@ -796,7 +794,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MODULEMAP_FILE = "Target Support Files/KeyboardShortcuts/KeyboardShortcuts.modulemap";
 				PRODUCT_MODULE_NAME = KeyboardShortcuts;
 				PRODUCT_NAME = KeyboardShortcuts;
@@ -819,7 +817,7 @@
 				IBSC_MODULE = MASShortcut;
 				INFOPLIST_FILE = "Target Support Files/MASShortcut/ResourceBundle-MASShortcut-MASShortcut-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				PRODUCT_NAME = MASShortcut;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -837,7 +835,7 @@
 				IBSC_MODULE = MASShortcut;
 				INFOPLIST_FILE = "Target Support Files/MASShortcut/ResourceBundle-MASShortcut-MASShortcut-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				PRODUCT_NAME = MASShortcut;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -868,7 +866,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 13.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MODULEMAP_FILE = "Target Support Files/Pods-Clipboard/Pods-Clipboard.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -1033,7 +1031,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MODULEMAP_FILE = "Target Support Files/KeyboardShortcuts/KeyboardShortcuts.modulemap";
 				PRODUCT_MODULE_NAME = KeyboardShortcuts;
 				PRODUCT_NAME = KeyboardShortcuts;
