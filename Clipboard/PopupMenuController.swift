@@ -129,11 +129,10 @@ class PopupMenuController {
     }
     
     func resetWindow() {
+        hidePopup(settingManager: settingManger)
         if viewModels.contains(where: { $0.value.showingPopup }) {
-            hidePopup(settingManager: settingManger)
             showPopup(settingManager: settingManger)
         }
-        hidePopup(settingManager: settingManger)
     }
 
     
