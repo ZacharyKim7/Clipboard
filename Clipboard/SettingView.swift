@@ -77,6 +77,10 @@ struct proContent: View {
                 // Dont allow users to change opacity
                 ColorPicker("Select color", selection: $settingManager.panelColor, supportsOpacity: true)
                 
+//                Button("Select Color") {
+//                    openColorWheel()
+//                }
+//                .padding()
             }
             .padding([.leading, .trailing, .bottom], 14)
             
@@ -99,6 +103,20 @@ struct proContent: View {
             .padding([.leading, .trailing, .bottom], 14)
             
         }
+    }
+    
+    private func openColorWheel() {
+        let colorWheelWindow = NSWindow(
+            contentRect: NSRect(x: 100, y: 100, width: 400, height: 400),
+            styleMask: [.titled, .closable, .resizable],
+            backing: .buffered,
+            defer: false
+        )
+        colorWheelWindow.center()
+        colorWheelWindow.setFrameAutosaveName("Color Wheel")
+        colorWheelWindow.contentView = NSHostingView(rootView: ColorWheel(settingManager: settingManager))
+        colorWheelWindow.makeKeyAndOrderFront(nil)
+        colorWheelWindow.isReleasedWhenClosed = false
     }
     
 }
@@ -265,3 +283,76 @@ struct SubscriptionSettingsView: View {
 //            .environmentObject(AppDelegate()) // Provide the appDelegate for preview
 //    }
 //}
+
+struct ColorWheel: View {
+    @ObservedObject var settingManager: SettingManager // Default color
+    @State private var angle: CGFloat = 0
+    @State private var brightness: Double = 1.0
+    @State private var saturation: Double = 1.0
+
+    var body: some View {
+        VStack {
+            Circle()
+                .fill(AngularGradient(gradient: Gradient(colors: generateColors()), center: .center))
+                .frame(width: 100, height: 100)
+                .overlay(Circle().stroke(Color.black, lineWidth: 2))
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            updateColor(at: value.location)
+                        }
+                )
+                .gesture(
+                    SpatialTapGesture()
+                        .onEnded { value in
+                            updateColor(at: value.location)
+                        }
+                )
+
+            HStack {
+                Text("Brightness")
+                Slider(value: $brightness, in: 0...1, step: 0.01)
+                    .onChange(of: brightness) { _ in
+                        updateSelectedColor()
+                    }
+            }
+            .padding()
+
+            HStack {
+                Text("Saturation")
+                Slider(value: $saturation, in: 0...1, step: 0.01)
+                    .onChange(of: saturation) { _ in
+                        updateSelectedColor()
+                    }
+            }
+            .padding()
+
+            RoundedRectangle(cornerRadius: 15)
+                            .fill(settingManager.panelColor)
+                            .frame(width: 200, height: 100)
+                            .padding()
+        }
+        .padding()
+    }
+
+    // Generate colors around the wheel
+    private func generateColors() -> [Color] {
+        return (0..<360).map { Color(hue: Double($0) / 360.0, saturation: 1.0, brightness: 1.0) }
+    }
+    
+    private func updateSelectedColor() {
+        let hue = (angle < 0 ? angle + (2 * CGFloat.pi) : angle) / (2 * CGFloat.pi)
+        settingManager.panelColor = Color(hue: Double(hue), saturation: saturation, brightness: brightness, opacity: 0.1)
+    }
+    
+    private func updateColor(at location: CGPoint) {
+            let center = CGPoint(x: 50, y: 50) // Center of the circle
+            let deltaX = location.x - center.x
+            let deltaY = location.y - center.y
+            angle = atan2(deltaY, deltaX) // Angle in radians
+
+            // Normalize the angle to get the hue
+            let hue = (angle < 0 ? angle + (2 * CGFloat.pi) : angle) / (2 * CGFloat.pi)
+        settingManager.panelColor = Color(hue: Double(hue), saturation: saturation, brightness: brightness, opacity: 0.1)
+        }
+}

@@ -440,6 +440,9 @@
       },
       "shouldTranslate" : false
     },
+    "Brightness" : {
+
+    },
     "Clear Copies" : {
       "localizations" : {
         "de" : {
@@ -2145,8 +2148,10 @@
         }
       }
     },
+    "Saturation" : {
+
+    },
     "Select color" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2273,9 +2278,6 @@
           }
         }
       }
-    },
-    "Selected Color" : {
-
     },
     "Selected display:" : {
       "localizations" : {
@@ -2724,9 +2726,6 @@
           }
         }
       }
-    },
-    "Show Selected Color" : {
-
     },
     "Small" : {
       "localizations" : {

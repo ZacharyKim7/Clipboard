@@ -87,7 +87,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         // Check if the window already exists and is open
         if let window = settingsWindow {
             // Bring the window to the front if it already exists
-            window.makeKeyAndOrderFront(nil)
+            window.orderFrontRegardless()
             NSApp.activate(ignoringOtherApps: true)
         } else {
             // Create the settings window
@@ -164,7 +164,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     private func checkFirstLaunch() {
         let userDefaults = UserDefaults.standard
         let hasLaunchedBeforeKey = "hasLaunchedBefore"
-        userDefaults.set(false, forKey: hasLaunchedBeforeKey)
+//        userDefaults.set(false, forKey: hasLaunchedBeforeKey)
         //        userDefaults.removeObject(forKey: "ClipboardHistory")
         if !userDefaults.bool(forKey: hasLaunchedBeforeKey) && !entitlementManager.hasPro {
             let newWindow = NSWindow(
