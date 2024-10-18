@@ -144,6 +144,9 @@ struct GeneralSettingsView: View {
                             Text(screen.localizedName).tag(screen.localizedName)
                         }
                     }
+                    .onChange(of: settingManager.selectedScreen, perform: { newValue in
+                        appDelegate.resetPopup()
+                    })
                     .disabled(NSScreen.screens.isEmpty) // Disable if no screens are available
                     .pickerStyle(MenuPickerStyle()) // Use MenuPickerStyle for dropdown
                     .padding(.leading, 10)

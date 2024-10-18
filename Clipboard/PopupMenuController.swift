@@ -77,6 +77,11 @@ class PopupMenuController {
         self.stopMonitoringOutsideClicks()
         self.stopMonitoringAppActivation()
     }
+    
+    func resetWindow() {
+        window = nil
+        createWindow(settingManager: settingManger)
+    }
 
     
     private func startMonitoringOutsideClicks(settingManager: SettingManager) {

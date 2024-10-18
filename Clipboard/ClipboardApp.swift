@@ -70,6 +70,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         popupMenuController?.hidePopup(settingManager: settingManager!)
     }
     
+    func resetPopup() {
+        popupMenuController?.resetWindow()
+    }
+    
     func openSettings() {
         // Check if the window already exists and is open
         if let window = settingsWindow {
