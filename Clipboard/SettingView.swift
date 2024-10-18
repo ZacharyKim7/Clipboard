@@ -146,6 +146,7 @@ struct GeneralSettingsView: View {
                     }
                     .onChange(of: settingManager.selectedScreen, perform: { newValue in
                         appDelegate.hidePopup()
+                        appDelegate.resetPopup()
                     })
                     .disabled(NSScreen.screens.isEmpty) // Disable if no screens are available
                     .pickerStyle(MenuPickerStyle()) // Use MenuPickerStyle for dropdown

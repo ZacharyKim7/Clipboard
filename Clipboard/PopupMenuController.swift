@@ -128,10 +128,13 @@ class PopupMenuController {
         self.stopMonitoringAppActivation()
     }
     
-//    func resetWindow() {
-//        self.window?.orderOut(nil)
-//        createWindow(settingManager: settingManger)
-//    }
+    func resetWindow() {
+        if viewModels.contains(where: { $0.value.showingPopup }) {
+            hidePopup(settingManager: settingManger)
+            showPopup(settingManager: settingManger)
+        }
+        hidePopup(settingManager: settingManger)
+    }
 
     
     private func startMonitoringOutsideClicks(settingManager: SettingManager) {
