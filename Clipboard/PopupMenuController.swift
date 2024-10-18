@@ -143,9 +143,10 @@ class PopupMenuController {
             }
             let window = windows[screen.localizedName]
             let clickLocation = window!.convertFromScreen(NSRect(origin: event.locationInWindow, size: .zero)).origin
-            if window!.contentView!.frame.contains(clickLocation) {
+                if !window!.contentView!.frame.contains(clickLocation) {
                     self.hidePopup(settingManager: settingManager)
                 }
+    
         }
     }
     
