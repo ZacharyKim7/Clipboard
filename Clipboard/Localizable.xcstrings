@@ -68,7 +68,7 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "1. Как обычно, скопируйте текст, изображения или ссылки в буфер обмена."
-            }
+          }
         },
         "zh-Hans" : {
           "stringUnit" : {
@@ -132,8 +132,8 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "2. Доступ к сохраненным копиям можно получить из строки меню или с панели инструментов истории буфера обмена ("
-            }
-          },
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -196,8 +196,8 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "3. Нажмите на элемент, чтобы вставить его или управлять историей буфера обмена."
-            }
-          },
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -260,8 +260,8 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "4. Обновление для получения дополнительных копий и расширенных настроек."
-            }
-          },
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -324,8 +324,8 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "месяц"
-            }
-          },
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -370,6 +370,30 @@
     },
     "Clear Copies" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopien löschen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrar copias"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "प्रतिलिपियाँ हटाएँ"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izbrisati kopije\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -398,30 +422,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Удаление копий"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kopien löschen"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Borrar copias"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "प्रतिलिपियाँ हटाएँ"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Izbrisati kopije\n\n"
           }
         },
         "zh-Hans" : {
@@ -434,6 +434,30 @@
     },
     "Click to paste:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zum Einfügen anklicken:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haz clic para pegar:"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "चिपकाने के लिए क्लिक करें:"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kliknite da prilepite:\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -462,30 +486,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Нажмите, чтобы вставить:"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zum Einfügen anklicken:"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Haz clic para pegar:"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "चिपकाने के लिए क्लिक करें:"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kliknite da prilepite:\n\n"
           }
         },
         "zh-Hans" : {
@@ -532,6 +532,30 @@
     },
     "Delete all saved copies from memory:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle gespeicherten Kopien aus dem Speicher löschen:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar todas las copias guardadas de la memoria:\n"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "स्मृति से सभी सहेजी गई प्रतियाँ हटाएँ:"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izbrišite sve spremljene kopije iz memorije:"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -561,46 +585,41 @@
             "state" : "translated",
             "value" : "Удаление всех сохраненных копий из памяти:"
           }
-        }
-      }
-    },
-    "Deletes all saved copies from cache" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alle gespeicherten Kopien aus dem Speicher löschen:"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Borra todas las copias guardadas de la memoria:"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "स्मृति से सभी सहेजी गई प्रतियाँ हटाएँ:"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Obrišite sve sačuvane kopije iz memorije:\n\n"
-          }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "删除内存中所有已保存的副本："
+            "value" : "从内存中删除所有保存的副本："
           }
         }
       }
     },
     "Don't show this page again" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Seite nicht mehr anzeigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No mostrar esta página otra vez"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "इस पेज को दोबारा न दिखाएं"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ne pokazuj mi ovu stranicu više.\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -629,30 +648,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Не показывайте эту страницу снова"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Diese Seite nicht mehr anzeigen"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No mostrar esta página otra vez"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "इस पेज को दोबारा न दिखाएं"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ne pokazuj mi ovu stranicu više.\n\n"
           }
         },
         "zh-Hans" : {
@@ -699,6 +694,30 @@
     },
     "General Settings" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allgemeine Einstellungen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración general"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सामान्य सेटिंग्स"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opće postavke\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -727,30 +746,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Общие настройки"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Allgemeine Einstellungen"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Configuración general"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "सामान्य सेटिंग्स"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Opće postavke\n\n"
           }
         },
         "zh-Hans" : {
@@ -763,6 +758,30 @@
     },
     "Get access to all of our features" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erhalten Sie Zugang zu all unseren Funktionen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acceda a todas nuestras funciones"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "हमारी सभी सुविधाओं तक पहुंच प्राप्त करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pristup svim našim funkcijama\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -791,30 +810,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Получите доступ ко всем нашим функциям"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erhalten Sie Zugang zu all unseren Funktionen"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Acceda a todas nuestras funciones"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "हमारी सभी सुविधाओं तक पहुंच प्राप्त करें"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pristup svim našim funkcijama\n\n"
           }
         },
         "zh-Hans" : {
@@ -827,6 +822,30 @@
     },
     "Get full access for just" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Holen Sie sich den vollen Zugang für nur"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obtenga acceso completo por sólo"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "बस के लिए पूर्ण पहुँच प्राप्त करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dobijte potpuni pristup za samo\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -855,30 +874,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Получите полный доступ всего за"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Holen Sie sich den vollen Zugang für nur"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Obtenga acceso completo por sólo"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "बस के लिए पूर्ण पहुँच प्राप्त करें"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dobijte potpuni pristup za samo\n\n"
           }
         },
         "zh-Hans" : {
@@ -891,6 +886,30 @@
     },
     "Get Started" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los geht's"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comenzar"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "शुरू हो जाओ"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Počnite"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -919,30 +938,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Начать"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Los geht's"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Comenzar"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "शुरू हो जाओ"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Počnite"
           }
         },
         "zh-Hans" : {
@@ -989,6 +984,30 @@
     },
     "How to Use:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wie zu verwenden:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cómo utilizarlo:"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "का उपयोग कैसे करें:"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kako koristiti:\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1017,30 +1036,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Как использовать:"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wie zu verwenden:"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cómo utilizarlo:"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "का उपयोग कैसे करें:"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kako koristiti:\n\n"
           }
         },
         "zh-Hans" : {
@@ -1053,6 +1048,30 @@
     },
     "Image" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bild"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imagen"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "छवि"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slika"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1081,30 +1100,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Изображение"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bild"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Imagen"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "छवि"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Slika"
           }
         },
         "zh-Hans" : {
@@ -1117,6 +1112,30 @@
     },
     "Invalid Image" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültiges Bild"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imagen inválida"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अमान्य छवि"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neispravna slika\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1145,30 +1164,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Недопустимое изображение"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ungültiges Bild"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Imagen inválida"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "अमान्य छवि"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Neispravna slika\n\n"
           }
         },
         "zh-Hans" : {
@@ -1181,6 +1176,30 @@
     },
     "Invalid Image URL" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültige Bild-URL"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL de imagen inválida"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अमान्य छवि URL"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neispravan URL slike\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1209,30 +1228,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Неверный URL-адрес изображения"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ungültige Bild-URL"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "URL de imagen inválida"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "अमान्य छवि URL"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Neispravan URL slike\n\n"
           }
         },
         "zh-Hans" : {
@@ -1245,6 +1240,30 @@
     },
     "Large" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Groß"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grande"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "बड़ा"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veliki"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1264,18 +1283,6 @@
           }
         },
         "pt-BR" : {
-        "stringUnit" : {
-          "state" : "translated",
-          "value" : "Grande"
-        }
-      },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Groß"
-          }
-        },
-        "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grande"
@@ -1285,18 +1292,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Большой"
-            }
-          },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "बड़ा"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Veliki"
           }
         },
         "zh-Hans" : {
@@ -1309,6 +1304,30 @@
     },
     "Link" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbindung"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enlace"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "जोड़ना"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veza"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1337,30 +1356,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ссылка"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verbindung"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enlace"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "जोड़ना"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Veza"
           }
         },
         "zh-Hans" : {
@@ -1373,6 +1368,30 @@
     },
     "Medium" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mittel"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Medio"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "मध्यम"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Srednja"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1401,30 +1420,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Средний"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mittel"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Medio"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "मध्यम"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Srednja"
           }
         },
         "zh-Hans" : {
@@ -1472,42 +1467,18 @@
     },
     "Pro" : {
       "localizations" : {
-        "id" : {
-            "stringUnit" : {
-              "state" : "translated",
-              "value" : "Pro"
-            }
-          },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pro"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "プロ"
-          }
-        },
-        "ko" : {
-            "stringUnit" : {
-              "state" : "translated",
-              "value" : "Pro"
-            }
-          },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pro"
           }
         },
-        "pt-BR" : {
-            "stringUnit" : {
-              "state" : "translated",
-              "value" : "प्रो"
-            }
-          },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1520,12 +1491,36 @@
             "value" : "Pro"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プロ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "प्रो"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Про"
-            }
-          },
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1536,6 +1531,30 @@
     },
     "Pro Settings" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro Einstellungen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración Pro"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "प्रो सेटिंग्स"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\nPro postavke"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1564,30 +1583,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Профессиональные настройки"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pro Einstellungen"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Configuración Pro"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "प्रो सेटिंग्स"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "\nPro postavke"
           }
         },
         "zh-Hans" : {
@@ -1600,6 +1595,30 @@
     },
     "Purchase" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaufen Sie"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comprar"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "खरीदना"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kupovina"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1628,30 +1647,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Приобрести"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kaufen Sie"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Comprar"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "खरीदना"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kupovina"
           }
         },
         "zh-Hans" : {
@@ -1664,6 +1659,30 @@
     },
     "Quit" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beenden Sie"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deje de"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "छोड़ना"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odustati"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1692,30 +1711,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Увольнение"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beenden Sie"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Deje de"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "छोड़ना"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Odustati"
           }
         },
         "zh-Hans" : {
@@ -1728,6 +1723,30 @@
     },
     "Rate App" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App bewerten"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tarifa App"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "एप्प का मूल्यांकन"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aplikacija za određivanje cijena\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1756,30 +1775,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Оцените приложение"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "App bewerten"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tarifa App"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "एप्प का मूल्यांकन"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aplikacija za određivanje cijena\n\n"
           }
         },
         "zh-Hans" : {
@@ -1792,6 +1787,30 @@
     },
     "Rate our app:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bewerten Sie unsere App:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valora nuestra aplicación:"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "हमारे ऐप को रेट करें:"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oceni našu aplikaciju:\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1820,30 +1839,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Оцените наше приложение:"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bewerten Sie unsere App:"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Valora nuestra aplicación:"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "हमारे ऐप को रेट करें:"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Oceni našu aplikaciju:\n\n"
           }
         },
         "zh-Hans" : {
@@ -1856,6 +1851,30 @@
     },
     "Restore Purchases" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Käufe wiederherstellen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurar compras"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "खरीदारी वापस लौटाएं"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obnova kupnje\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1875,18 +1894,6 @@
           }
         },
         "pt-BR" : {
-            "stringUnit" : {
-              "state" : "translated",
-              "value" : "Restaurar compras"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Käufe wiederherstellen"
-          }
-        },
-        "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Restaurar compras"
@@ -1896,18 +1903,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Восстановление покупок"
-            }
-          },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "खरीदारी वापस लौटाएं"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Obnova kupnje\n\n"
           }
         },
         "zh-Hans" : {
@@ -1920,6 +1915,30 @@
     },
     "Select color" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Farbe auswählen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccionar color"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "रंग चुनो"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odaberite boju\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1948,30 +1967,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Выберите цвет"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Farbe auswählen"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seleccionar color"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "रंग चुनो"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Odaberite boju\n\n"
           }
         },
         "zh-Hans" : {
@@ -1984,6 +1979,30 @@
     },
     "Select item size:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie die Artikelgröße:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccione el tamaño del artículo:"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आइटम का आकार चुनें:"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odaberite veličinu:\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2012,30 +2031,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Выберите размер изделия:"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wählen Sie die Artikelgröße:"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seleccione el tamaño del artículo:"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "आइटम का आकार चुनें:"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Odaberite veličinu:\n\n"
           }
         },
         "zh-Hans" : {
@@ -2048,6 +2043,30 @@
     },
     "Selected display:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausgewählte Anzeige:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pantalla seleccionada:"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "चयनित प्रदर्शन:"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odabrani prikaz:\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2076,30 +2095,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Выбранный дисплей:"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ausgewählte Anzeige:"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pantalla seleccionada:"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "चयनित प्रदर्शन:"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Odabrani prikaz:\n\n"
           }
         },
         "zh-Hans" : {
@@ -2112,6 +2107,30 @@
     },
     "Set background color for copies panel:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legen Sie die Hintergrundfarbe für das Kopierfeld fest:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Establezca el color de fondo del panel de copias:"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "प्रतिलिपि पैनल के लिए पृष्ठभूमि रंग सेट करें:"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Postavljanje boje pozadine za ploču kopija:\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2140,30 +2159,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Установите цвет фона для панели копий:"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Legen Sie die Hintergrundfarbe für das Kopierfeld fest:"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Establezca el color de fondo del panel de copias:"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "प्रतिलिपि पैनल के लिए पृष्ठभूमि रंग सेट करें:"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Postavljanje boje pozadine za ploču kopija:\n\n"
           }
         },
         "zh-Hans" : {
@@ -2176,6 +2171,30 @@
     },
     "Set shortcut for copies panel:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tastenkombination für das Kopierfeld festlegen:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Establecer acceso directo para el panel de copias:"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "प्रतिलिपि पैनल के लिए शॉर्टकट सेट करें:"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Postavljanje prečice za ploču kopija:\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2204,30 +2223,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Установите ярлык для панели копий:"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tastenkombination für das Kopierfeld festlegen:"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Establecer acceso directo para el panel de copias:"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "प्रतिलिपि पैनल के लिए शॉर्टकट सेट करें:"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Postavljanje prečice za ploču kopija:\n\n"
           }
         },
         "zh-Hans" : {
@@ -2240,6 +2235,30 @@
     },
     "Settings" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सेटिंग्स"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Postavke\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2268,30 +2287,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Настройки"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Einstellungen"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Configuración"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "सेटिंग्स"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Postavke\n\n"
           }
         },
         "zh-Hans" : {
@@ -2304,6 +2299,30 @@
     },
     "Show Copies" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopien anzeigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar copias"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "प्रतिलिपियाँ दिखाएँ"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokaži kopije\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2332,30 +2351,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показать копии"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kopien anzeigen"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mostrar copias"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "प्रतिलिपियाँ दिखाएँ"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pokaži kopije\n\n"
           }
         },
         "zh-Hans" : {
@@ -2368,6 +2363,30 @@
     },
     "Show Popup" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Popup anzeigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar ventana emergente"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "पॉपअप दिखाएँ"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokaži popup\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2396,30 +2415,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Показать всплывающее окно"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Popup anzeigen"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mostrar ventana emergente"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "पॉपअप दिखाएँ"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pokaži popup\n\n"
           }
         },
         "zh-Hans" : {
@@ -2432,6 +2427,30 @@
     },
     "Small" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klein"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pequeño"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "छोटा"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mali\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2460,30 +2479,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Маленький"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Klein"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pequeño"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "छोटा"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mali\n\n"
           }
         },
         "zh-Hans" : {
@@ -2496,6 +2491,30 @@
     },
     "Subscription Plan" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abonnement-Plan"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan de suscripción"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सदस्यता योजना"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan pretplate\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2524,30 +2543,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "План подписки"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Abonnement-Plan"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Plan de suscripción"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "सदस्यता योजना"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Plan pretplate\n\n"
           }
         },
         "zh-Hans" : {
@@ -2560,6 +2555,30 @@
     },
     "Text" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Text"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Texto"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "मूलपाठ"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tekst"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2579,18 +2598,6 @@
           }
         },
         "pt-BR" : {
-            "stringUnit" : {
-              "state" : "translated",
-              "value" : "Texto"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Der Text"
-          }
-        },
-        "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Texto"
@@ -2600,18 +2607,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Текст"
-            }
-          },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "मूलपाठ"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tekst"
           }
         },
         "zh-Hans" : {
@@ -2658,6 +2653,30 @@
     },
     "Unknown Content" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbekannter Inhalt"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contenido desconocido"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अज्ञात सामग्री"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nepoznat sadržaj\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2686,30 +2705,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Неизвестное содержание"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unbekannter Inhalt"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contenido desconocido"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "अज्ञात सामग्री"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nepoznat sadržaj\n\n"
           }
         },
         "zh-Hans" : {
@@ -2722,6 +2717,30 @@
     },
     "Unlock CopyCat Pro" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CopyCat Pro freischalten"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloquear CopyCat Pro"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कॉपीकैट प्रो को अनलॉक करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otključaj CopyCat Pro\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2750,30 +2769,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Разблокировать CopyCat Pro"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "CopyCat Pro freischalten"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desbloquear CopyCat Pro"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कॉपीकैट प्रो को अनलॉक करें"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Otključaj CopyCat Pro\n\n"
           }
         },
         "zh-Hans" : {
@@ -2786,6 +2781,30 @@
     },
     "Unlock more copies" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehr Kopien freischalten"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloquear más copias"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अधिक प्रतियां अनलॉक करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otključaj još kopija\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2814,30 +2833,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Разблокируйте больше копий"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mehr Kopien freischalten"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desbloquear más copias"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "अधिक प्रतियां अनलॉक करें"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Otključaj još kopija\n\n"
           }
         },
         "zh-Hans" : {
@@ -2850,6 +2845,30 @@
     },
     "Upgrade" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualisierung"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizar"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "उन्नत करना"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nadogradnja\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2878,30 +2897,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обновление"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aktualisierung"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualizar"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "उन्नत करना"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nadogradnja\n\n"
           }
         },
         "zh-Hans" : {
@@ -2914,6 +2909,30 @@
     },
     "Upgrade to Premium" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade zur Premium-Version"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pasar a Premium"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "प्रीमियम में अपग्रेड करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nadogradnja na Premium\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2942,30 +2961,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Перейти на премиум"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Upgrade zur Premium-Version"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pasar a Premium"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "प्रीमियम में अपग्रेड करें"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nadogradnja na Premium\n\n"
           }
         },
         "zh-Hans" : {
@@ -2978,6 +2973,30 @@
     },
     "Upgrade to Pro to access additional settings:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualisieren Sie auf Pro, um zusätzliche Einstellungen zu erhalten:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualiza a Pro para acceder a ajustes adicionales:"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अतिरिक्त सेटिंग्स तक पहुंचने के लिए प्रो में अपग्रेड करें:"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nadogradnja na Pro za pristup dodatnim postavkama:\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3006,30 +3025,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Чтобы получить доступ к дополнительным настройкам, перейдите на версию Pro:"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aktualisieren Sie auf Pro, um zusätzliche Einstellungen zu erhalten:"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualiza a Pro para acceder a ajustes adicionales:"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "अतिरिक्त सेटिंग्स तक पहुंचने के लिए प्रो में अपग्रेड करें:"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nadogradnja na Pro za pristup dodatnim postavkama:\n\n"
           }
         },
         "zh-Hans" : {
@@ -3042,6 +3037,30 @@
     },
     "Welcome to CopyCat!" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen bei CopyCat!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Bienvenido a CopyCat!"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कॉपीकैट में आपका स्वागत है!"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dobrodošli u CopyCat!\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3070,30 +3089,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Добро пожаловать в CopyCat!"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Willkommen bei CopyCat!"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Bienvenido a CopyCat!"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कॉपीकैट में आपका स्वागत है!"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dobrodošli u CopyCat!\n\n"
           }
         },
         "zh-Hans" : {
@@ -3106,6 +3101,30 @@
     },
     "You’re using the free version of CopyCat. This version allows you to store up to 3 copies." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie benutzen die kostenlose Version von CopyCat. Diese Version erlaubt es Ihnen, bis zu 3 Kopien zu speichern."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Está utilizando la versión gratuita de CopyCat. Esta versión le permite almacenar hasta 3 copias."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आप CopyCat का निःशुल्क संस्करण उपयोग कर रहे हैं। यह संस्करण आपको 3 प्रतियाँ तक संग्रहीत करने की अनुमति देता है।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Koristite besplatnu verziju CopyCata. Ova verzija vam omogućuje da pohranite do 3 kopije.\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3134,30 +3153,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вы используете бесплатную версию CopyCat. Эта версия позволяет хранить до 3 копий."
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sie benutzen die kostenlose Version von CopyCat. Diese Version erlaubt es Ihnen, bis zu 3 Kopien zu speichern."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Está utilizando la versión gratuita de CopyCat. Esta versión le permite almacenar hasta 3 copias."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "आप CopyCat का निःशुल्क संस्करण उपयोग कर रहे हैं। यह संस्करण आपको 3 प्रतियाँ तक संग्रहीत करने की अनुमति देता है।"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Koristite besplatnu verziju CopyCata. Ova verzija vam omogućuje da pohranite do 3 kopije.\n\n"
           }
         },
         "zh-Hans" : {
@@ -3170,6 +3165,24 @@
     },
     "You've unlocked CopyCat Pro!" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie haben CopyCat Pro freigeschaltet!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Has desbloqueado CopyCat Pro!"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otključao si CopyCat Pro!\n\n"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3198,24 +3211,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вы разблокировали CopyCat Pro!"
-            }
-          },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sie haben CopyCat Pro freigeschaltet!"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Has desbloqueado CopyCat Pro!"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Otključao si CopyCat Pro!\n\n"
           }
         },
         "zh-Hans" : {
