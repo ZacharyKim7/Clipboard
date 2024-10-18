@@ -56,7 +56,7 @@ struct proContent: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .center) {
-                Text("Set Shortcut for CopiesPanel Mode")
+                Text("Set shortcut for copies panel:")
                     .font(.system(size: 13))
                     .foregroundColor(.gray)
                 
@@ -68,21 +68,21 @@ struct proContent: View {
             
             // Color Picker Section
             HStack {
-                Text("Set copies panel background color: ")
+                Text("Set background color for copies panel:")
                     .font(.system(size: 13))
                     .foregroundColor(.gray)
                 
                 Spacer()
                 
                 // Dont allow users to change opacity
-                ColorPicker("Select Color", selection: $settingManager.panelColor, supportsOpacity: true)
+                ColorPicker("Select color", selection: $settingManager.panelColor, supportsOpacity: true)
                 
             }
             .padding([.leading, .trailing, .bottom], 14)
             
             // Select Copies Size
             HStack {
-                Text("Select Item Size:")
+                Text("Select item size:")
                     .font(.system(size: 13))
                     .foregroundColor(.gray)
                     .padding(.bottom, 5)
@@ -122,7 +122,7 @@ struct GeneralSettingsView: View {
                 Divider()
                 
                 HStack {
-                    Text("Paste Immediately:")
+                    Text("Click to paste:")
                         .font(.system(size: 13))
                         .foregroundColor(.gray)
                         .padding(.bottom, 5)
@@ -134,7 +134,7 @@ struct GeneralSettingsView: View {
                 .padding([.leading, .trailing, .bottom], 14)
                 
                 HStack {
-                    Text("Selected Display:")
+                    Text("Selected display:")
                         .font(.system(size: 13))
                         .foregroundColor(.gray)
                         .padding(.bottom, 5)
@@ -155,13 +155,13 @@ struct GeneralSettingsView: View {
                 
                 // Clean Cache Section
                 HStack(alignment: .center) {
-                    Text("Deletes all saved copies from cache")
+                    Text("Delete all saved copies from memory:")
                         .font(.system(size: 13))
                         .foregroundColor(.gray)
                     
                     Spacer()
                     
-                    Button("Clean Cache") {
+                    Button("Clear Copies") {
                         settingManager.clipboardManager?.clearCache()
                     }
                     .buttonStyle(GrowingButtonStyle())
@@ -169,7 +169,7 @@ struct GeneralSettingsView: View {
                 .padding([.top, .leading, .trailing, .bottom], 14)
                 
                 HStack(alignment: .center) {
-                    Text("Rate our app")
+                    Text("Rate our app:")
                         .font(.system(size: 13))
                         .foregroundColor(.gray)
                     

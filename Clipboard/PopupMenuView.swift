@@ -91,7 +91,7 @@ struct ClipboardItemView: View {
                         Text("")
                         Spacer()
                     }
-                    Text(displayText(for: item.contentType))
+                    displayText(for: item.contentType)
                         .fontWeight(.bold)
                         .foregroundColor(Color.gray)
                     HStack {
@@ -165,12 +165,12 @@ struct ClipboardItemView: View {
         }
     }
     
-    private func displayText(for type: Int) -> String {
+    private func displayText(for type: Int) -> Text {
         switch type {
-        case 0: return "Text"
-        case 1: return "Link"
-        case 2: return "Image"
-        default: return "Text"
+        case 0: return Text("Text")
+        case 1: return Text("Link")
+        case 2: return Text("Image")
+        default: return Text("Text")
         }
     }
 }
