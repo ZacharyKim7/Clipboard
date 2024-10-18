@@ -20,7 +20,7 @@ struct PopupMenuView: View {
             ScrollView {
                 VStack {
                     if clipboardManager.clipboardHistory.isEmpty {
-                        Text(NSLocalizedString("no_items", comment: "Message when clipboard history is empty"))
+                        Text("It looks like your clipboard is clear. Try copying something to begin tracking your history.")
                             .font(.headline)
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)

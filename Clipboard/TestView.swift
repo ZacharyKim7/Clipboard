@@ -14,7 +14,7 @@ struct TestView: View {
     @EnvironmentObject private var subscriptionsManager: SubscriptionManager
     
     @State private var selectedProduct: Product? = nil
-    private let features: [String] = ["50 copies", "Color customization", "Shortcut customization", "Layout customization"]
+    private let features: [Text] = [Text("50 copies"), Text("Color customization"), Text("Shortcut customization"), Text("Layout customization")]
     
     // MARK: - Layout
     var body: some View {
@@ -89,13 +89,13 @@ struct TestView: View {
     }
     
     private var featuresView: some View {
-        List(features, id: \.self) { feature in
+        List(features.indices, id: \.self) { index in
             HStack(alignment: .center) {
                 Image(systemName: "checkmark.circle")
                     .font(.system(size: 22.5, weight: .medium))
                     .foregroundStyle(.blue)
                 
-                Text(feature)
+                features[index]
                     .font(.system(size: 17.0, weight: .semibold, design: .rounded))
                     .multilineTextAlignment(.leading)
             }

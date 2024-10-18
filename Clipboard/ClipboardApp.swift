@@ -39,6 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     // Keep a reference to the settings window
     private var settingsWindow: NSWindow?
     private var launchWindow: NSWindow?
+    private var subscriptionWindow: NSWindow?
     
     
     override init() {
@@ -59,6 +60,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         KeyboardShortcuts.setShortcut(.init(.v, modifiers: [.control]), for: .viewCopiesPanel)
         KeyboardShortcuts.onKeyUp(for: .viewCopiesPanel) {
             self.showPopup()
+        }
+    }
+    
+    func resetDefaults() {
+        let defaults = UserDefaults.standard
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
         }
     }
     
@@ -117,7 +126,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     // Duplicated code same as settingView this can be condense to one function
     func openTestView() {
         // Check if the window already exists and is open
-        if let window = settingsWindow {  // Replace with a dedicated testWindow if needed
+        if let window = subscriptionWindow {  // Replace with a dedicated testWindow if needed
             // Bring the window to the front if it already exists
             window.makeKeyAndOrderFront(nil)
             NSApp.activate(ignoringOtherApps: true)
@@ -144,7 +153,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             NSApp.activate(ignoringOtherApps: true)
             
             // Store the window reference to avoid recreating it
-            settingsWindow = newWindow  // Use a separate variable like testWindow if needed
+            subscriptionWindow = newWindow  // Use a separate variable like testWindow if needed
             
             // Add an observer to clean up the reference when the window is closed
             NotificationCenter.default.addObserver(self, selector: #selector(windowDidClose(_:)), name: NSWindow.willCloseNotification, object: newWindow)

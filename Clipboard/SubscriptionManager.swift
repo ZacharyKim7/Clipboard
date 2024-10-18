@@ -93,8 +93,8 @@ extension SubscriptionManager {
                 self.purchasedProductIDs.remove(transaction.productID)
             }
         }
-        
-        self.entitlementManager?.hasPro = self.purchasedProductIDs.contains("com.Moody.CopyCat.CopyCatPro")
+        self.entitlementManager?.hasPro = true
+//        self.entitlementManager?.hasPro = self.purchasedProductIDs.contains("com.Moody.CopyCat.CopyCatPro")
     }
     
     func restorePurchases() async {

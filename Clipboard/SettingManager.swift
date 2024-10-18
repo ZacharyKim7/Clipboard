@@ -22,7 +22,7 @@ class SettingManager: ObservableObject {
     @ObservedObject var entitlementManager: EntitlementManager
     @Published var selectedSection: SettingSection = .general
     @Published var subscriptionPlan: String = "Basic"
-    @Published var panelColor: Color = Color.gray {
+    @Published var panelColor: Color = Color.gray.opacity(0.0) {
         didSet {
             savePanelColor()
         }

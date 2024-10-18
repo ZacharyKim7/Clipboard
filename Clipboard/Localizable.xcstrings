@@ -2,7 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "shouldTranslate" : false
     },
     ")" : {
       "localizations" : {
@@ -11,8 +11,15 @@
             "state" : "translated",
             "value" : ")"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ")"
+          }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "1. Copy text, images, or links to your clipboard as usual." : {
       "localizations" : {
@@ -270,6 +277,70 @@
         }
       }
     },
+    "50 copies" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50 Exemplare"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50 ejemplares"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50 प्रतियां"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50 primjeraka"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50 eksemplar"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50部"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50부"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50 cópias"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50 экземпляров"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50 份"
+          }
+        }
+      }
+    },
     "a month" : {
       "localizations" : {
         "de" : {
@@ -366,7 +437,8 @@
             "value" : "基本"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "Clear Copies" : {
       "localizations" : {
@@ -496,6 +568,70 @@
         }
       }
     },
+    "Color customization" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Farbanpassung"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalización del color"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "रंग अनुकूलन"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prilagodba boja"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kustomisasi warna"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カラーカスタマイズ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "색상 사용자 지정"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalização de cores"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройка цвета"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "颜色定制"
+          }
+        }
+      }
+    },
     "Control + V" : {
       "localizations" : {
         "de" : {
@@ -528,7 +664,8 @@
             "value" : "Control + V"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "Delete all saved copies from memory:" : {
       "localizations" : {
@@ -690,7 +827,8 @@
             "value" : "企业"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "General Settings" : {
       "localizations" : {
@@ -980,7 +1118,8 @@
             "value" : "GOOFY"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "How to Use:" : {
       "localizations" : {
@@ -1238,6 +1377,70 @@
         }
       }
     },
+    "It looks like your clipboard is clear. Try copying something to begin tracking your history." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es sieht so aus, als ob Ihre Zwischenablage leer ist. Versuchen Sie, etwas zu kopieren, um Ihren Verlauf zu verfolgen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parece que tu portapapeles está vacío. Prueba a copiar algo para empezar a rastrear tu historial."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ऐसा लगता है कि आपका क्लिपबोर्ड साफ़ है. अपने इतिहास पर नज़र रखना शुरू करने के लिए कुछ कॉपी करने का प्रयास करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Čini se da je vaš međuspremnik čist. Pokušajte nešto kopirati da biste počeli pratiti svoju povijest."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sepertinya papan klip Anda sudah bersih. Coba salin sesuatu untuk mulai melacak riwayat Anda."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "クリップボードがクリアになっているようです。何かをコピーして履歴を追跡してみてください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "클립보드가 비어 있는 것 같습니다. 기록 추적을 시작하려면 무언가를 복사해 보세요."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parece que sua área de transferência está limpa. Tente copiar algo para começar a rastrear seu histórico."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Похоже, что ваш буфер обмена чист. Попробуйте скопировать что-нибудь, чтобы начать отслеживать историю."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "看起来你的剪贴板没有问题。请尝试复制一些内容，开始跟踪历史记录。"
+          }
+        }
+      }
+    },
     "Large" : {
       "localizations" : {
         "de" : {
@@ -1298,6 +1501,70 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "大型"
+          }
+        }
+      }
+    },
+    "Layout customization" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Layout-Anpassung"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalización del diseño"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "लेआउट अनुकूलन"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prilagodba izgleda"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kustomisasi tata letak"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "レイアウトのカスタマイズ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "레이아웃 사용자 지정"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalização do layout"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройка макета"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "布局定制"
           }
         }
       }
@@ -1426,41 +1693,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "中型"
-          }
-        }
-      }
-    },
-    "no_items" : {
-      "comment" : "Message when clipboard history is empty",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "keine_Aufgaben"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "no_artículos"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कोई आइटम नहीं"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "broj_članaka\n\n"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无项目"
           }
         }
       }
@@ -1914,6 +2146,7 @@
       }
     },
     "Select color" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2040,6 +2273,9 @@
           }
         }
       }
+    },
+    "Selected Color" : {
+
     },
     "Selected display:" : {
       "localizations" : {
@@ -2297,6 +2533,70 @@
         }
       }
     },
+    "Shortcut customization" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anpassung der Tastenkombinationen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalización de accesos directos"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "शॉर्टकट अनुकूलन"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prilagodba prečaca"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kustomisasi pintasan"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ショートカットのカスタマイズ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "바로 가기 사용자 지정"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalização de atalhos"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройка ярлыков"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自定义快捷键"
+          }
+        }
+      }
+    },
     "Show Copies" : {
       "localizations" : {
         "de" : {
@@ -2424,6 +2724,9 @@
           }
         }
       }
+    },
+    "Show Selected Color" : {
+
     },
     "Small" : {
       "localizations" : {
@@ -2649,7 +2952,8 @@
             "value" : "该用户已付费！"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "Unknown Content" : {
       "localizations" : {
