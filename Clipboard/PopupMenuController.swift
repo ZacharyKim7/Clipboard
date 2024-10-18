@@ -111,6 +111,7 @@ class PopupMenuController {
             return NSScreen.screens.first { $0.localizedName == settingManager.selectedScreen } ?? NSScreen.main!
         }
         let windower = windows[screen.localizedName]
+        print("HERE")
         windower?.orderFrontRegardless()
         viewModels[screen.localizedName]!.showingPopup = true
         self.startMonitoringOutsideClicks(settingManager: settingManager)

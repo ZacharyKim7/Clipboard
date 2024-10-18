@@ -114,33 +114,41 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
     }
     
+    // Duplicated code same as settingView this can be condense to one function
     func openTestView() {
-        // Create the new window
-        let newWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 520, height: 620),
-            styleMask: [.titled, .closable],
-            backing: .buffered,
-            defer: false
-        )
-        
-        newWindow.title = "Subscriptions"
-        
-        // Set the content view with the environment objects
-        let testView = TestView()
-            .environmentObject(subscriptionsManager!)
-            .environmentObject(entitlementManager)
-
-        newWindow.contentView = NSHostingView(rootView: testView)
-
-        // Center the window on the screen
-        newWindow.center()
-
-        // Make the window key and front
-        newWindow.makeKeyAndOrderFront(nil)
-        newWindow.isReleasedWhenClosed = false
-
-        // Activate the app
-        NSApp.activate(ignoringOtherApps: true)
+        // Check if the window already exists and is open
+        if let window = settingsWindow {  // Replace with a dedicated testWindow if needed
+            // Bring the window to the front if it already exists
+            window.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+        } else {
+            // Create the test window
+            let newWindow = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 520, height: 620),
+                styleMask: [.titled, .closable],
+                backing: .buffered, defer: false
+            )
+            newWindow.title = "Subscription"
+            
+            // Set the content view to the TestView and pass environment objects
+            let testView = TestView()
+                .environmentObject(subscriptionsManager!)
+                .environmentObject(entitlementManager)
+            newWindow.contentView = NSHostingView(rootView: testView)
+            
+            newWindow.center()
+            newWindow.makeKeyAndOrderFront(nil)
+            newWindow.isReleasedWhenClosed = false
+            
+            // Activate the app
+            NSApp.activate(ignoringOtherApps: true)
+            
+            // Store the window reference to avoid recreating it
+            settingsWindow = newWindow  // Use a separate variable like testWindow if needed
+            
+            // Add an observer to clean up the reference when the window is closed
+            NotificationCenter.default.addObserver(self, selector: #selector(windowDidClose(_:)), name: NSWindow.willCloseNotification, object: newWindow)
+        }
     }
     
     
