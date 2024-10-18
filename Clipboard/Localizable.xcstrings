@@ -3177,6 +3177,12 @@
             "value" : "¡Has desbloqueado CopyCat Pro!"
           }
         },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आपने अनलॉक कर दिया है CopyCat Pro?"
+          }
+        },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
