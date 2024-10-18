@@ -44,7 +44,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1. Kopirajte tekst, slike ili linkove na vaš clipboard kao i obično.\n\n"
+            "value" : "1. Kopirajte tekst, slike ili linkove na vaš clipboard kao i obično."
           }
         },
         "id" : {
@@ -108,7 +108,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "2. Pristup vašim pohranjenim kopijama iz trake menija ili iz trake s alatkama za povijest ureda (\n\n"
+            "value" : "2. Pristup vašim pohranjenim kopijama iz trake menija ili iz trake s alatkama za povijest ureda ("
           }
         },
         "id" : {
@@ -166,13 +166,13 @@
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "3. किसी आइटम को चिपकाने या अपना क्लिपबोर्ड इतिहास प्रबंधित करने के लिए उस पर क्लिक करें।"
+            "value" : "3. किसी आइटम को चिपकाने या अपना क्लिपबोर्ड इतिहास प्रबंधित करने के लिए उस पर क्लिक करें!"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "3. Kliknite na stavku da biste je prilepili ili upravljali poviješću u preslikaonicama.\n\n"
+            "value" : "3. Kliknite na stavku da biste je prilepili ili upravljali poviješću u preslikaonicama."
           }
         },
         "id" : {
@@ -236,7 +236,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "4. Nadogradnja za više kopija i napredne postavke.\n\n"
+            "value" : "4. Nadogradnja za više kopija i napredne postavke."
           }
         },
         "id" : {
@@ -364,7 +364,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "mjesec dana\n\n"
+            "value" : "mjesec dana"
           }
         },
         "id" : {
@@ -466,7 +466,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Izbrisati kopije\n\n"
+            "value" : "Izbrisati kopije"
           }
         },
         "id" : {
@@ -502,7 +502,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "删除副本\n"
+            "value" : "删除副本"
           }
         }
       }
@@ -530,7 +530,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kliknite da prilepite:\n\n"
+            "value" : "Kliknite da prilepite:"
           }
         },
         "id" : {
@@ -757,7 +757,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ne pokazuj mi ovu stranicu više.\n\n"
+            "value" : "Ne pokazuj mi ovu stranicu više."
           }
         },
         "id" : {
@@ -856,7 +856,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Opće postavke\n\n"
+            "value" : "Opće postavke"
           }
         },
         "id" : {
@@ -920,7 +920,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pristup svim našim funkcijama\n\n"
+            "value" : "Pristup svim našim funkcijama"
           }
         },
         "id" : {
@@ -984,7 +984,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dobijte potpuni pristup za samo\n\n"
+            "value" : "Dobijte potpuni pristup za samo"
           }
         },
         "id" : {
@@ -1147,7 +1147,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kako koristiti:\n\n"
+            "value" : "Kako koristiti:"
           }
         },
         "id" : {
@@ -1275,7 +1275,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Neispravna slika\n\n"
+            "value" : "Neispravna slika"
           }
         },
         "id" : {
@@ -1339,7 +1339,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Neispravan URL slike\n\n"
+            "value" : "Neispravan URL slike"
           }
         },
         "id" : {
@@ -1787,7 +1787,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "\nPro postavke"
+            "value" : "Pro postavke"
           }
         },
         "id" : {
@@ -1979,7 +1979,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aplikacija za određivanje cijena\n\n"
+            "value" : "Aplikacija za određivanje cijena"
           }
         },
         "id" : {
@@ -2043,7 +2043,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oceni našu aplikaciju:\n\n"
+            "value" : "Oceni našu aplikaciju:"
           }
         },
         "id" : {
@@ -2107,7 +2107,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Obnova kupnje\n\n"
+            "value" : "Obnova kupnje"
           }
         },
         "id" : {
@@ -2174,7 +2174,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Odaberite boju\n\n"
+            "value" : "Odaberite boju"
           }
         },
         "id" : {
@@ -2238,7 +2238,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Odaberite veličinu:\n\n"
+            "value" : "Odaberite veličinu:"
           }
         },
         "id" : {
@@ -2302,7 +2302,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Odabrani prikaz:\n\n"
+            "value" : "Odabrani prikaz:"
           }
         },
         "id" : {
@@ -2366,7 +2366,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Postavljanje boje pozadine za ploču kopija:\n\n"
+            "value" : "Postavljanje boje pozadine za ploču kopija:"
           }
         },
         "id" : {
@@ -2430,7 +2430,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Postavljanje prečice za ploču kopija:\n\n"
+            "value" : "Postavljanje prečice za ploču kopija:"
           }
         },
         "id" : {
@@ -2494,7 +2494,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Postavke\n\n"
+            "value" : "Postavke"
           }
         },
         "id" : {
@@ -2622,7 +2622,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pokaži kopije\n\n"
+            "value" : "Pokaži kopije"
           }
         },
         "id" : {
@@ -2686,7 +2686,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pokaži popup\n\n"
+            "value" : "Pokaži popup"
           }
         },
         "id" : {
@@ -2750,7 +2750,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mali\n\n"
+            "value" : "Mali"
           }
         },
         "id" : {
@@ -2814,7 +2814,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Plan pretplate\n\n"
+            "value" : "Plan pretplate"
           }
         },
         "id" : {
@@ -2977,7 +2977,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nepoznat sadržaj\n\n"
+            "value" : "Nepoznat sadržaj"
           }
         },
         "id" : {
@@ -3041,7 +3041,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Otključaj CopyCat Pro\n\n"
+            "value" : "Otključaj CopyCat Pro"
           }
         },
         "id" : {
@@ -3105,7 +3105,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Otključaj još kopija\n\n"
+            "value" : "Otključaj još kopija"
           }
         },
         "id" : {
@@ -3169,7 +3169,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nadogradnja\n\n"
+            "value" : "Nadogradnja"
           }
         },
         "id" : {
@@ -3233,7 +3233,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nadogradnja na Premium\n\n"
+            "value" : "Nadogradnja na Premium"
           }
         },
         "id" : {
@@ -3297,7 +3297,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nadogradnja na Pro za pristup dodatnim postavkama:\n\n"
+            "value" : "Nadogradnja na Pro za pristup dodatnim postavkama:"
           }
         },
         "id" : {
@@ -3361,7 +3361,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dobrodošli u CopyCat!\n\n"
+            "value" : "Dobrodošli u CopyCat!"
           }
         },
         "id" : {
@@ -3425,7 +3425,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Koristite besplatnu verziju CopyCata. Ova verzija vam omogućuje da pohranite do 3 kopije.\n\n"
+            "value" : "Koristite besplatnu verziju CopyCata. Ova verzija vam omogućuje da pohranite do 3 kopije."
           }
         },
         "id" : {
@@ -3489,7 +3489,7 @@
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Otključao si CopyCat Pro!\n\n"
+            "value" : "Otključao si CopyCat Pro!"
           }
         },
         "id" : {
