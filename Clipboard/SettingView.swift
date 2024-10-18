@@ -18,7 +18,7 @@ struct SettingView: View {
     
     var body: some View {
         GeneralSettingsView(settingManager: settingManager, appDelegate: appDelegate, entitlementManager: settingManager.entitlementManager)
-            .frame(width: 650, height: 500)
+            .frame(width: 500, height: 500)
     }
     
     // Helper method to configure a label using the LabelSettings
@@ -49,6 +49,60 @@ struct GrowingButtonStyle: ButtonStyle {
     }
 }
 
+struct proContent: View {
+    
+    @ObservedObject var settingManager: SettingManager
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(alignment: .center) {
+                Text("Set Shortcut for CopiesPanel Mode")
+                    .font(.system(size: 13))
+                    .foregroundColor(.gray)
+                
+                Spacer()
+                
+                ShortcutRecorderView(name: .viewCopiesPanel)
+            }
+            .padding([.top, .leading, .trailing, .bottom], 14)
+            
+            // Color Picker Section
+            HStack {
+                Text("Set copies panel background color: ")
+                    .font(.system(size: 13))
+                    .foregroundColor(.gray)
+                
+                Spacer()
+                
+                // Dont allow users to change opacity
+                ColorPicker("Select Color", selection: $settingManager.panelColor, supportsOpacity: true)
+                
+            }
+            .padding([.leading, .trailing, .bottom], 14)
+            
+            // Select Copies Size
+            HStack {
+                Text("Select Item Size:")
+                    .font(.system(size: 13))
+                    .foregroundColor(.gray)
+                    .padding(.bottom, 5)
+                
+                Picker("", selection: $settingManager.itemSize) {
+                    Text("Small").tag(ItemSize.small)
+                    Text("Medium").tag(ItemSize.medium)
+                    Text("Large").tag(ItemSize.large)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding(.leading, 10)
+                
+            }
+            .padding([.leading, .trailing, .bottom], 14)
+            
+        }
+    }
+    
+}
+
 struct GeneralSettingsView: View {
     @ObservedObject var settingManager: SettingManager
     @ObservedObject var appDelegate: AppDelegate
@@ -58,7 +112,6 @@ struct GeneralSettingsView: View {
     
     
     var body: some View {
-        GeometryReader { geometry in
             VStack(alignment: .leading) {
                 Text("General Settings")
                     .fontWeight(.bold)
@@ -68,68 +121,15 @@ struct GeneralSettingsView: View {
                 
                 Divider()
                 
-                // Clean Cache Section
-                HStack(alignment: .center) {
-                    Text("Deletes all saved copies from cache")
-                        .font(.system(size: 13))
-                        .foregroundColor(.gray)
-                    
-                    Spacer()
-                    
-                    Button("Clean Cache") {
-                        settingManager.clipboardManager?.clearCache()
-                    }
-                    .buttonStyle(GrowingButtonStyle())
-                }
-                .padding([.top, .leading, .trailing, .bottom], 14)
-                
-                HStack(alignment: .center) {
-                    Text("Set Shortcut for CopiesPanel Mode")
-                        .font(.system(size: 13))
-                        .foregroundColor(.gray)
-                    
-                    Spacer()
-                    
-                    ShortcutRecorderView(name: .viewCopiesPanel)
-                        .frame(width: 50, height: 50)
-                        .disabled(!entitlementManager.hasPro)
-                    // Need to clean this, tried aligning both clean cache button and these to be
-                    // centered but need to manual align it
-                        .padding([.trailing], 50)
-                }
-                .padding([.top, .leading, .trailing, .bottom], 14)
-                
-                // Color Picker Section
                 HStack {
-                    Text("Set copies panel background color: ")
-                        .font(.system(size: 13))
-                        .foregroundColor(.gray)
-                    
-                    Spacer()
-                    
-                    // Dont allow users to change opacity
-                    ColorPicker("Select Color", selection: $settingManager.panelColor, supportsOpacity: true)
-                        .disabled(!entitlementManager.hasPro)
-                    
-                }
-                .padding([.leading, .trailing, .bottom], 14)
-                
-                // Select Copies Size
-                HStack {
-                    Text("Select Item Size:")
+                    Text("Paste Immediately:")
                         .font(.system(size: 13))
                         .foregroundColor(.gray)
                         .padding(.bottom, 5)
-                    
-                    Picker("", selection: $settingManager.itemSize) {
-                        Text("Small").tag(ItemSize.small)
-                        Text("Medium").tag(ItemSize.medium)
-                        Text("Large").tag(ItemSize.large)
-                    }
-                    .disabled(!entitlementManager.hasPro)
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding(.leading, 10)
-                    
+                    Spacer()
+                    Toggle("", isOn: $settingManager.pasteImmediately)
+                    .toggleStyle(SwitchToggleStyle(tint: .blue))// Use MenuPickerStyle for dropdown
+                    .padding([.trailing], 55)
                 }
                 .padding([.leading, .trailing, .bottom], 14)
                 
@@ -150,17 +150,20 @@ struct GeneralSettingsView: View {
                 }
                 .padding([.leading, .trailing, .bottom], 14)
                 
-                HStack {
-                    Text("Paste Immediately:")
+                // Clean Cache Section
+                HStack(alignment: .center) {
+                    Text("Deletes all saved copies from cache")
                         .font(.system(size: 13))
                         .foregroundColor(.gray)
-                        .padding(.bottom, 5)
+                    
                     Spacer()
-                    Toggle("", isOn: $settingManager.pasteImmediately)
-                    .toggleStyle(SwitchToggleStyle(tint: .blue))// Use MenuPickerStyle for dropdown
-                    .padding([.trailing], 55)
+                    
+                    Button("Clean Cache") {
+                        settingManager.clipboardManager?.clearCache()
+                    }
+                    .buttonStyle(GrowingButtonStyle())
                 }
-                .padding([.leading, .trailing, .bottom], 14)
+                .padding([.top, .leading, .trailing, .bottom], 14)
                 
                 HStack(alignment: .center) {
                     Text("Rate our app")
@@ -180,7 +183,6 @@ struct GeneralSettingsView: View {
                     Text("Upgrade to Pro to access additional settings:")
                         .font(.system(size: 13))
                         .foregroundColor(.yellow.opacity(0.5))
-                        .padding(.top, 14)
 
                     Spacer()
                     
@@ -190,15 +192,35 @@ struct GeneralSettingsView: View {
                 }
                 .padding([.top, .leading, .trailing, .bottom], 14)
                 
+                Text("Pro Settings")
+                    .fontWeight(.bold)
+                    .font(.system(size: 15))
+                    .padding(.top, 10)
+                    .padding(.horizontal, 10)
                 
+                Divider()
                 
+                if entitlementManager.hasPro {
+                    proContent(settingManager: settingManager)
+                    } else {
+                        ZStack {
+                            proContent(settingManager: settingManager)
+                                .opacity(0.3) // Blur effect by reducing opacity
+                                .disabled(true)
+                            
+                            Image(systemName: "lock.fill")
+                                .foregroundColor(.gray)
+                                .font(.system(size: 40))
+                                .padding(5)
+                        }
+                    }
                 Spacer()
             }
-            .frame(width: geometry.size.width, alignment: .topLeading)
             .navigationTitle("General Settings")
-        }
     }
 }
+
+
 
 struct ShortcutRecorderView: NSViewRepresentable {
     let name: KeyboardShortcuts.Name

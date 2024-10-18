@@ -42,7 +42,7 @@ class SettingManager: ObservableObject {
             saveSelectedScreen()
         }
     }
-    @Published var pasteImmediately: Bool = false {
+    @Published var pasteImmediately: Bool = true {
         didSet {
             savePasteImmediately()
         }

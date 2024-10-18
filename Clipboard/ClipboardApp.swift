@@ -38,6 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
     
     // Keep a reference to the settings window
     private var settingsWindow: NSWindow?
+    private var launchWindow: NSWindow?
     
     
     override init() {
@@ -78,8 +79,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         } else {
             // Create the settings window
             let newWindow = NSWindow(
-                contentRect: NSRect(x: 0, y: 0, width: 600, height: 400),
-                styleMask: [.titled, .closable, .resizable],
+                contentRect: NSRect(x: 0, y: 0, width: 300, height: 400),
+                styleMask: [.titled, .closable],
                 backing: .buffered, defer: false
             )
             newWindow.title = "Settings"
@@ -157,9 +158,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             newWindow.center()
             newWindow.makeKeyAndOrderFront(nil)
             newWindow.isReleasedWhenClosed = false
-            
+            launchWindow = newWindow
             NSApp.activate(ignoringOtherApps: true)
             
+        }
+    }
+    
+    func closeLaunchWindow() {
+        if let launchWindow {
+            launchWindow.close()
         }
     }
 }
