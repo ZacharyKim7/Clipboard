@@ -189,6 +189,15 @@
 				en,
 				Base,
 				es,
+				ru,
+				ja,
+				"zh-Hans",
+				hi,
+				ko,
+				de,
+				"pt-BR",
+				id,
+				hr,
 			);
 			mainGroup = C7D79F922C80256800D419EE;
 			packageReferences = (

@@ -7,63 +7,95 @@
     ")" : {
 
     },
-    "1. Copy text or images to your clipboard as usual." : {
-      "extractionState" : "stale",
+    "1. Copy text, images, or links to your clipboard as usual." : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "uuh"
-          }
-        },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "copiio texxto)"
+            "state" : "translated",
+            "value" : "1. Copie texto, imágenes o enlaces en el portapapeles como de costumbre."
           }
         }
       }
     },
-    "1. Copy text, images, or links to your clipboard as usual." : {
-
-    },
     "2. Access your stored copies from the menu bar or from the clipboard history toolbar (" : {
       "localizations" : {
-        "en" : {
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "booty"
+            "value" : "2. Acceda a sus copias almacenadas desde la barra de menús o desde la barra de herramientas del historial del portapapeles ("
           }
         }
       }
     },
     "3. Click on an item to paste it or manage your clipboard history." : {
       "localizations" : {
-        "en" : {
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "bbboo"
+            "value" : "3. Pulsa sobre un elemento para pegarlo o gestionar el historial del portapapeles."
           }
         }
       }
     },
     "4. Upgrade for more copies and advanced settings." : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4. Actualizar para obtener más copias y ajustes avanzados."
+          }
+        }
+      }
     },
     "a month" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "un mes"
+          }
+        }
+      }
     },
     "Basic" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Básico"
+          }
+        }
+      }
     },
     "Clean Cache" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limpiar la memoria caché"
+          }
+        }
+      }
     },
     "Control + V" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Control + V"
+          }
+        }
+      }
     },
     "Deletes all saved copies from cache" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borra todas las copias guardadas de la caché"
+          }
+        }
+      }
     },
     "Don't show this page again" : {
 
