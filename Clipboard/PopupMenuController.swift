@@ -137,12 +137,15 @@ class PopupMenuController {
     private func startMonitoringOutsideClicks(settingManager: SettingManager) {
         clickEventMonitor = NSEvent.addGlobalMonitorForEvents(matching: .leftMouseDown) { [weak self] event in
             guard let self = self else { return }
-            if let window = self.window {
-                let clickLocation = window.convertFromScreen(NSRect(origin: event.locationInWindow, size: .zero)).origin
-                if !window.contentView!.frame.contains(clickLocation) {
+            var screen: NSScreen {
+                // Find and return the NSScreen that matches the selected screen name
+                return NSScreen.screens.first { $0.localizedName == settingManager.selectedScreen } ?? NSScreen.main!
+            }
+            let window = windows[screen.localizedName]
+            let clickLocation = window!.convertFromScreen(NSRect(origin: event.locationInWindow, size: .zero)).origin
+            if window!.contentView!.frame.contains(clickLocation) {
                     self.hidePopup(settingManager: settingManager)
                 }
-            }
         }
     }
     
