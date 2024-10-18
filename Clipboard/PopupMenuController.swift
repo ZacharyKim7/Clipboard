@@ -79,7 +79,7 @@ class PopupMenuController {
     }
     
     func resetWindow() {
-        window = nil
+        self.window?.orderOut(nil)
         createWindow(settingManager: settingManger)
     }
 
